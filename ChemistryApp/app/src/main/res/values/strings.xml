@@ -1,4 +1,24 @@
 <resources>
     <string name="app_name">ChemistryApp</string>
     <string name="action_settings">Settings</string>
+    <string name="lblElementDetailsStr">Element Details</string>
+    <string name="lblNameStr">Name</string>
+    <string name="lblAtomicNumberStr">Atomic Number</string>
+    <string name="lblAtomicWeightStr">Atomic Weight</string>
+    <string name="lblGroupStr">Group</string>
+    <string name="lblPeriodStr">Period</string>
+    <string name="lblValenceElectronCntStr">Valence Electron Count</string>
+    <string name="lblElectronConfigStr">Electron Configuration</string>
+    <string name="lblAmountStr">Amount:</string>
+    <string name="lblOptionsStr">Options:</string>
+    <string-array name="spnAddOptionsArr">
+        <item>@string/spnOptionsMolesStr</item>
+        <item>@string/spnOptionsGramsStr</item>
+    </string-array>
+    <string name="spnOptionsMolesStr">Add in Moles</string>
+    <string name="spnOptionsGramsStr">Add in Grams</string>
+    <string name="btnAddtoFormulaStr">Add to Formula</string>
+
+
+
 </resources>
