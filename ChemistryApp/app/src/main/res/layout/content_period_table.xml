@@ -14,10 +14,16 @@
 
 
     <com.example.aglubatj.chemistryapp.ElementView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:id="@+id/view"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:clickable="false" />
+        android:clickable="false"
+        app:elementColor="@color/colorAccent"
+        app:elementNumber="@integer/HydrogenElementNumber"
+        app:elementSymbol="@string/HydrogenElementSymbol"
+        app:elementWeight="1.008"
+        app:symbolSize="300dp"
+        app:numberSize="50dp"
+        app:weightSize="50dp"
+        app:exampleDrawable="@color/colorPrimary" />
 </RelativeLayout>

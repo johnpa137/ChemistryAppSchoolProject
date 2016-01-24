@@ -14,13 +14,13 @@ import android.view.View;
  * TODO: document your custom view class.
  */
 public class ElementView extends View {
-    private String elementSymbol;
-    private int elementNumber;
-    private float elementWeight;
-    private int elementColor;
-    private float symbolSize;
-    private float numberSize;
-    private float weightSize;
+    private String elementSymbol = "H";
+    private int elementNumber = 1;
+    private float elementWeight = 1.008f;
+    private int elementColor = Color.RED;
+    private float symbolSize = 200.0f;
+    private float numberSize = 50.0f;
+    private float weightSize = 50.0f;
     private Drawable mExampleDrawable;
 
     private TextPaint symbolTextPaint;
@@ -107,7 +107,21 @@ public class ElementView extends View {
         symbolTextPaintWidth = symbolTextPaint.measureText(elementSymbol);
 
         Paint.FontMetrics fontMetrics = symbolTextPaint.getFontMetrics();
-        symbolTextPaintHeight = fontMetrics.bottom;
+        symbolTextPaintHeight = fontMetrics.top + fontMetrics.bottom;
+
+        numberTextPaint.setTextSize(numberSize);
+        numberTextPaint.setColor(elementColor);
+        numberTextPaintWidth = numberTextPaint.measureText(String.valueOf(elementNumber));
+
+        fontMetrics = numberTextPaint.getFontMetrics();
+        numberTextPaintHeight = fontMetrics.top + fontMetrics.bottom;
+
+        weightTextPaint.setTextSize(weightSize);
+        weightTextPaint.setColor(elementColor);
+        weightTextPaintWidth = weightTextPaint.measureText(String.valueOf(elementWeight));
+
+        fontMetrics = weightTextPaint.getFontMetrics();
+        weightTextPaintHeight = fontMetrics.top + fontMetrics.bottom;
     }
 
     @Override
@@ -124,18 +138,27 @@ public class ElementView extends View {
         int contentWidth = getWidth() - paddingLeft - paddingRight;
         int contentHeight = getHeight() - paddingTop - paddingBottom;
 
-        // Draw the text.
-        canvas.drawText(elementSymbol,
-                paddingLeft + (contentWidth - symbolTextPaintWidth) / 2,
-                paddingTop + (contentHeight + symbolTextPaintHeight) / 2,
-                symbolTextPaint);
-
         // Draw the example drawable on top of the text.
         if (mExampleDrawable != null) {
             mExampleDrawable.setBounds(paddingLeft, paddingTop,
                     paddingLeft + contentWidth, paddingTop + contentHeight);
             mExampleDrawable.draw(canvas);
         }
+        // Draw the text.
+        canvas.drawText(elementSymbol,
+                paddingLeft + (contentWidth - symbolTextPaintWidth) / 2,
+                paddingTop + (contentHeight - symbolTextPaintHeight) / 2,
+                symbolTextPaint);
+
+        canvas.drawText(String.valueOf(elementNumber),
+                paddingLeft + (contentWidth - numberTextPaintWidth) / 2,
+                paddingTop + (contentHeight - symbolTextPaintHeight) / 2 + symbolTextPaintHeight + numberTextPaintHeight/2,
+                numberTextPaint);
+
+        canvas.drawText(String.valueOf(elementWeight),
+                paddingLeft + (contentWidth - weightTextPaintWidth) / 2,
+                paddingTop + contentHeight + weightTextPaintHeight / 2,
+                weightTextPaint);
     }
 
     /**

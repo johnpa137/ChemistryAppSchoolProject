@@ -1,5 +1,6 @@
 package com.example.aglubatj.chemistryapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -77,5 +78,8 @@ public class ElementDetailsActivity extends AppCompatActivity {
         else{
             Toast.makeText(this.getApplicationContext(), "You have selected to add " + amount + " grams of " + name, Toast.LENGTH_LONG).show();
         }
+
+        Intent intent = new Intent(this, PeriodicTableActivity.class);
+
     }
 }
