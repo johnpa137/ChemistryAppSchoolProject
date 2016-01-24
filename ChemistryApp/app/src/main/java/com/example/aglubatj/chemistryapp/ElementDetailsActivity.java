@@ -30,7 +30,7 @@ public class ElementDetailsActivity extends AppCompatActivity {
         TextView lblAtomicNumberValue = (TextView) findViewById(R.id.lblAtomicNumberValue);
         lblAtomicNumberValue.setText(String.valueOf(testElement.getAtomicNumber()));
         TextView lblAtomicWeightValue = (TextView) findViewById(R.id.lblAtomicWeightValue);
-        lblAtomicWeightValue.setText(String.valueOf(testElement.getAtomicWeight()) + " AMU");
+        lblAtomicWeightValue.setText(String.valueOf(testElement.getAtomicWeight()));
         TextView lblGroupValue = (TextView) findViewById(R.id.lblGroupValue);
         lblGroupValue.setText(String.valueOf(testElement.getGroup()));
         TextView lblPeriodValue = (TextView) findViewById(R.id.lblPeriodValue);
@@ -39,7 +39,6 @@ public class ElementDetailsActivity extends AppCompatActivity {
         lblValenceElectronCntValue.setText(String.valueOf(testElement.getValElecCnt()));
         TextView lblElectronConfigValue = (TextView) findViewById(R.id.lblElectronConfigValue);
         lblElectronConfigValue.setText(Html.fromHtml(testElement.getElectronConfig()));
-                //.setText(String.valueOf(testElement.getElectronConfig()));
     }
 
     @Override

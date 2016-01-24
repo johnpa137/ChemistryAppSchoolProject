@@ -1,0 +1,12 @@
+<resources>
+    <declare-styleable name="ElementView">
+        <attr name="elementSymbol" format="string" />
+        <attr name="elementNumber" format="integer" />
+        <attr name="elementWeight" format="float" />
+        <attr name="symbolSize" format="dimension" />
+        <attr name="numberSize" format="dimension" />
+        <attr name="weightSize" format="dimension" />
+        <attr name="elementColor" format="color" />
+        <attr name="exampleDrawable" format="color|reference" />
+    </declare-styleable>
+</resources>

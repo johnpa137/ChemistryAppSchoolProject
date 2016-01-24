@@ -18,7 +18,7 @@
     <string name="spnOptionsMolesStr">Add in Moles</string>
     <string name="spnOptionsGramsStr">Add in Grams</string>
     <string name="btnAddtoFormulaStr">Add to Formula</string>
-
+    <string name="title_activity_period_table">PeriodTableActivity</string>
 
 
 </resources>
