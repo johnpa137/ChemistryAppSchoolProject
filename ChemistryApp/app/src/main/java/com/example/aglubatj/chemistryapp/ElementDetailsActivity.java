@@ -30,8 +30,6 @@ public class ElementDetailsActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // testElement = Element.getTestElement();
-
         Intent intent = getIntent();
         intent.getExtras();
         name = intent.getStringExtra("name");
@@ -94,6 +92,10 @@ public class ElementDetailsActivity extends AppCompatActivity {
         else{
             Toast.makeText(this.getApplicationContext(), "You have selected to add " + amount + " grams of " + name, Toast.LENGTH_LONG).show();
         }
+        finish();
+    }
+
+    public void onBtnCancel(View view){
         finish();
     }
 }

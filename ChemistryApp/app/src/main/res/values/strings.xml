@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">ChemistryApp</string>
-    <string name="title_activity_period_table">PeriodTableActivity</string>
-    <string name="title_activity_element_details">ElementDetailsActivity</string>
+    <string name="title_activity_main_menu">Chem App</string>
+    <string name="title_activity_period_table">Period Table</string>
+    <string name="title_activity_element_details">Element Details</string>
     <string name="action_settings">Settings</string>
     <string name="lblElementDetailsStr">Element Details</string>
     <string name="lblNameStr">Name</string>
@@ -20,6 +21,14 @@
     <string name="spnOptionsMolesStr">Add in Moles</string>
     <string name="spnOptionsGramsStr">Add in Grams</string>
     <string name="btnAddtoFormulaStr">Add to Formula</string>
+    <string name="btnMainMenuStr">Back to Main Menu</string>
+    <string name="btnMolesCalculatorStr">Moles Calculator</string>
+    <string name="btnGramsCalculatorStr">Grams Calculator</string>
+    <string name="btnPeriodicTableStr">Periodic Table</string>
+    <string name="btnEquationBalancerStr">Equation Balancer</string>
+    <string name="btnCancelStr">Cancel</string>
+
+
     <string name="HydrogenElementSymbol">H</string>
     <string name="HeliumElementSymbol">He</string>
     <string name="LithiumElementSymbol">Li</string>

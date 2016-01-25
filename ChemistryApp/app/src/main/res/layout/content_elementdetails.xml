@@ -205,4 +205,16 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnCancelStr"
+        android:id="@+id/btnCancel"
+        android:layout_below="@+id/btnAddtoFormula"
+        android:layout_alignRight="@+id/btnAddtoFormula"
+        android:layout_alignEnd="@+id/btnAddtoFormula"
+        android:layout_alignLeft="@+id/btnAddtoFormula"
+        android:layout_alignStart="@+id/btnAddtoFormula"
+        android:onClick="onBtnCancel" />
+
 </RelativeLayout>

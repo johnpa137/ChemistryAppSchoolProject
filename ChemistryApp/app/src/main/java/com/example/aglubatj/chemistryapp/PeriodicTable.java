@@ -1,15 +1,7 @@
 package com.example.aglubatj.chemistryapp;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.text.Layout;
-import android.util.AttributeSet;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by John on 1/23/2016.

@@ -39,11 +39,6 @@ public class ElementView extends View {
         init(null, 0);
     }
 
-    public ElementView(Context context, Element element, float symbolSize, int elementColor, Drawable backgroundColor){
-        super(context);
-        init(element, symbolSize, elementColor, backgroundColor);
-    }
-
     public ElementView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs, 0);
@@ -81,31 +76,6 @@ public class ElementView extends View {
         }
 
         a.recycle();
-
-        // Set up a default TextPaint object
-        symbolTextPaint = new TextPaint();
-        symbolTextPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
-        symbolTextPaint.setTextAlign(Paint.Align.LEFT);
-
-        numberTextPaint = new TextPaint();
-        numberTextPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
-        numberTextPaint.setTextAlign(Paint.Align.LEFT);
-
-        weightTextPaint = new TextPaint();
-        weightTextPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
-        weightTextPaint.setTextAlign(Paint.Align.LEFT);
-
-        // Update TextPaint and text measurements from attributes
-        invalidateTextPaintAndMeasurements();
-    }
-
-    private void init(Element element, float symbolSize, int elementColor, Drawable backgroundColor){
-        elementSymbol = element.getSymbol();
-        elementNumber = element.getAtomicNumber();
-        elementWeight = element.getAtomicWeight();
-        this.symbolSize = symbolSize;
-        this.elementColor = elementColor;
-        this.backgroundColor = backgroundColor;
 
         // Set up a default TextPaint object
         symbolTextPaint = new TextPaint();
@@ -182,10 +152,6 @@ public class ElementView extends View {
                 weightTextPaint);
     }
 
-    public void onClick(View view){
-
-    }
-
     /**
      * Gets the example string attribute value.
      *
@@ -193,60 +159,5 @@ public class ElementView extends View {
      */
     public String getElementSymbol() {
         return elementSymbol;
-    }
-
-    /**
-     * Sets the view's example string attribute value. In the example view, this string
-     * is the text to draw.
-     *
-     * @param exampleString The example string attribute value to use.
-     */
-    public void setElementSymbol(String exampleString) {
-        elementSymbol = exampleString;
-        invalidateTextPaintAndMeasurements();
-    }
-
-    /**
-     * Gets the example color attribute value.
-     *
-     * @return The example color attribute value.
-     */
-    public int getElementColor() {
-        return elementColor;
-    }
-
-    /**
-     * Sets the view's example color attribute value. In the example view, this color
-     * is the font color.
-     *
-     * @param color The example color attribute value to use.
-     */
-    public void setElementColor(int color) {
-        elementColor = color;
-        invalidateTextPaintAndMeasurements();
-    }
-
-    public int getElementNumber() {
-        return elementNumber;
-    }
-
-    public void setElementNumber(int elementNumber) {
-        this.elementNumber = elementNumber;
-    }
-
-    public float getElementWeight() {
-        return elementWeight;
-    }
-
-    public void setElementWeight(float elementWeight) {
-        this.elementWeight = elementWeight;
-    }
-
-    public float getSymbolSize() {
-        return symbolSize;
-    }
-
-    public void setSymbolSize(float symbolSize) {
-        this.symbolSize = symbolSize;
     }
 }

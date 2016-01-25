@@ -35,4 +35,8 @@ public class PeriodicTableActivity extends AppCompatActivity {
         intent.putExtra("period", periodicTable.Elements.get(elementView.getElementSymbol()).getPeriod());
         startActivity(intent);
     }
+
+    public void onClickMainMenu(View view){
+        finish();
+    }
 }

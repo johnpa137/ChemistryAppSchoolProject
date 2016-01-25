@@ -1,8 +1,5 @@
 package com.example.aglubatj.chemistryapp;
 
-import java.awt.font.TextAttribute;
-import java.text.AttributedString;
-
 /**
  * Created by John on 1/17/2016.
  */
@@ -109,17 +106,6 @@ public class Element {
         configBuilder.append("</sup>");
 
         this.electronConfig = configBuilder.toString();
-    }
-
-    public static Element getTestElement(){
-        String name = "Tungsten";
-        String symbol = "W";
-        int atomicNumber = 74;
-        float atomicWeight = 183.84f;
-        int group = 6;
-        int period = 6;
-
-        return new Element(name, symbol, atomicNumber, atomicWeight, group, period);
     }
 
     public String getName() { return name; }
