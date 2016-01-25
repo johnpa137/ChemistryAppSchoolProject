@@ -1,4 +1,241 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="HydrogenElementWeight" format="float" type="dimen">1.008</item>
+    <item name="HydrogenElementWeight" format="string" type="string">1.0079</item>
+    <item name="HeliumElementWeight" format="string" type="string">4.0026</item>
+    <item name="LithiumElementWeight" format="string" type="string">6.941</item>
+    <item name="BerylliumElementWeight" format="string" type="string">9.0122</item>
+    <item name="BoronElementWeight" format="string" type="string">10.811</item>
+    <item name="CarbonElementWeight" format="string" type="string">12.0107</item>
+    <item name="NitrogenElementWeight" format="string" type="string">14.0067</item>
+    <item name="OxygenElementWeight" format="string" type="string">15.9994</item>
+    <item name="FluorineElementWeight" format="string" type="string">18.9984</item>
+    <item name="NeonElementWeight" format="string" type="string">20.1797</item>
+    <item name="SodiumElementWeight" format="string" type="string">22.9897</item>
+    <item name="MagnesiumElementWeight" format="string" type="string">24.305</item>
+    <item name="AluminiumElementWeight" format="string" type="string">26.9815</item>
+    <item name="SiliconElementWeight" format="string" type="string">28.0855</item>
+    <item name="PhosphorusElementWeight" format="string" type="string">30.9738</item>
+    <item name="SulfurElementWeight" format="string" type="string">32.065</item>
+    <item name="ChlorineElementWeight" format="string" type="string">35.453</item>
+    <item name="ArgonElementWeight" format="string" type="string">39.948</item>
+    <item name="PotassiumElementWeight" format="string" type="string">39.0983</item>
+    <item name="CalciumElementWeight" format="string" type="string">40.078</item>
+    <item name="ScandiumElementWeight" format="string" type="string">44.9559</item>
+    <item name="TitaniumElementWeight" format="string" type="string">47.867</item>
+    <item name="VanadiumElementWeight" format="string" type="string">50.9415</item>
+    <item name="ChromiumElementWeight" format="string" type="string">51.9961</item>
+    <item name="ManganeseElementWeight" format="string" type="string">54.938</item>
+    <item name="IronElementWeight" format="string" type="string">55.845</item>
+    <item name="CobaltElementWeight" format="string" type="string">58.9332</item>
+    <item name="NickelElementWeight" format="string" type="string">58.6934</item>
+    <item name="CopperElementWeight" format="string" type="string">63.546</item>
+    <item name="ZincElementWeight" format="string" type="string">65.39</item>
+    <item name="GalliumElementWeight" format="string" type="string">69.723</item>
+    <item name="GermaniumElementWeight" format="string" type="string">72.64</item>
+    <item name="ArsenicElementWeight" format="string" type="string">74.9216</item>
+    <item name="SeleniumElementWeight" format="string" type="string">78.96</item>
+    <item name="BromineElementWeight" format="string" type="string">79.904</item>
+    <item name="KryptonElementWeight" format="string" type="string">83.8</item>
+    <item name="RubidiumElementWeight" format="string" type="string">85.4678</item>
+    <item name="StrontiumElementWeight" format="string" type="string">87.62</item>
+    <item name="YttriumElementWeight" format="string" type="string">88.9059</item>
+    <item name="ZirconiumElementWeight" format="string" type="string">91.224</item>
+    <item name="NiobiumElementWeight" format="string" type="string">92.9064</item>
+    <item name="MolybdenumElementWeight" format="string" type="string">95.94</item>
+    <item name="TechnetiumElementWeight" format="string" type="string">98</item>
+    <item name="RutheniumElementWeight" format="string" type="string">101.07</item>
+    <item name="RhodiumElementWeight" format="string" type="string">102.9055</item>
+    <item name="PalladiumElementWeight" format="string" type="string">106.42</item>
+    <item name="SilverElementWeight" format="string" type="string">107.8682</item>
+    <item name="CadmiumElementWeight" format="string" type="string">112.411</item>
+    <item name="IndiumElementWeight" format="string" type="string">114.818</item>
+    <item name="TinElementWeight" format="string" type="string">118.71</item>
+    <item name="AntimonyElementWeight" format="string" type="string">121.76</item>
+    <item name="TelluriumElementWeight" format="string" type="string">127.6</item>
+    <item name="IodineElementWeight" format="string" type="string">126.9045</item>
+    <item name="XenonElementWeight" format="string" type="string">131.293</item>
+    <item name="CaesiumElementWeight" format="string" type="string">132.9055</item>
+    <item name="BariumElementWeight" format="string" type="string">137.327</item>
+    <item name="LanthanumElementWeight" format="string" type="string">138.9055</item>
+    <item name="CeriumElementWeight" format="string" type="string">140.116</item>
+    <item name="PraseodymiumElementWeight" format="string" type="string">140.9077</item>
+    <item name="NeodymiumElementWeight" format="string" type="string">144.24</item>
+    <item name="PromethiumElementWeight" format="string" type="string">145</item>
+    <item name="SamariumElementWeight" format="string" type="string">150.36</item>
+    <item name="EuropiumElementWeight" format="string" type="string">151.964</item>
+    <item name="GadoliniumElementWeight" format="string" type="string">157.25</item>
+    <item name="TerbiumElementWeight" format="string" type="string">158.9253</item>
+    <item name="DysprosiumElementWeight" format="string" type="string">162.5</item>
+    <item name="HolmiumElementWeight" format="string" type="string">164.9303</item>
+    <item name="ErbiumElementWeight" format="string" type="string">167.259</item>
+    <item name="ThuliumElementWeight" format="string" type="string">168.9342</item>
+    <item name="YtterbiumElementWeight" format="string" type="string">173.04</item>
+    <item name="LutetiumElementWeight" format="string" type="string">174.967</item>
+    <item name="HafniumElementWeight" format="string" type="string">178.49</item>
+    <item name="TantalumElementWeight" format="string" type="string">180.9479</item>
+    <item name="TungstenElementWeight" format="string" type="string">183.84</item>
+    <item name="RheniumElementWeight" format="string" type="string">186.207</item>
+    <item name="OsmiumElementWeight" format="string" type="string">190.23</item>
+    <item name="IridiumElementWeight" format="string" type="string">192.217</item>
+    <item name="PlatinumElementWeight" format="string" type="string">195.078</item>
+    <item name="GoldElementWeight" format="string" type="string">196.9665</item>
+    <item name="MercuryElementWeight" format="string" type="string">200.59</item>
+    <item name="ThalliumElementWeight" format="string" type="string">204.3833</item>
+    <item name="LeadElementWeight" format="string" type="string">207.2</item>
+    <item name="BismuthElementWeight" format="string" type="string">208.9804</item>
+    <item name="PoloniumElementWeight" format="string" type="string">209</item>
+    <item name="AstatineElementWeight" format="string" type="string">210</item>
+    <item name="RadonElementWeight" format="string" type="string">222</item>
+    <item name="FranciumElementWeight" format="string" type="string">223</item>
+    <item name="RadiumElementWeight" format="string" type="string">226</item>
+    <item name="ActiniumElementWeight" format="string" type="string">227</item>
+    <item name="ThoriumElementWeight" format="string" type="string">232.0381</item>
+    <item name="ProtactiniumElementWeight" format="string" type="string">231.0359</item>
+    <item name="UraniumElementWeight" format="string" type="string">238.0289</item>
+    <item name="NeptuniumElementWeight" format="string" type="string">237</item>
+    <item name="PlutoniumElementWeight" format="string" type="string">244</item>
+    <item name="AmericiumElementWeight" format="string" type="string">243</item>
+    <item name="CuriumElementWeight" format="string" type="string">247</item>
+    <item name="BerkeliumElementWeight" format="string" type="string">247</item>
+    <item name="CaliforniumElementWeight" format="string" type="string">251</item>
+    <item name="EinsteiniumElementWeight" format="string" type="string">252</item>
+    <item name="FermiumElementWeight" format="string" type="string">257</item>
+    <item name="MendeleviumElementWeight" format="string" type="string">258</item>
+    <item name="NobeliumElementWeight" format="string" type="string">259</item>
+    <item name="LawrenciumElementWeight" format="string" type="string">262</item>
+    <item name="RutherfordiumElementWeight" format="string" type="string">267</item>
+    <item name="DubniumElementWeight" format="string" type="string">268</item>
+    <item name="SeaborgiumElementWeight" format="string" type="string">271</item>
+    <item name="BohriumElementWeight" format="string" type="string">272</item>
+    <item name="HassiumElementWeight" format="string" type="string">270</item>
+    <item name="MeitneriumElementWeight" format="string" type="string">276</item>
+    <item name="DarmstadtiumElementWeight" format="string" type="string">281</item>
+    <item name="RoentgeniumElementWeight" format="string" type="string">280</item>
+    <item name="CoperniciumElementWeight" format="string" type="string">285</item>
+    <item name="UnuntriumElementWeight" format="string" type="string">284</item>
+    <item name="UnunquadiumElementWeight" format="string" type="string">289</item>
+    <item name="UnunpentiumElementWeight" format="string" type="string">288</item>
+    <item name="UnunhexiumElementWeight" format="string" type="string">293</item>
+    <item name="UnunseptiumElementWeight" format="string" type="string">294</item>
+    <item name="UnunoctiumElementWeight" format="string" type="string">294</item>
+    <array name="elementWeightArray">
+        <item>@string/HydrogenElementWeight</item>
+        <item>@string/HeliumElementWeight</item>
+        <item>@string/LithiumElementWeight</item>
+        <item>@string/BerylliumElementWeight</item>
+        <item>@string/BoronElementWeight</item>
+        <item>@string/CarbonElementWeight</item>
+        <item>@string/NitrogenElementWeight</item>
+        <item>@string/OxygenElementWeight</item>
+        <item>@string/FluorineElementWeight</item>
+        <item>@string/NeonElementWeight</item>
+        <item>@string/SodiumElementWeight</item>
+        <item>@string/MagnesiumElementWeight</item>
+        <item>@string/AluminiumElementWeight</item>
+        <item>@string/SiliconElementWeight</item>
+        <item>@string/PhosphorusElementWeight</item>
+        <item>@string/SulfurElementWeight</item>
+        <item>@string/ChlorineElementWeight</item>
+        <item>@string/ArgonElementWeight</item>
+        <item>@string/PotassiumElementWeight</item>
+        <item>@string/CalciumElementWeight</item>
+        <item>@string/ScandiumElementWeight</item>
+        <item>@string/TitaniumElementWeight</item>
+        <item>@string/VanadiumElementWeight</item>
+        <item>@string/ChromiumElementWeight</item>
+        <item>@string/ManganeseElementWeight</item>
+        <item>@string/IronElementWeight</item>
+        <item>@string/CobaltElementWeight</item>
+        <item>@string/NickelElementWeight</item>
+        <item>@string/CopperElementWeight</item>
+        <item>@string/ZincElementWeight</item>
+        <item>@string/GalliumElementWeight</item>
+        <item>@string/GermaniumElementWeight</item>
+        <item>@string/ArsenicElementWeight</item>
+        <item>@string/SeleniumElementWeight</item>
+        <item>@string/BromineElementWeight</item>
+        <item>@string/KryptonElementWeight</item>
+        <item>@string/RubidiumElementWeight</item>
+        <item>@string/StrontiumElementWeight</item>
+        <item>@string/YttriumElementWeight</item>
+        <item>@string/ZirconiumElementWeight</item>
+        <item>@string/NiobiumElementWeight</item>
+        <item>@string/MolybdenumElementWeight</item>
+        <item>@string/TechnetiumElementWeight</item>
+        <item>@string/RutheniumElementWeight</item>
+        <item>@string/RhodiumElementWeight</item>
+        <item>@string/PalladiumElementWeight</item>
+        <item>@string/SilverElementWeight</item>
+        <item>@string/CadmiumElementWeight</item>
+        <item>@string/IndiumElementWeight</item>
+        <item>@string/TinElementWeight</item>
+        <item>@string/AntimonyElementWeight</item>
+        <item>@string/TelluriumElementWeight</item>
+        <item>@string/IodineElementWeight</item>
+        <item>@string/XenonElementWeight</item>
+        <item>@string/CaesiumElementWeight</item>
+        <item>@string/BariumElementWeight</item>
+        <item>@string/LanthanumElementWeight</item>
+        <item>@string/CeriumElementWeight</item>
+        <item>@string/PraseodymiumElementWeight</item>
+        <item>@string/NeodymiumElementWeight</item>
+        <item>@string/PromethiumElementWeight</item>
+        <item>@string/SamariumElementWeight</item>
+        <item>@string/EuropiumElementWeight</item>
+        <item>@string/GadoliniumElementWeight</item>
+        <item>@string/TerbiumElementWeight</item>
+        <item>@string/DysprosiumElementWeight</item>
+        <item>@string/HolmiumElementWeight</item>
+        <item>@string/ErbiumElementWeight</item>
+        <item>@string/ThuliumElementWeight</item>
+        <item>@string/YtterbiumElementWeight</item>
+        <item>@string/LutetiumElementWeight</item>
+        <item>@string/HafniumElementWeight</item>
+        <item>@string/TantalumElementWeight</item>
+        <item>@string/TungstenElementWeight</item>
+        <item>@string/RheniumElementWeight</item>
+        <item>@string/OsmiumElementWeight</item>
+        <item>@string/IridiumElementWeight</item>
+        <item>@string/PlatinumElementWeight</item>
+        <item>@string/GoldElementWeight</item>
+        <item>@string/MercuryElementWeight</item>
+        <item>@string/ThalliumElementWeight</item>
+        <item>@string/LeadElementWeight</item>
+        <item>@string/BismuthElementWeight</item>
+        <item>@string/PoloniumElementWeight</item>
+        <item>@string/AstatineElementWeight</item>
+        <item>@string/RadonElementWeight</item>
+        <item>@string/FranciumElementWeight</item>
+        <item>@string/RadiumElementWeight</item>
+        <item>@string/ActiniumElementWeight</item>
+        <item>@string/ThoriumElementWeight</item>
+        <item>@string/ProtactiniumElementWeight</item>
+        <item>@string/UraniumElementWeight</item>
+        <item>@string/NeptuniumElementWeight</item>
+        <item>@string/PlutoniumElementWeight</item>
+        <item>@string/AmericiumElementWeight</item>
+        <item>@string/CuriumElementWeight</item>
+        <item>@string/BerkeliumElementWeight</item>
+        <item>@string/CaliforniumElementWeight</item>
+        <item>@string/EinsteiniumElementWeight</item>
+        <item>@string/FermiumElementWeight</item>
+        <item>@string/MendeleviumElementWeight</item>
+        <item>@string/NobeliumElementWeight</item>
+        <item>@string/LawrenciumElementWeight</item>
+        <item>@string/RutherfordiumElementWeight</item>
+        <item>@string/DubniumElementWeight</item>
+        <item>@string/SeaborgiumElementWeight</item>
+        <item>@string/BohriumElementWeight</item>
+        <item>@string/HassiumElementWeight</item>
+        <item>@string/MeitneriumElementWeight</item>
+        <item>@string/DarmstadtiumElementWeight</item>
+        <item>@string/RoentgeniumElementWeight</item>
+        <item>@string/CoperniciumElementWeight</item>
+        <item>@string/UnuntriumElementWeight</item>
+        <item>@string/UnunquadiumElementWeight</item>
+        <item>@string/UnunpentiumElementWeight</item>
+        <item>@string/UnunhexiumElementWeight</item>
+        <item>@string/UnunseptiumElementWeight</item>
+        <item>@string/UnunoctiumElementWeight</item>
+    </array>
 </resources>

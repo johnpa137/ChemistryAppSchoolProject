@@ -3,4 +3,18 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="solidElementColor">#000000</color>
+    <color name="liquidElementColor">#00117c</color>
+    <color name="gasElementColor">#d2d8ff</color>
+    <color name="transMetalElementColor">#3345ba</color>
+    <color name="halogenElementColor">#9fabfa</color>
+    <color name="nobleGasElementColor">#7620ff</color>
+    <color name="postTransMetalElementColor">#5967c4</color>
+    <color name="alkaliMetalElementColor">#59b9c4</color>
+    <color name="alkEarthMetalElementColor">#59a2c4</color>
+    <color name="lanthanoidElementColor">#8959c4</color>
+    <color name="actinoidElementColor">#c4599b</color>
+    <color name="metalloidElementColor">#0f9173</color>
+    <color name="nonmetalElementColor">#61c987</color>
+    <color name="unknownStateElementColor">#838383</color>
 </resources>

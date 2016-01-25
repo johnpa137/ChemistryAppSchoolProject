@@ -15,7 +15,13 @@ import android.widget.Toast;
 
 public class ElementDetailsActivity extends AppCompatActivity {
 
-    Element testElement;
+    private Element element;
+    private String name;
+    private String symbol;
+    private int atomicNumber;
+    private float atomicWeight;
+    private int group;
+    private int period;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,22 +30,32 @@ public class ElementDetailsActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        testElement = Element.getTestElement();
+        // testElement = Element.getTestElement();
+
+        Intent intent = getIntent();
+        intent.getExtras();
+        name = intent.getStringExtra("name");
+        symbol = intent.getStringExtra("symbol");
+        atomicNumber = intent.getIntExtra("atomicNumber", -1);
+        atomicWeight = intent.getFloatExtra("atomicWeight", -1);
+        group = intent.getIntExtra("group", -1);
+        period = intent.getIntExtra("period", -1);
+        element = new Element(name, symbol, atomicNumber, atomicWeight, group, period);
 
         TextView lblNameValue = (TextView) findViewById(R.id.lblNameValue);
-        lblNameValue.setText(testElement.getName());
+        lblNameValue.setText(element.getName());
+        TextView lblSymbolValue = (TextView) findViewById(R.id.lblSymbolValue);
+        lblSymbolValue.setText(element.getSymbol());
         TextView lblAtomicNumberValue = (TextView) findViewById(R.id.lblAtomicNumberValue);
-        lblAtomicNumberValue.setText(String.valueOf(testElement.getAtomicNumber()));
+        lblAtomicNumberValue.setText(String.valueOf(element.getAtomicNumber()));
         TextView lblAtomicWeightValue = (TextView) findViewById(R.id.lblAtomicWeightValue);
-        lblAtomicWeightValue.setText(String.valueOf(testElement.getAtomicWeight()));
+        lblAtomicWeightValue.setText(String.valueOf(element.getAtomicWeight()));
         TextView lblGroupValue = (TextView) findViewById(R.id.lblGroupValue);
-        lblGroupValue.setText(String.valueOf(testElement.getGroup()));
+        lblGroupValue.setText(String.valueOf(element.getGroup()));
         TextView lblPeriodValue = (TextView) findViewById(R.id.lblPeriodValue);
-        lblPeriodValue.setText(String.valueOf(testElement.getPeriod()));
-        TextView lblValenceElectronCntValue = (TextView) findViewById(R.id.lblValenceElectronCntValue);
-        lblValenceElectronCntValue.setText(String.valueOf(testElement.getValElecCnt()));
+        lblPeriodValue.setText(String.valueOf(element.getPeriod()));
         TextView lblElectronConfigValue = (TextView) findViewById(R.id.lblElectronConfigValue);
-        lblElectronConfigValue.setText(Html.fromHtml(testElement.getElectronConfig()));
+        lblElectronConfigValue.setText(Html.fromHtml(element.getElectronConfig()));
     }
 
     @Override
@@ -78,8 +94,6 @@ public class ElementDetailsActivity extends AppCompatActivity {
         else{
             Toast.makeText(this.getApplicationContext(), "You have selected to add " + amount + " grams of " + name, Toast.LENGTH_LONG).show();
         }
-
-        Intent intent = new Intent(this, PeriodicTableActivity.class);
-
+        finish();
     }
 }

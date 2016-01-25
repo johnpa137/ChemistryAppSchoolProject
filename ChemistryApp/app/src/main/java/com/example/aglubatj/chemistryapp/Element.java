@@ -8,65 +8,155 @@ import java.text.AttributedString;
  */
 public class Element {
     private String name;
+    private String symbol;
     private int atomicNumber;
-    private double atomicWeight;
+    private float atomicWeight;
     private int group;
     private int period;
-    private int valElecCnt;
-    // private AttributedString electronConfig;
     private String electronConfig;
-    public Element(){
 
-    }
-
-    public Element(String name, int atomicNumber, double atomicWeight, int group, int period, int valElecCnt, String electronConfig) {
+    public Element(String name, String symbol, int atomicNumber, float atomicWeight, int group, int period) {
         this.name = name;
+        this.symbol = symbol;
         this.atomicNumber = atomicNumber;
         this.atomicWeight = atomicWeight;
         this.group = group;
         this.period = period;
-        this.valElecCnt = valElecCnt;
-        this.electronConfig = electronConfig;
+        
+        int truePeriod = this.period;
+        if(truePeriod > 7){
+            truePeriod -= 2;
+        }
+
+        StringBuilder configBuilder = new StringBuilder();
+        int electronCount = this.atomicNumber;
+
+        switch(truePeriod){
+            case 1: configBuilder.append("1s<sup>"); break;
+            case 2: configBuilder.append("[He] 2s<sup>");
+                electronCount -= 2; break;
+            case 3: configBuilder.append("[Ne] 3s<sup>");
+                electronCount -= 10; break;
+            case 4: configBuilder.append("[Ar] 4s<sup>");
+                electronCount -= 18; break;
+            case 5: configBuilder.append("[Kr] 5s<sup>");
+                electronCount -= 36; break;
+            case 6: configBuilder.append("[Xe] 6s<sup>");
+                electronCount -= 54; break;
+            case 7: configBuilder.append("[Rn] 7s<sup>");
+                electronCount -= 86; break;
+        }
+
+        if(electronCount < 2){
+            configBuilder.append(electronCount);
+        }
+        else{
+            configBuilder.append(2);
+            configBuilder.append("</sup>");
+            electronCount -= 2;
+            if(truePeriod > 1 && truePeriod < 4){
+                configBuilder.append(truePeriod);
+                configBuilder.append("p<sup>");
+                configBuilder.append(electronCount);
+            }
+            else if(truePeriod < 6){
+                configBuilder.append(truePeriod - 1);
+                configBuilder.append("d<sup>");
+                if(electronCount < 10){
+                    configBuilder.append(electronCount);
+                }
+                else{
+                    configBuilder.append(10);
+                    electronCount -= 10;
+                    if(electronCount > 0){
+                        configBuilder.append("</sup>");
+                        configBuilder.append(truePeriod);
+                        configBuilder.append("p<sup>");
+                        configBuilder.append(electronCount);
+                    }
+                }
+            }
+            else{
+                configBuilder.append(truePeriod - 2);
+                configBuilder.append("f<sup>");
+                if(electronCount < 14){
+                    configBuilder.append(electronCount);
+                }
+                else{
+                    configBuilder.append(14);
+                    electronCount -= 14;
+                    if(electronCount > 0){
+                        configBuilder.append("</sup>");
+                        configBuilder.append(truePeriod - 1);
+                        configBuilder.append("d<sup>");
+                        if(electronCount < 10){
+                            configBuilder.append(electronCount);
+                        }
+                        else{
+                            configBuilder.append(10);
+                            electronCount -= 10;
+                            if(electronCount > 0){
+                                configBuilder.append("</sup>");
+                                configBuilder.append(truePeriod);
+                                configBuilder.append("p<sup>");
+                                configBuilder.append(electronCount);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        configBuilder.append("</sup>");
+
+        this.electronConfig = configBuilder.toString();
     }
 
     public static Element getTestElement(){
-        String name = "Hydrogen";
-        int atomicNumber = 1;
-        double atomicWeight = 1.008;
-        int group = 1;
-        int period = 1;
-        int valElecCnt = 1;
-        // AttributedString electronConfig = new AttributedString("1s1 ");
-        // electronConfig.addAttribute(TextAttribute.SUPERSCRIPT, TextAttribute.SUPERSCRIPT_SUPER, 3, 4);
-        String electronConfig = "1s<sup>1</sup>";
+        String name = "Tungsten";
+        String symbol = "W";
+        int atomicNumber = 74;
+        float atomicWeight = 183.84f;
+        int group = 6;
+        int period = 6;
 
-        Element retVal = new Element(name, atomicNumber, atomicWeight, group, period, valElecCnt, electronConfig);
-
-        return retVal;
+        return new Element(name, symbol, atomicNumber, atomicWeight, group, period);
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
+
+    public String getSymbol() { return symbol; }
 
     public int getAtomicNumber() {
         return atomicNumber;
     }
 
-    public double getAtomicWeight() {
+    public float getAtomicWeight() {
         return atomicWeight;
     }
 
     public int getGroup() {
-        return group;
+        int retValue = group;
+        if(group > 18)
+            retValue = 0;
+        return retValue;
+    }
+
+    public int getPositionGroup() {
+        int retValue = group;
+        if(group > 18)
+            retValue = group - 15;
+        return retValue;
     }
 
     public int getPeriod() {
-        return period;
+        int retValue = period;
+        if(period > 7)
+            retValue -= 2;
+        return retValue;
     }
 
-    public int getValElecCnt() {
-        return valElecCnt;
+    public int getPositionPeriod() {
+        return period;
     }
 
     public String getElectronConfig() {

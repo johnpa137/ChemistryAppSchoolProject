@@ -8,20 +8,19 @@ import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.text.TextPaint;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 /**
- * TODO: document your custom view class.
+ * Class meant to display elements in the periodic table activity
  */
 public class ElementView extends View {
-    private String elementSymbol = "H";
-    private int elementNumber = 1;
-    private float elementWeight = 1.008f;
-    private int elementColor = Color.RED;
-    private float symbolSize = 200.0f;
-    private float numberSize = 50.0f;
-    private float weightSize = 50.0f;
-    private Drawable mExampleDrawable;
+    private String elementSymbol;
+    private int elementNumber;
+    private float elementWeight;
+    private int elementColor; // color of the symbol text, depends on state at room temperature
+    private float symbolSize;
+    private Drawable backgroundColor; // color the background, depends on whether element is a metal, metalloid, or nonmetal
 
     private TextPaint symbolTextPaint;
     private float symbolTextPaintWidth;
@@ -38,6 +37,11 @@ public class ElementView extends View {
     public ElementView(Context context) {
         super(context);
         init(null, 0);
+    }
+
+    public ElementView(Context context, Element element, float symbolSize, int elementColor, Drawable backgroundColor){
+        super(context);
+        init(element, symbolSize, elementColor, backgroundColor);
     }
 
     public ElementView(Context context, AttributeSet attrs) {
@@ -69,20 +73,39 @@ public class ElementView extends View {
         symbolSize = a.getDimension(
                 R.styleable.ElementView_symbolSize,
                 symbolSize);
-        numberSize = a.getDimension(
-                R.styleable.ElementView_numberSize,
-                numberSize);
-        weightSize = a.getDimension(
-                R.styleable.ElementView_weightSize,
-                weightSize);
 
-         if (a.hasValue(R.styleable.ElementView_exampleDrawable)) {
-             mExampleDrawable = a.getDrawable(
-                     R.styleable.ElementView_exampleDrawable);
-             mExampleDrawable.setCallback(this);
+        if (a.hasValue(R.styleable.ElementView_backgroundColor)) {
+             backgroundColor = a.getDrawable(
+                     R.styleable.ElementView_backgroundColor);
+             backgroundColor.setCallback(this);
         }
 
         a.recycle();
+
+        // Set up a default TextPaint object
+        symbolTextPaint = new TextPaint();
+        symbolTextPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        symbolTextPaint.setTextAlign(Paint.Align.LEFT);
+
+        numberTextPaint = new TextPaint();
+        numberTextPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        numberTextPaint.setTextAlign(Paint.Align.LEFT);
+
+        weightTextPaint = new TextPaint();
+        weightTextPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        weightTextPaint.setTextAlign(Paint.Align.LEFT);
+
+        // Update TextPaint and text measurements from attributes
+        invalidateTextPaintAndMeasurements();
+    }
+
+    private void init(Element element, float symbolSize, int elementColor, Drawable backgroundColor){
+        elementSymbol = element.getSymbol();
+        elementNumber = element.getAtomicNumber();
+        elementWeight = element.getAtomicWeight();
+        this.symbolSize = symbolSize;
+        this.elementColor = elementColor;
+        this.backgroundColor = backgroundColor;
 
         // Set up a default TextPaint object
         symbolTextPaint = new TextPaint();
@@ -109,14 +132,14 @@ public class ElementView extends View {
         Paint.FontMetrics fontMetrics = symbolTextPaint.getFontMetrics();
         symbolTextPaintHeight = fontMetrics.top + fontMetrics.bottom;
 
-        numberTextPaint.setTextSize(numberSize);
+        numberTextPaint.setTextSize(symbolSize / 6);
         numberTextPaint.setColor(elementColor);
         numberTextPaintWidth = numberTextPaint.measureText(String.valueOf(elementNumber));
 
         fontMetrics = numberTextPaint.getFontMetrics();
         numberTextPaintHeight = fontMetrics.top + fontMetrics.bottom;
 
-        weightTextPaint.setTextSize(weightSize);
+        weightTextPaint.setTextSize(symbolSize / 6);
         weightTextPaint.setColor(elementColor);
         weightTextPaintWidth = weightTextPaint.measureText(String.valueOf(elementWeight));
 
@@ -128,8 +151,6 @@ public class ElementView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        // TODO: consider storing these as member variables to reduce
-        // allocations per draw cycle.
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
         int paddingRight = getPaddingRight();
@@ -139,10 +160,10 @@ public class ElementView extends View {
         int contentHeight = getHeight() - paddingTop - paddingBottom;
 
         // Draw the example drawable on top of the text.
-        if (mExampleDrawable != null) {
-            mExampleDrawable.setBounds(paddingLeft, paddingTop,
+        if (backgroundColor != null) {
+            backgroundColor.setBounds(paddingLeft, paddingTop,
                     paddingLeft + contentWidth, paddingTop + contentHeight);
-            mExampleDrawable.draw(canvas);
+            backgroundColor.draw(canvas);
         }
         // Draw the text.
         canvas.drawText(elementSymbol,
@@ -159,6 +180,10 @@ public class ElementView extends View {
                 paddingLeft + (contentWidth - weightTextPaintWidth) / 2,
                 paddingTop + contentHeight + weightTextPaintHeight / 2,
                 weightTextPaint);
+    }
+
+    public void onClick(View view){
+
     }
 
     /**
@@ -223,29 +248,5 @@ public class ElementView extends View {
 
     public void setSymbolSize(float symbolSize) {
         this.symbolSize = symbolSize;
-    }
-
-    public float getNumberSize() {
-        return numberSize;
-    }
-
-    public void setNumberSize(float numberSize) {
-        this.numberSize = numberSize;
-    }
-
-    public float getWeightSize() {
-        return weightSize;
-    }
-
-    public void setWeightSize(float weightSize) {
-        this.weightSize = weightSize;
-    }
-
-    public Drawable getmExampleDrawable() {
-        return mExampleDrawable;
-    }
-
-    public void setmExampleDrawable(Drawable mExampleDrawable) {
-        this.mExampleDrawable = mExampleDrawable;
     }
 }

@@ -1,4 +1,837 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer name="HydrogenElementNumber">1</integer>
+    <integer name="HeliumElementNumber">2</integer>
+    <integer name="LithiumElementNumber">3</integer>
+    <integer name="BerylliumElementNumber">4</integer>
+    <integer name="BoronElementNumber">5</integer>
+    <integer name="CarbonElementNumber">6</integer>
+    <integer name="NitrogenElementNumber">7</integer>
+    <integer name="OxygenElementNumber">8</integer>
+    <integer name="FluorineElementNumber">9</integer>
+    <integer name="NeonElementNumber">10</integer>
+    <integer name="SodiumElementNumber">11</integer>
+    <integer name="MagnesiumElementNumber">12</integer>
+    <integer name="AluminiumElementNumber">13</integer>
+    <integer name="SiliconElementNumber">14</integer>
+    <integer name="PhosphorusElementNumber">15</integer>
+    <integer name="SulfurElementNumber">16</integer>
+    <integer name="ChlorineElementNumber">17</integer>
+    <integer name="ArgonElementNumber">18</integer>
+    <integer name="PotassiumElementNumber">19</integer>
+    <integer name="CalciumElementNumber">20</integer>
+    <integer name="ScandiumElementNumber">21</integer>
+    <integer name="TitaniumElementNumber">22</integer>
+    <integer name="VanadiumElementNumber">23</integer>
+    <integer name="ChromiumElementNumber">24</integer>
+    <integer name="ManganeseElementNumber">25</integer>
+    <integer name="IronElementNumber">26</integer>
+    <integer name="CobaltElementNumber">27</integer>
+    <integer name="NickelElementNumber">28</integer>
+    <integer name="CopperElementNumber">29</integer>
+    <integer name="ZincElementNumber">30</integer>
+    <integer name="GalliumElementNumber">31</integer>
+    <integer name="GermaniumElementNumber">32</integer>
+    <integer name="ArsenicElementNumber">33</integer>
+    <integer name="SeleniumElementNumber">34</integer>
+    <integer name="BromineElementNumber">35</integer>
+    <integer name="KryptonElementNumber">36</integer>
+    <integer name="RubidiumElementNumber">37</integer>
+    <integer name="StrontiumElementNumber">38</integer>
+    <integer name="YttriumElementNumber">39</integer>
+    <integer name="ZirconiumElementNumber">40</integer>
+    <integer name="NiobiumElementNumber">41</integer>
+    <integer name="MolybdenumElementNumber">42</integer>
+    <integer name="TechnetiumElementNumber">43</integer>
+    <integer name="RutheniumElementNumber">44</integer>
+    <integer name="RhodiumElementNumber">45</integer>
+    <integer name="PalladiumElementNumber">46</integer>
+    <integer name="SilverElementNumber">47</integer>
+    <integer name="CadmiumElementNumber">48</integer>
+    <integer name="IndiumElementNumber">49</integer>
+    <integer name="TinElementNumber">50</integer>
+    <integer name="AntimonyElementNumber">51</integer>
+    <integer name="TelluriumElementNumber">52</integer>
+    <integer name="IodineElementNumber">53</integer>
+    <integer name="XenonElementNumber">54</integer>
+    <integer name="CaesiumElementNumber">55</integer>
+    <integer name="BariumElementNumber">56</integer>
+    <integer name="LanthanumElementNumber">57</integer>
+    <integer name="CeriumElementNumber">58</integer>
+    <integer name="PraseodymiumElementNumber">59</integer>
+    <integer name="NeodymiumElementNumber">60</integer>
+    <integer name="PromethiumElementNumber">61</integer>
+    <integer name="SamariumElementNumber">62</integer>
+    <integer name="EuropiumElementNumber">63</integer>
+    <integer name="GadoliniumElementNumber">64</integer>
+    <integer name="TerbiumElementNumber">65</integer>
+    <integer name="DysprosiumElementNumber">66</integer>
+    <integer name="HolmiumElementNumber">67</integer>
+    <integer name="ErbiumElementNumber">68</integer>
+    <integer name="ThuliumElementNumber">69</integer>
+    <integer name="YtterbiumElementNumber">70</integer>
+    <integer name="LutetiumElementNumber">71</integer>
+    <integer name="HafniumElementNumber">72</integer>
+    <integer name="TantalumElementNumber">73</integer>
+    <integer name="TungstenElementNumber">74</integer>
+    <integer name="RheniumElementNumber">75</integer>
+    <integer name="OsmiumElementNumber">76</integer>
+    <integer name="IridiumElementNumber">77</integer>
+    <integer name="PlatinumElementNumber">78</integer>
+    <integer name="GoldElementNumber">79</integer>
+    <integer name="MercuryElementNumber">80</integer>
+    <integer name="ThalliumElementNumber">81</integer>
+    <integer name="LeadElementNumber">82</integer>
+    <integer name="BismuthElementNumber">83</integer>
+    <integer name="PoloniumElementNumber">84</integer>
+    <integer name="AstatineElementNumber">85</integer>
+    <integer name="RadonElementNumber">86</integer>
+    <integer name="FranciumElementNumber">87</integer>
+    <integer name="RadiumElementNumber">88</integer>
+    <integer name="ActiniumElementNumber">89</integer>
+    <integer name="ThoriumElementNumber">90</integer>
+    <integer name="ProtactiniumElementNumber">91</integer>
+    <integer name="UraniumElementNumber">92</integer>
+    <integer name="NeptuniumElementNumber">93</integer>
+    <integer name="PlutoniumElementNumber">94</integer>
+    <integer name="AmericiumElementNumber">95</integer>
+    <integer name="CuriumElementNumber">96</integer>
+    <integer name="BerkeliumElementNumber">97</integer>
+    <integer name="CaliforniumElementNumber">98</integer>
+    <integer name="EinsteiniumElementNumber">99</integer>
+    <integer name="FermiumElementNumber">100</integer>
+    <integer name="MendeleviumElementNumber">101</integer>
+    <integer name="NobeliumElementNumber">102</integer>
+    <integer name="LawrenciumElementNumber">103</integer>
+    <integer name="RutherfordiumElementNumber">104</integer>
+    <integer name="DubniumElementNumber">105</integer>
+    <integer name="SeaborgiumElementNumber">106</integer>
+    <integer name="BohriumElementNumber">107</integer>
+    <integer name="HassiumElementNumber">108</integer>
+    <integer name="MeitneriumElementNumber">109</integer>
+    <integer name="DarmstadtiumElementNumber">110</integer>
+    <integer name="RoentgeniumElementNumber">111</integer>
+    <integer name="CoperniciumElementNumber">112</integer>
+    <integer name="UnuntriumElementNumber">113</integer>
+    <integer name="UnunquadiumElementNumber">114</integer>
+    <integer name="UnunpentiumElementNumber">115</integer>
+    <integer name="UnunhexiumElementNumber">116</integer>
+    <integer name="UnunseptiumElementNumber">117</integer>
+    <integer name="UnunoctiumElementNumber">118</integer>
+    <integer-array name="elementNumberArray">
+        <item>@integer/HydrogenElementNumber</item>
+        <item>@integer/HeliumElementNumber</item>
+        <item>@integer/LithiumElementNumber</item>
+        <item>@integer/BerylliumElementNumber</item>
+        <item>@integer/BoronElementNumber</item>
+        <item>@integer/CarbonElementNumber</item>
+        <item>@integer/NitrogenElementNumber</item>
+        <item>@integer/OxygenElementNumber</item>
+        <item>@integer/FluorineElementNumber</item>
+        <item>@integer/NeonElementNumber</item>
+        <item>@integer/SodiumElementNumber</item>
+        <item>@integer/MagnesiumElementNumber</item>
+        <item>@integer/AluminiumElementNumber</item>
+        <item>@integer/SiliconElementNumber</item>
+        <item>@integer/PhosphorusElementNumber</item>
+        <item>@integer/SulfurElementNumber</item>
+        <item>@integer/ChlorineElementNumber</item>
+        <item>@integer/ArgonElementNumber</item>
+        <item>@integer/PotassiumElementNumber</item>
+        <item>@integer/CalciumElementNumber</item>
+        <item>@integer/ScandiumElementNumber</item>
+        <item>@integer/TitaniumElementNumber</item>
+        <item>@integer/VanadiumElementNumber</item>
+        <item>@integer/ChromiumElementNumber</item>
+        <item>@integer/ManganeseElementNumber</item>
+        <item>@integer/IronElementNumber</item>
+        <item>@integer/CobaltElementNumber</item>
+        <item>@integer/NickelElementNumber</item>
+        <item>@integer/CopperElementNumber</item>
+        <item>@integer/ZincElementNumber</item>
+        <item>@integer/GalliumElementNumber</item>
+        <item>@integer/GermaniumElementNumber</item>
+        <item>@integer/ArsenicElementNumber</item>
+        <item>@integer/SeleniumElementNumber</item>
+        <item>@integer/BromineElementNumber</item>
+        <item>@integer/KryptonElementNumber</item>
+        <item>@integer/RubidiumElementNumber</item>
+        <item>@integer/StrontiumElementNumber</item>
+        <item>@integer/YttriumElementNumber</item>
+        <item>@integer/ZirconiumElementNumber</item>
+        <item>@integer/NiobiumElementNumber</item>
+        <item>@integer/MolybdenumElementNumber</item>
+        <item>@integer/TechnetiumElementNumber</item>
+        <item>@integer/RutheniumElementNumber</item>
+        <item>@integer/RhodiumElementNumber</item>
+        <item>@integer/PalladiumElementNumber</item>
+        <item>@integer/SilverElementNumber</item>
+        <item>@integer/CadmiumElementNumber</item>
+        <item>@integer/IndiumElementNumber</item>
+        <item>@integer/TinElementNumber</item>
+        <item>@integer/AntimonyElementNumber</item>
+        <item>@integer/TelluriumElementNumber</item>
+        <item>@integer/IodineElementNumber</item>
+        <item>@integer/XenonElementNumber</item>
+        <item>@integer/CaesiumElementNumber</item>
+        <item>@integer/BariumElementNumber</item>
+        <item>@integer/LanthanumElementNumber</item>
+        <item>@integer/CeriumElementNumber</item>
+        <item>@integer/PraseodymiumElementNumber</item>
+        <item>@integer/NeodymiumElementNumber</item>
+        <item>@integer/PromethiumElementNumber</item>
+        <item>@integer/SamariumElementNumber</item>
+        <item>@integer/EuropiumElementNumber</item>
+        <item>@integer/GadoliniumElementNumber</item>
+        <item>@integer/TerbiumElementNumber</item>
+        <item>@integer/DysprosiumElementNumber</item>
+        <item>@integer/HolmiumElementNumber</item>
+        <item>@integer/ErbiumElementNumber</item>
+        <item>@integer/ThuliumElementNumber</item>
+        <item>@integer/YtterbiumElementNumber</item>
+        <item>@integer/LutetiumElementNumber</item>
+        <item>@integer/HafniumElementNumber</item>
+        <item>@integer/TantalumElementNumber</item>
+        <item>@integer/TungstenElementNumber</item>
+        <item>@integer/RheniumElementNumber</item>
+        <item>@integer/OsmiumElementNumber</item>
+        <item>@integer/IridiumElementNumber</item>
+        <item>@integer/PlatinumElementNumber</item>
+        <item>@integer/GoldElementNumber</item>
+        <item>@integer/MercuryElementNumber</item>
+        <item>@integer/ThalliumElementNumber</item>
+        <item>@integer/LeadElementNumber</item>
+        <item>@integer/BismuthElementNumber</item>
+        <item>@integer/PoloniumElementNumber</item>
+        <item>@integer/AstatineElementNumber</item>
+        <item>@integer/RadonElementNumber</item>
+        <item>@integer/FranciumElementNumber</item>
+        <item>@integer/RadiumElementNumber</item>
+        <item>@integer/ActiniumElementNumber</item>
+        <item>@integer/ThoriumElementNumber</item>
+        <item>@integer/ProtactiniumElementNumber</item>
+        <item>@integer/UraniumElementNumber</item>
+        <item>@integer/NeptuniumElementNumber</item>
+        <item>@integer/PlutoniumElementNumber</item>
+        <item>@integer/AmericiumElementNumber</item>
+        <item>@integer/CuriumElementNumber</item>
+        <item>@integer/BerkeliumElementNumber</item>
+        <item>@integer/CaliforniumElementNumber</item>
+        <item>@integer/EinsteiniumElementNumber</item>
+        <item>@integer/FermiumElementNumber</item>
+        <item>@integer/MendeleviumElementNumber</item>
+        <item>@integer/NobeliumElementNumber</item>
+        <item>@integer/LawrenciumElementNumber</item>
+        <item>@integer/RutherfordiumElementNumber</item>
+        <item>@integer/DubniumElementNumber</item>
+        <item>@integer/SeaborgiumElementNumber</item>
+        <item>@integer/BohriumElementNumber</item>
+        <item>@integer/HassiumElementNumber</item>
+        <item>@integer/MeitneriumElementNumber</item>
+        <item>@integer/DarmstadtiumElementNumber</item>
+        <item>@integer/RoentgeniumElementNumber</item>
+        <item>@integer/CoperniciumElementNumber</item>
+        <item>@integer/UnuntriumElementNumber</item>
+        <item>@integer/UnunquadiumElementNumber</item>
+        <item>@integer/UnunpentiumElementNumber</item>
+        <item>@integer/UnunhexiumElementNumber</item>
+        <item>@integer/UnunseptiumElementNumber</item>
+        <item>@integer/UnunoctiumElementNumber</item>
+    </integer-array>
+    <integer name="HydrogenElementGroup">1</integer>
+    <integer name="HeliumElementGroup">18</integer>
+    <integer name="LithiumElementGroup">1</integer>
+    <integer name="BerylliumElementGroup">2</integer>
+    <integer name="BoronElementGroup">13</integer>
+    <integer name="CarbonElementGroup">14</integer>
+    <integer name="NitrogenElementGroup">15</integer>
+    <integer name="OxygenElementGroup">16</integer>
+    <integer name="FluorineElementGroup">17</integer>
+    <integer name="NeonElementGroup">18</integer>
+    <integer name="SodiumElementGroup">1</integer>
+    <integer name="MagnesiumElementGroup">2</integer>
+    <integer name="AluminiumElementGroup">13</integer>
+    <integer name="SiliconElementGroup">14</integer>
+    <integer name="PhosphorusElementGroup">15</integer>
+    <integer name="SulfurElementGroup">16</integer>
+    <integer name="ChlorineElementGroup">17</integer>
+    <integer name="ArgonElementGroup">18</integer>
+    <integer name="PotassiumElementGroup">1</integer>
+    <integer name="CalciumElementGroup">2</integer>
+    <integer name="ScandiumElementGroup">3</integer>
+    <integer name="TitaniumElementGroup">4</integer>
+    <integer name="VanadiumElementGroup">5</integer>
+    <integer name="ChromiumElementGroup">6</integer>
+    <integer name="ManganeseElementGroup">7</integer>
+    <integer name="IronElementGroup">8</integer>
+    <integer name="CobaltElementGroup">9</integer>
+    <integer name="NickelElementGroup">10</integer>
+    <integer name="CopperElementGroup">11</integer>
+    <integer name="ZincElementGroup">12</integer>
+    <integer name="GalliumElementGroup">13</integer>
+    <integer name="GermaniumElementGroup">14</integer>
+    <integer name="ArsenicElementGroup">15</integer>
+    <integer name="SeleniumElementGroup">16</integer>
+    <integer name="BromineElementGroup">17</integer>
+    <integer name="KryptonElementGroup">18</integer>
+    <integer name="RubidiumElementGroup">1</integer>
+    <integer name="StrontiumElementGroup">2</integer>
+    <integer name="YttriumElementGroup">3</integer>
+    <integer name="ZirconiumElementGroup">4</integer>
+    <integer name="NiobiumElementGroup">5</integer>
+    <integer name="MolybdenumElementGroup">6</integer>
+    <integer name="TechnetiumElementGroup">7</integer>
+    <integer name="RutheniumElementGroup">8</integer>
+    <integer name="RhodiumElementGroup">9</integer>
+    <integer name="PalladiumElementGroup">10</integer>
+    <integer name="SilverElementGroup">11</integer>
+    <integer name="CadmiumElementGroup">12</integer>
+    <integer name="IndiumElementGroup">13</integer>
+    <integer name="TinElementGroup">14</integer>
+    <integer name="AntimonyElementGroup">15</integer>
+    <integer name="TelluriumElementGroup">16</integer>
+    <integer name="IodineElementGroup">17</integer>
+    <integer name="XenonElementGroup">18</integer>
+    <integer name="CaesiumElementGroup">1</integer>
+    <integer name="BariumElementGroup">2</integer>
+    <integer name="LanthanumElementGroup">19</integer>
+    <integer name="CeriumElementGroup">20</integer>
+    <integer name="PraseodymiumElementGroup">21</integer>
+    <integer name="NeodymiumElementGroup">22</integer>
+    <integer name="PromethiumElementGroup">23</integer>
+    <integer name="SamariumElementGroup">24</integer>
+    <integer name="EuropiumElementGroup">25</integer>
+    <integer name="GadoliniumElementGroup">26</integer>
+    <integer name="TerbiumElementGroup">27</integer>
+    <integer name="DysprosiumElementGroup">28</integer>
+    <integer name="HolmiumElementGroup">29</integer>
+    <integer name="ErbiumElementGroup">30</integer>
+    <integer name="ThuliumElementGroup">31</integer>
+    <integer name="YtterbiumElementGroup">32</integer>
+    <integer name="LutetiumElementGroup">3</integer>
+    <integer name="HafniumElementGroup">4</integer>
+    <integer name="TantalumElementGroup">5</integer>
+    <integer name="TungstenElementGroup">6</integer>
+    <integer name="RheniumElementGroup">7</integer>
+    <integer name="OsmiumElementGroup">8</integer>
+    <integer name="IridiumElementGroup">9</integer>
+    <integer name="PlatinumElementGroup">10</integer>
+    <integer name="GoldElementGroup">11</integer>
+    <integer name="MercuryElementGroup">12</integer>
+    <integer name="ThalliumElementGroup">13</integer>
+    <integer name="LeadElementGroup">14</integer>
+    <integer name="BismuthElementGroup">15</integer>
+    <integer name="PoloniumElementGroup">16</integer>
+    <integer name="AstatineElementGroup">17</integer>
+    <integer name="RadonElementGroup">18</integer>
+    <integer name="FranciumElementGroup">1</integer>
+    <integer name="RadiumElementGroup">2</integer>
+    <integer name="ActiniumElementGroup">19</integer>
+    <integer name="ThoriumElementGroup">20</integer>
+    <integer name="ProtactiniumElementGroup">21</integer>
+    <integer name="UraniumElementGroup">22</integer>
+    <integer name="NeptuniumElementGroup">23</integer>
+    <integer name="PlutoniumElementGroup">24</integer>
+    <integer name="AmericiumElementGroup">25</integer>
+    <integer name="CuriumElementGroup">26</integer>
+    <integer name="BerkeliumElementGroup">27</integer>
+    <integer name="CaliforniumElementGroup">28</integer>
+    <integer name="EinsteiniumElementGroup">29</integer>
+    <integer name="FermiumElementGroup">30</integer>
+    <integer name="MendeleviumElementGroup">31</integer>
+    <integer name="NobeliumElementGroup">32</integer>
+    <integer name="LawrenciumElementGroup">3</integer>
+    <integer name="RutherfordiumElementGroup">4</integer>
+    <integer name="DubniumElementGroup">5</integer>
+    <integer name="SeaborgiumElementGroup">6</integer>
+    <integer name="BohriumElementGroup">7</integer>
+    <integer name="HassiumElementGroup">8</integer>
+    <integer name="MeitneriumElementGroup">9</integer>
+    <integer name="DarmstadtiumElementGroup">10</integer>
+    <integer name="RoentgeniumElementGroup">11</integer>
+    <integer name="CoperniciumElementGroup">12</integer>
+    <integer name="UnuntriumElementGroup">13</integer>
+    <integer name="UnunquadiumElementGroup">14</integer>
+    <integer name="UnunpentiumElementGroup">15</integer>
+    <integer name="UnunhexiumElementGroup">16</integer>
+    <integer name="UnunseptiumElementGroup">17</integer>
+    <integer name="UnunoctiumElementGroup">18</integer>
+    <integer-array name="elementGroupArray">
+        <item>@integer/HydrogenElementGroup</item>
+        <item>@integer/HeliumElementGroup</item>
+        <item>@integer/LithiumElementGroup</item>
+        <item>@integer/BerylliumElementGroup</item>
+        <item>@integer/BoronElementGroup</item>
+        <item>@integer/CarbonElementGroup</item>
+        <item>@integer/NitrogenElementGroup</item>
+        <item>@integer/OxygenElementGroup</item>
+        <item>@integer/FluorineElementGroup</item>
+        <item>@integer/NeonElementGroup</item>
+        <item>@integer/SodiumElementGroup</item>
+        <item>@integer/MagnesiumElementGroup</item>
+        <item>@integer/AluminiumElementGroup</item>
+        <item>@integer/SiliconElementGroup</item>
+        <item>@integer/PhosphorusElementGroup</item>
+        <item>@integer/SulfurElementGroup</item>
+        <item>@integer/ChlorineElementGroup</item>
+        <item>@integer/ArgonElementGroup</item>
+        <item>@integer/PotassiumElementGroup</item>
+        <item>@integer/CalciumElementGroup</item>
+        <item>@integer/ScandiumElementGroup</item>
+        <item>@integer/TitaniumElementGroup</item>
+        <item>@integer/VanadiumElementGroup</item>
+        <item>@integer/ChromiumElementGroup</item>
+        <item>@integer/ManganeseElementGroup</item>
+        <item>@integer/IronElementGroup</item>
+        <item>@integer/CobaltElementGroup</item>
+        <item>@integer/NickelElementGroup</item>
+        <item>@integer/CopperElementGroup</item>
+        <item>@integer/ZincElementGroup</item>
+        <item>@integer/GalliumElementGroup</item>
+        <item>@integer/GermaniumElementGroup</item>
+        <item>@integer/ArsenicElementGroup</item>
+        <item>@integer/SeleniumElementGroup</item>
+        <item>@integer/BromineElementGroup</item>
+        <item>@integer/KryptonElementGroup</item>
+        <item>@integer/RubidiumElementGroup</item>
+        <item>@integer/StrontiumElementGroup</item>
+        <item>@integer/YttriumElementGroup</item>
+        <item>@integer/ZirconiumElementGroup</item>
+        <item>@integer/NiobiumElementGroup</item>
+        <item>@integer/MolybdenumElementGroup</item>
+        <item>@integer/TechnetiumElementGroup</item>
+        <item>@integer/RutheniumElementGroup</item>
+        <item>@integer/RhodiumElementGroup</item>
+        <item>@integer/PalladiumElementGroup</item>
+        <item>@integer/SilverElementGroup</item>
+        <item>@integer/CadmiumElementGroup</item>
+        <item>@integer/IndiumElementGroup</item>
+        <item>@integer/TinElementGroup</item>
+        <item>@integer/AntimonyElementGroup</item>
+        <item>@integer/TelluriumElementGroup</item>
+        <item>@integer/IodineElementGroup</item>
+        <item>@integer/XenonElementGroup</item>
+        <item>@integer/CaesiumElementGroup</item>
+        <item>@integer/BariumElementGroup</item>
+        <item>@integer/LanthanumElementGroup</item>
+        <item>@integer/CeriumElementGroup</item>
+        <item>@integer/PraseodymiumElementGroup</item>
+        <item>@integer/NeodymiumElementGroup</item>
+        <item>@integer/PromethiumElementGroup</item>
+        <item>@integer/SamariumElementGroup</item>
+        <item>@integer/EuropiumElementGroup</item>
+        <item>@integer/GadoliniumElementGroup</item>
+        <item>@integer/TerbiumElementGroup</item>
+        <item>@integer/DysprosiumElementGroup</item>
+        <item>@integer/HolmiumElementGroup</item>
+        <item>@integer/ErbiumElementGroup</item>
+        <item>@integer/ThuliumElementGroup</item>
+        <item>@integer/YtterbiumElementGroup</item>
+        <item>@integer/LutetiumElementGroup</item>
+        <item>@integer/HafniumElementGroup</item>
+        <item>@integer/TantalumElementGroup</item>
+        <item>@integer/TungstenElementGroup</item>
+        <item>@integer/RheniumElementGroup</item>
+        <item>@integer/OsmiumElementGroup</item>
+        <item>@integer/IridiumElementGroup</item>
+        <item>@integer/PlatinumElementGroup</item>
+        <item>@integer/GoldElementGroup</item>
+        <item>@integer/MercuryElementGroup</item>
+        <item>@integer/ThalliumElementGroup</item>
+        <item>@integer/LeadElementGroup</item>
+        <item>@integer/BismuthElementGroup</item>
+        <item>@integer/PoloniumElementGroup</item>
+        <item>@integer/AstatineElementGroup</item>
+        <item>@integer/RadonElementGroup</item>
+        <item>@integer/FranciumElementGroup</item>
+        <item>@integer/RadiumElementGroup</item>
+        <item>@integer/ActiniumElementGroup</item>
+        <item>@integer/ThoriumElementGroup</item>
+        <item>@integer/ProtactiniumElementGroup</item>
+        <item>@integer/UraniumElementGroup</item>
+        <item>@integer/NeptuniumElementGroup</item>
+        <item>@integer/PlutoniumElementGroup</item>
+        <item>@integer/AmericiumElementGroup</item>
+        <item>@integer/CuriumElementGroup</item>
+        <item>@integer/BerkeliumElementGroup</item>
+        <item>@integer/CaliforniumElementGroup</item>
+        <item>@integer/EinsteiniumElementGroup</item>
+        <item>@integer/FermiumElementGroup</item>
+        <item>@integer/MendeleviumElementGroup</item>
+        <item>@integer/NobeliumElementGroup</item>
+        <item>@integer/LawrenciumElementGroup</item>
+        <item>@integer/RutherfordiumElementGroup</item>
+        <item>@integer/DubniumElementGroup</item>
+        <item>@integer/SeaborgiumElementGroup</item>
+        <item>@integer/BohriumElementGroup</item>
+        <item>@integer/HassiumElementGroup</item>
+        <item>@integer/MeitneriumElementGroup</item>
+        <item>@integer/DarmstadtiumElementGroup</item>
+        <item>@integer/RoentgeniumElementGroup</item>
+        <item>@integer/CoperniciumElementGroup</item>
+        <item>@integer/UnuntriumElementGroup</item>
+        <item>@integer/UnunquadiumElementGroup</item>
+        <item>@integer/UnunpentiumElementGroup</item>
+        <item>@integer/UnunhexiumElementGroup</item>
+        <item>@integer/UnunseptiumElementGroup</item>
+        <item>@integer/UnunoctiumElementGroup</item>
+    </integer-array>
+    <integer name="HydrogenElementPeriod">1</integer>
+    <integer name="HeliumElementPeriod">1</integer>
+    <integer name="LithiumElementPeriod">2</integer>
+    <integer name="BerylliumElementPeriod">2</integer>
+    <integer name="BoronElementPeriod">2</integer>
+    <integer name="CarbonElementPeriod">2</integer>
+    <integer name="NitrogenElementPeriod">2</integer>
+    <integer name="OxygenElementPeriod">2</integer>
+    <integer name="FluorineElementPeriod">2</integer>
+    <integer name="NeonElementPeriod">2</integer>
+    <integer name="SodiumElementPeriod">3</integer>
+    <integer name="MagnesiumElementPeriod">3</integer>
+    <integer name="AluminiumElementPeriod">3</integer>
+    <integer name="SiliconElementPeriod">3</integer>
+    <integer name="PhosphorusElementPeriod">3</integer>
+    <integer name="SulfurElementPeriod">3</integer>
+    <integer name="ChlorineElementPeriod">3</integer>
+    <integer name="ArgonElementPeriod">3</integer>
+    <integer name="PotassiumElementPeriod">4</integer>
+    <integer name="CalciumElementPeriod">4</integer>
+    <integer name="ScandiumElementPeriod">4</integer>
+    <integer name="TitaniumElementPeriod">4</integer>
+    <integer name="VanadiumElementPeriod">4</integer>
+    <integer name="ChromiumElementPeriod">4</integer>
+    <integer name="ManganeseElementPeriod">4</integer>
+    <integer name="IronElementPeriod">4</integer>
+    <integer name="CobaltElementPeriod">4</integer>
+    <integer name="NickelElementPeriod">4</integer>
+    <integer name="CopperElementPeriod">4</integer>
+    <integer name="ZincElementPeriod">4</integer>
+    <integer name="GalliumElementPeriod">4</integer>
+    <integer name="GermaniumElementPeriod">4</integer>
+    <integer name="ArsenicElementPeriod">4</integer>
+    <integer name="SeleniumElementPeriod">4</integer>
+    <integer name="BromineElementPeriod">4</integer>
+    <integer name="KryptonElementPeriod">4</integer>
+    <integer name="RubidiumElementPeriod">5</integer>
+    <integer name="StrontiumElementPeriod">5</integer>
+    <integer name="YttriumElementPeriod">5</integer>
+    <integer name="ZirconiumElementPeriod">5</integer>
+    <integer name="NiobiumElementPeriod">5</integer>
+    <integer name="MolybdenumElementPeriod">5</integer>
+    <integer name="TechnetiumElementPeriod">5</integer>
+    <integer name="RutheniumElementPeriod">5</integer>
+    <integer name="RhodiumElementPeriod">5</integer>
+    <integer name="PalladiumElementPeriod">5</integer>
+    <integer name="SilverElementPeriod">5</integer>
+    <integer name="CadmiumElementPeriod">5</integer>
+    <integer name="IndiumElementPeriod">5</integer>
+    <integer name="TinElementPeriod">5</integer>
+    <integer name="AntimonyElementPeriod">5</integer>
+    <integer name="TelluriumElementPeriod">5</integer>
+    <integer name="IodineElementPeriod">5</integer>
+    <integer name="XenonElementPeriod">5</integer>
+    <integer name="CaesiumElementPeriod">6</integer>
+    <integer name="BariumElementPeriod">6</integer>
+    <integer name="LanthanumElementPeriod">8</integer>
+    <integer name="CeriumElementPeriod">8</integer>
+    <integer name="PraseodymiumElementPeriod">8</integer>
+    <integer name="NeodymiumElementPeriod">8</integer>
+    <integer name="PromethiumElementPeriod">8</integer>
+    <integer name="SamariumElementPeriod">8</integer>
+    <integer name="EuropiumElementPeriod">8</integer>
+    <integer name="GadoliniumElementPeriod">8</integer>
+    <integer name="TerbiumElementPeriod">8</integer>
+    <integer name="DysprosiumElementPeriod">8</integer>
+    <integer name="HolmiumElementPeriod">8</integer>
+    <integer name="ErbiumElementPeriod">8</integer>
+    <integer name="ThuliumElementPeriod">8</integer>
+    <integer name="YtterbiumElementPeriod">8</integer>
+    <integer name="LutetiumElementPeriod">6</integer>
+    <integer name="HafniumElementPeriod">6</integer>
+    <integer name="TantalumElementPeriod">6</integer>
+    <integer name="TungstenElementPeriod">6</integer>
+    <integer name="RheniumElementPeriod">6</integer>
+    <integer name="OsmiumElementPeriod">6</integer>
+    <integer name="IridiumElementPeriod">6</integer>
+    <integer name="PlatinumElementPeriod">6</integer>
+    <integer name="GoldElementPeriod">6</integer>
+    <integer name="MercuryElementPeriod">6</integer>
+    <integer name="ThalliumElementPeriod">6</integer>
+    <integer name="LeadElementPeriod">6</integer>
+    <integer name="BismuthElementPeriod">6</integer>
+    <integer name="PoloniumElementPeriod">6</integer>
+    <integer name="AstatineElementPeriod">6</integer>
+    <integer name="RadonElementPeriod">6</integer>
+    <integer name="FranciumElementPeriod">7</integer>
+    <integer name="RadiumElementPeriod">7</integer>
+    <integer name="ActiniumElementPeriod">9</integer>
+    <integer name="ThoriumElementPeriod">9</integer>
+    <integer name="ProtactiniumElementPeriod">9</integer>
+    <integer name="UraniumElementPeriod">9</integer>
+    <integer name="NeptuniumElementPeriod">9</integer>
+    <integer name="PlutoniumElementPeriod">9</integer>
+    <integer name="AmericiumElementPeriod">9</integer>
+    <integer name="CuriumElementPeriod">9</integer>
+    <integer name="BerkeliumElementPeriod">9</integer>
+    <integer name="CaliforniumElementPeriod">9</integer>
+    <integer name="EinsteiniumElementPeriod">9</integer>
+    <integer name="FermiumElementPeriod">9</integer>
+    <integer name="MendeleviumElementPeriod">9</integer>
+    <integer name="NobeliumElementPeriod">9</integer>
+    <integer name="LawrenciumElementPeriod">7</integer>
+    <integer name="RutherfordiumElementPeriod">7</integer>
+    <integer name="DubniumElementPeriod">7</integer>
+    <integer name="SeaborgiumElementPeriod">7</integer>
+    <integer name="BohriumElementPeriod">7</integer>
+    <integer name="HassiumElementPeriod">7</integer>
+    <integer name="MeitneriumElementPeriod">7</integer>
+    <integer name="DarmstadtiumElementPeriod">7</integer>
+    <integer name="RoentgeniumElementPeriod">7</integer>
+    <integer name="CoperniciumElementPeriod">7</integer>
+    <integer name="UnuntriumElementPeriod">7</integer>
+    <integer name="UnunquadiumElementPeriod">7</integer>
+    <integer name="UnunpentiumElementPeriod">7</integer>
+    <integer name="UnunhexiumElementPeriod">7</integer>
+    <integer name="UnunseptiumElementPeriod">7</integer>
+    <integer name="UnunoctiumElementPeriod">7</integer>
+    <integer-array name="elementPeriodArray">
+        <item>@integer/HydrogenElementPeriod</item>
+        <item>@integer/HeliumElementPeriod</item>
+        <item>@integer/LithiumElementPeriod</item>
+        <item>@integer/BerylliumElementPeriod</item>
+        <item>@integer/BoronElementPeriod</item>
+        <item>@integer/CarbonElementPeriod</item>
+        <item>@integer/NitrogenElementPeriod</item>
+        <item>@integer/OxygenElementPeriod</item>
+        <item>@integer/FluorineElementPeriod</item>
+        <item>@integer/NeonElementPeriod</item>
+        <item>@integer/SodiumElementPeriod</item>
+        <item>@integer/MagnesiumElementPeriod</item>
+        <item>@integer/AluminiumElementPeriod</item>
+        <item>@integer/SiliconElementPeriod</item>
+        <item>@integer/PhosphorusElementPeriod</item>
+        <item>@integer/SulfurElementPeriod</item>
+        <item>@integer/ChlorineElementPeriod</item>
+        <item>@integer/ArgonElementPeriod</item>
+        <item>@integer/PotassiumElementPeriod</item>
+        <item>@integer/CalciumElementPeriod</item>
+        <item>@integer/ScandiumElementPeriod</item>
+        <item>@integer/TitaniumElementPeriod</item>
+        <item>@integer/VanadiumElementPeriod</item>
+        <item>@integer/ChromiumElementPeriod</item>
+        <item>@integer/ManganeseElementPeriod</item>
+        <item>@integer/IronElementPeriod</item>
+        <item>@integer/CobaltElementPeriod</item>
+        <item>@integer/NickelElementPeriod</item>
+        <item>@integer/CopperElementPeriod</item>
+        <item>@integer/ZincElementPeriod</item>
+        <item>@integer/GalliumElementPeriod</item>
+        <item>@integer/GermaniumElementPeriod</item>
+        <item>@integer/ArsenicElementPeriod</item>
+        <item>@integer/SeleniumElementPeriod</item>
+        <item>@integer/BromineElementPeriod</item>
+        <item>@integer/KryptonElementPeriod</item>
+        <item>@integer/RubidiumElementPeriod</item>
+        <item>@integer/StrontiumElementPeriod</item>
+        <item>@integer/YttriumElementPeriod</item>
+        <item>@integer/ZirconiumElementPeriod</item>
+        <item>@integer/NiobiumElementPeriod</item>
+        <item>@integer/MolybdenumElementPeriod</item>
+        <item>@integer/TechnetiumElementPeriod</item>
+        <item>@integer/RutheniumElementPeriod</item>
+        <item>@integer/RhodiumElementPeriod</item>
+        <item>@integer/PalladiumElementPeriod</item>
+        <item>@integer/SilverElementPeriod</item>
+        <item>@integer/CadmiumElementPeriod</item>
+        <item>@integer/IndiumElementPeriod</item>
+        <item>@integer/TinElementPeriod</item>
+        <item>@integer/AntimonyElementPeriod</item>
+        <item>@integer/TelluriumElementPeriod</item>
+        <item>@integer/IodineElementPeriod</item>
+        <item>@integer/XenonElementPeriod</item>
+        <item>@integer/CaesiumElementPeriod</item>
+        <item>@integer/BariumElementPeriod</item>
+        <item>@integer/LanthanumElementPeriod</item>
+        <item>@integer/CeriumElementPeriod</item>
+        <item>@integer/PraseodymiumElementPeriod</item>
+        <item>@integer/NeodymiumElementPeriod</item>
+        <item>@integer/PromethiumElementPeriod</item>
+        <item>@integer/SamariumElementPeriod</item>
+        <item>@integer/EuropiumElementPeriod</item>
+        <item>@integer/GadoliniumElementPeriod</item>
+        <item>@integer/TerbiumElementPeriod</item>
+        <item>@integer/DysprosiumElementPeriod</item>
+        <item>@integer/HolmiumElementPeriod</item>
+        <item>@integer/ErbiumElementPeriod</item>
+        <item>@integer/ThuliumElementPeriod</item>
+        <item>@integer/YtterbiumElementPeriod</item>
+        <item>@integer/LutetiumElementPeriod</item>
+        <item>@integer/HafniumElementPeriod</item>
+        <item>@integer/TantalumElementPeriod</item>
+        <item>@integer/TungstenElementPeriod</item>
+        <item>@integer/RheniumElementPeriod</item>
+        <item>@integer/OsmiumElementPeriod</item>
+        <item>@integer/IridiumElementPeriod</item>
+        <item>@integer/PlatinumElementPeriod</item>
+        <item>@integer/GoldElementPeriod</item>
+        <item>@integer/MercuryElementPeriod</item>
+        <item>@integer/ThalliumElementPeriod</item>
+        <item>@integer/LeadElementPeriod</item>
+        <item>@integer/BismuthElementPeriod</item>
+        <item>@integer/PoloniumElementPeriod</item>
+        <item>@integer/AstatineElementPeriod</item>
+        <item>@integer/RadonElementPeriod</item>
+        <item>@integer/FranciumElementPeriod</item>
+        <item>@integer/RadiumElementPeriod</item>
+        <item>@integer/ActiniumElementPeriod</item>
+        <item>@integer/ThoriumElementPeriod</item>
+        <item>@integer/ProtactiniumElementPeriod</item>
+        <item>@integer/UraniumElementPeriod</item>
+        <item>@integer/NeptuniumElementPeriod</item>
+        <item>@integer/PlutoniumElementPeriod</item>
+        <item>@integer/AmericiumElementPeriod</item>
+        <item>@integer/CuriumElementPeriod</item>
+        <item>@integer/BerkeliumElementPeriod</item>
+        <item>@integer/CaliforniumElementPeriod</item>
+        <item>@integer/EinsteiniumElementPeriod</item>
+        <item>@integer/FermiumElementPeriod</item>
+        <item>@integer/MendeleviumElementPeriod</item>
+        <item>@integer/NobeliumElementPeriod</item>
+        <item>@integer/LawrenciumElementPeriod</item>
+        <item>@integer/RutherfordiumElementPeriod</item>
+        <item>@integer/DubniumElementPeriod</item>
+        <item>@integer/SeaborgiumElementPeriod</item>
+        <item>@integer/BohriumElementPeriod</item>
+        <item>@integer/HassiumElementPeriod</item>
+        <item>@integer/MeitneriumElementPeriod</item>
+        <item>@integer/DarmstadtiumElementPeriod</item>
+        <item>@integer/RoentgeniumElementPeriod</item>
+        <item>@integer/CoperniciumElementPeriod</item>
+        <item>@integer/UnuntriumElementPeriod</item>
+        <item>@integer/UnunquadiumElementPeriod</item>
+        <item>@integer/UnunpentiumElementPeriod</item>
+        <item>@integer/UnunhexiumElementPeriod</item>
+        <item>@integer/UnunseptiumElementPeriod</item>
+        <item>@integer/UnunoctiumElementPeriod</item>
+    </integer-array>
+    <array name="elementViewArray">
+        <item>@id/elvHydrogen</item>
+        <item>@id/elvHelium</item>
+        <item>@id/elvLithium</item>
+        <item>@id/elvBeryllium</item>
+        <item>@id/elvBoron</item>
+        <item>@id/elvCarbon</item>
+        <item>@id/elvNitrogen</item>
+        <item>@id/elvOxygen</item>
+        <item>@id/elvFluorine</item>
+        <item>@id/elvNeon</item>
+        <item>@id/elvSodium</item>
+        <item>@id/elvMagnesium</item>
+        <item>@id/elvAluminium</item>
+        <item>@id/elvSilicon</item>
+        <item>@id/elvPhosphorus</item>
+        <item>@id/elvSulfur</item>
+        <item>@id/elvChlorine</item>
+        <item>@id/elvArgon</item>
+        <item>@id/elvPotassium</item>
+        <item>@id/elvCalcium</item>
+        <item>@id/elvScandium</item>
+        <item>@id/elvTitanium</item>
+        <item>@id/elvVanadium</item>
+        <item>@id/elvChromium</item>
+        <item>@id/elvManganese</item>
+        <item>@id/elvIron</item>
+        <item>@id/elvCobalt</item>
+        <item>@id/elvNickel</item>
+        <item>@id/elvCopper</item>
+        <item>@id/elvZinc</item>
+        <item>@id/elvGallium</item>
+        <item>@id/elvGermanium</item>
+        <item>@id/elvArsenic</item>
+        <item>@id/elvSelenium</item>
+        <item>@id/elvBromine</item>
+        <item>@id/elvKrypton</item>
+        <item>@id/elvRubidium</item>
+        <item>@id/elvStrontium</item>
+        <item>@id/elvYttrium</item>
+        <item>@id/elvZirconium</item>
+        <item>@id/elvNiobium</item>
+        <item>@id/elvMolybdenum</item>
+        <item>@id/elvTechnetium</item>
+        <item>@id/elvRuthenium</item>
+        <item>@id/elvRhodium</item>
+        <item>@id/elvPalladium</item>
+        <item>@id/elvSilver</item>
+        <item>@id/elvCadmium</item>
+        <item>@id/elvIndium</item>
+        <item>@id/elvTin</item>
+        <item>@id/elvAntimony</item>
+        <item>@id/elvTellurium</item>
+        <item>@id/elvIodine</item>
+        <item>@id/elvXenon</item>
+        <item>@id/elvCaesium</item>
+        <item>@id/elvBarium</item>
+        <item>@id/elvLanthanum</item>
+        <item>@id/elvCerium</item>
+        <item>@id/elvPraseodymium</item>
+        <item>@id/elvNeodymium</item>
+        <item>@id/elvPromethium</item>
+        <item>@id/elvSamarium</item>
+        <item>@id/elvEuropium</item>
+        <item>@id/elvGadolinium</item>
+        <item>@id/elvTerbium</item>
+        <item>@id/elvDysprosium</item>
+        <item>@id/elvHolmium</item>
+        <item>@id/elvErbium</item>
+        <item>@id/elvThulium</item>
+        <item>@id/elvYtterbium</item>
+        <item>@id/elvLutetium</item>
+        <item>@id/elvHafnium</item>
+        <item>@id/elvTantalum</item>
+        <item>@id/elvTungsten</item>
+        <item>@id/elvRhenium</item>
+        <item>@id/elvOsmium</item>
+        <item>@id/elvIridium</item>
+        <item>@id/elvPlatinum</item>
+        <item>@id/elvGold</item>
+        <item>@id/elvMercury</item>
+        <item>@id/elvThallium</item>
+        <item>@id/elvLead</item>
+        <item>@id/elvBismuth</item>
+        <item>@id/elvPolonium</item>
+        <item>@id/elvAstatine</item>
+        <item>@id/elvRadon</item>
+        <item>@id/elvFrancium</item>
+        <item>@id/elvRadium</item>
+        <item>@id/elvActinium</item>
+        <item>@id/elvThorium</item>
+        <item>@id/elvProtactinium</item>
+        <item>@id/elvUranium</item>
+        <item>@id/elvNeptunium</item>
+        <item>@id/elvPlutonium</item>
+        <item>@id/elvAmericium</item>
+        <item>@id/elvCurium</item>
+        <item>@id/elvBerkelium</item>
+        <item>@id/elvCalifornium</item>
+        <item>@id/elvEinsteinium</item>
+        <item>@id/elvFermium</item>
+        <item>@id/elvMendelevium</item>
+        <item>@id/elvNobelium</item>
+        <item>@id/elvLawrencium</item>
+        <item>@id/elvRutherfordium</item>
+        <item>@id/elvDubnium</item>
+        <item>@id/elvSeaborgium</item>
+        <item>@id/elvBohrium</item>
+        <item>@id/elvHassium</item>
+        <item>@id/elvMeitnerium</item>
+        <item>@id/elvDarmstadtium</item>
+        <item>@id/elvRoentgenium</item>
+        <item>@id/elvCopernicium</item>
+        <item>@id/elvUnuntrium</item>
+        <item>@id/elvUnunquadium</item>
+        <item>@id/elvUnunpentium</item>
+        <item>@id/elvUnunhexium</item>
+        <item>@id/elvUnunseptium</item>
+        <item>@id/elvUnunoctium</item>
+    </array>
 </resources>
