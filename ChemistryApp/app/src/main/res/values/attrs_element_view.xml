@@ -2,5 +2,7 @@
     <declare-styleable name="ElementView">
         <attr name="elementNumber" format="integer" />
         <attr name="symbolSize" format="dimension" />
+        <attr name="elementColor" format="color" />
+        <attr name="backgroundColor" format="color|reference" />
     </declare-styleable>
 </resources>

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.text.TextPaint;
 import android.util.AttributeSet;
@@ -32,6 +31,7 @@ public class ElementView extends View {
     private TextPaint weightTextPaint;
     private float weightTextPaintWidth;
     private float weightTextPaintHeight;
+    private PeriodicTable pTable;
 
     public ElementView(Context context) {
         super(context);
@@ -53,117 +53,27 @@ public class ElementView extends View {
         final TypedArray a = getContext().obtainStyledAttributes(
                 attrs, R.styleable.ElementView, defStyle, 0);
 
+        pTable = PeriodicTable.getPeriodicTable();
+
         elementNumber = a.getInt(
                 R.styleable.ElementView_elementNumber,
                 elementNumber);
+        elementSymbol = pTable.getElement(elementNumber).getSymbol();
+        elementWeight = pTable.getElement(elementNumber).getAtomicWeight();
+        elementColor = a.getColor(
+                R.styleable.ElementView_elementColor,
+                elementColor);
         symbolSize = a.getDimension(
                 R.styleable.ElementView_symbolSize,
                 symbolSize);
-        getPeriodicTableValues();
 
-        a.recycle();
-    }
-
-    private void getPeriodicTableValues(){
-        PeriodicTable pTable = PeriodicTable.getPeriodicTable();
-
-        elementSymbol = pTable.getElement(elementNumber).getSymbol();
-        elementWeight = pTable.getElement(elementNumber).getAtomicWeight();
-
-        int solidElementColor = 0x000000;
-        int liquidElementColor = 0x00117c;
-        int gasElementColor = 0xd2d8ff;
-        int transMetalElementColor = 0x3345ba;
-        int halogenElementColor = 0x9fabfa;
-        int nobleGasElementColor = 0x7620ff;
-        int postTransMetalElementColor = 0x5967c4;
-        int alkaliMetalElementColor = 0x59b9c4;
-        int alkEarthMetalElementColor = 0x59a2c4;
-        int lanthanoidElementColor = 0x8959c4;
-        int actinoidElementColor = 0xc4599b;
-        int metalloidElementColor = 0x0f9173;
-        int nonmetalElementColor = 0x61c987;
-        int unknownStateElementColor = 0x838383;
-
-        int elementGroup = pTable.getElement(elementNumber).getGroup();
-        int elementPeriod = pTable.getElement(elementNumber).getPeriod();
-
-        if(elementPeriod == 1 || (elementGroup == 18 && elementPeriod != 7) || (elementPeriod == 2 && elementGroup > 14) || elementNumber == 17)
-            elementColor = gasElementColor;
-        else if (elementNumber == 35 || elementNumber == 80)
-            elementColor = liquidElementColor;
-        else if (elementPeriod == 7 && elementGroup > 3 && elementGroup < 19)
-            elementColor = unknownStateElementColor;
-        else
-            elementColor = solidElementColor;
-
-        switch(elementGroup){
-            case 1:
-                if(elementPeriod != 1){
-                    backgroundColor = new ColorDrawable(alkaliMetalElementColor); break;
-                }
-                else{
-                    backgroundColor = new ColorDrawable(nonmetalElementColor); break;
-                }
-            case 2: backgroundColor = new ColorDrawable(alkEarthMetalElementColor); break;
-            case 3:
-            case 4:
-            case 5:
-            case 6:
-            case 7:
-            case 8:
-            case 9:
-            case 10:
-            case 11:
-            case 12: backgroundColor = new ColorDrawable(transMetalElementColor); break;
-            case 13:
-                if(elementPeriod != 2){
-                    backgroundColor = new ColorDrawable(postTransMetalElementColor); break;
-                }
-                else{
-                    backgroundColor = new ColorDrawable(metalloidElementColor); break;
-                }
-            case 14:
-                if(elementPeriod == 2){
-                    backgroundColor = new ColorDrawable(nonmetalElementColor); break;
-                }
-                else if(elementPeriod < 5){
-                    backgroundColor = new ColorDrawable(metalloidElementColor); break;
-                }
-                else{
-                    backgroundColor = new ColorDrawable(postTransMetalElementColor); break;
-                }
-            case 15:
-                if(elementPeriod < 4){
-                    backgroundColor = new ColorDrawable(nonmetalElementColor); break;
-                }
-                else if(elementPeriod < 6){
-                    backgroundColor = new ColorDrawable(postTransMetalElementColor); break;
-                }
-                else{
-                    backgroundColor = new ColorDrawable(metalloidElementColor); break;
-                }
-            case 16:
-                if(elementPeriod < 5){
-                    backgroundColor = new ColorDrawable(nonmetalElementColor); break;
-                }
-                else if(elementPeriod < 7){
-                    backgroundColor = new ColorDrawable(postTransMetalElementColor); break;
-                }
-                else{
-                    backgroundColor = new ColorDrawable(metalloidElementColor); break;
-                }
-            case 17: backgroundColor = new ColorDrawable(halogenElementColor); break;
-            case 18: backgroundColor = new ColorDrawable(nobleGasElementColor); break;
-            default:
-                if(elementPeriod == 8){
-                    backgroundColor = new ColorDrawable(lanthanoidElementColor); break;
-                }
-                else
-                    backgroundColor = new ColorDrawable(actinoidElementColor);
+        if (a.hasValue(R.styleable.ElementView_backgroundColor)) {
+             backgroundColor = a.getDrawable(
+                     R.styleable.ElementView_backgroundColor);
+             backgroundColor.setCallback(this);
         }
 
-        backgroundColor.setCallback(this);
+        a.recycle();
 
         // Set up a default TextPaint object
         symbolTextPaint = new TextPaint();
@@ -217,11 +127,12 @@ public class ElementView extends View {
         int contentWidth = getWidth() - paddingLeft - paddingRight;
         int contentHeight = getHeight() - paddingTop - paddingBottom;
 
-        // if (backgroundColor != null) {
-        //     backgroundColor.setBounds(paddingLeft, paddingTop,
-        //             paddingLeft + contentWidth, paddingTop + contentHeight);
-        //     backgroundColor.draw(canvas);
-        // }
+        // Draw the example drawable on top of the text.
+        if (backgroundColor != null) {
+            backgroundColor.setBounds(paddingLeft, paddingTop,
+                    paddingLeft + contentWidth, paddingTop + contentHeight);
+            backgroundColor.draw(canvas);
+        }
         // Draw the text.
         canvas.drawText(elementSymbol,
                 paddingLeft + (contentWidth - symbolTextPaintWidth) / 2,
@@ -241,18 +152,5 @@ public class ElementView extends View {
 
     public int getElementNumber(){
         return elementNumber;
-    }
-
-    public void setElementNumber(int atomicNumber){
-        elementNumber = atomicNumber;
-        getPeriodicTableValues();
-    }
-
-    public float getSymbolSize() {
-        return symbolSize;
-    }
-
-    public void setSymbolSize(float symbolSize) {
-        this.symbolSize = symbolSize;
     }
 }

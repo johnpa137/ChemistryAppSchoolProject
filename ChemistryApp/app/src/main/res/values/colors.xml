@@ -3,7 +3,6 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <!--
     <color name="solidElementColor">#000000</color>
     <color name="liquidElementColor">#00117c</color>
     <color name="gasElementColor">#d2d8ff</color>
@@ -18,5 +17,4 @@
     <color name="metalloidElementColor">#0f9173</color>
     <color name="nonmetalElementColor">#61c987</color>
     <color name="unknownStateElementColor">#838383</color>
-    -->
 </resources>
