@@ -148,4 +148,15 @@ public class Element {
     public String getElectronConfig() {
         return electronConfig;
     }
+
+    public static Element getTestElement() {
+        String name = "Iridium";
+        String symbol = "Ir";
+        int atomicNumber = 77;
+        float atomicWeight = 192.217f;
+        int group = 9;
+        int period = 6;
+
+        return new Element(name, symbol, atomicNumber, atomicWeight, group, period);
+    }
 }

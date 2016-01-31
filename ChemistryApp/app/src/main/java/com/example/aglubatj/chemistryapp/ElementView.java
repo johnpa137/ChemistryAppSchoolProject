@@ -3,12 +3,10 @@ package com.example.aglubatj.chemistryapp;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.text.TextPaint;
 import android.util.AttributeSet;
-import android.view.MotionEvent;
 import android.view.View;
 
 /**
@@ -33,6 +31,7 @@ public class ElementView extends View {
     private TextPaint weightTextPaint;
     private float weightTextPaintWidth;
     private float weightTextPaintHeight;
+    private PeriodicTable pTable;
 
     public ElementView(Context context) {
         super(context);
@@ -54,14 +53,13 @@ public class ElementView extends View {
         final TypedArray a = getContext().obtainStyledAttributes(
                 attrs, R.styleable.ElementView, defStyle, 0);
 
-        elementSymbol = a.getString(
-                R.styleable.ElementView_elementSymbol);
+        pTable = PeriodicTable.getPeriodicTable();
+
         elementNumber = a.getInt(
                 R.styleable.ElementView_elementNumber,
                 elementNumber);
-        elementWeight = a.getFloat(
-                R.styleable.ElementView_elementWeight,
-                elementWeight);
+        elementSymbol = pTable.getElement(elementNumber).getSymbol();
+        elementWeight = pTable.getElement(elementNumber).getAtomicWeight();
         elementColor = a.getColor(
                 R.styleable.ElementView_elementColor,
                 elementColor);

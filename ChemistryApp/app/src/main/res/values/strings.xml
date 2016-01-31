@@ -28,7 +28,7 @@
     <string name="btnEquationBalancerStr">Equation Balancer</string>
     <string name="btnCancelStr">Cancel</string>
 
-
+<!--
     <string name="HydrogenElementSymbol">H</string>
     <string name="HeliumElementSymbol">He</string>
     <string name="LithiumElementSymbol">Li</string>
@@ -505,4 +505,5 @@
         <item>@string/UnunseptiumElementNameStr</item>
         <item>@string/UnunoctiumElementNameStr</item>
     </string-array>
+    -->
 </resources>

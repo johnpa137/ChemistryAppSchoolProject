@@ -1,8 +1,6 @@
 <resources>
     <declare-styleable name="ElementView">
-        <attr name="elementSymbol" format="string" />
         <attr name="elementNumber" format="integer" />
-        <attr name="elementWeight" format="float" />
         <attr name="symbolSize" format="dimension" />
         <attr name="elementColor" format="color" />
         <attr name="backgroundColor" format="color|reference" />

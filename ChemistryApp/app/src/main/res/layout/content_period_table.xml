@@ -13,6 +13,26 @@
     tools:context=".PeriodicTableActivity"
     tools:showIn="@layout/activity_period_table">
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnMainMenuStr"
+        android:id="@+id/btnMainMenu"
+        android:onClick="onClickMainMenu"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ZoomControls
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/zoomControls"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/btnMainMenu" />
+
+    <!--
     <com.example.aglubatj.chemistryapp.ElementView android:layout_width="19dp" android:layout_height="22dp" android:id="@+id/elvHydrogen" app:symbolSize="8dp" app:elementNumber="1" app:elementSymbol="H" app:elementWeight="1.0079" app:elementColor="@color/gasElementColor" app:backgroundColor="@color/nonmetalElementColor"
         android:layout_alignTop="@+id/elvHelium"
         android:layout_toLeftOf="@+id/elvBeryllium"
@@ -485,14 +505,5 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="197dp" android:onClick="onClickElementView" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btnMainMenuStr"
-        android:id="@+id/btnMainMenu"
-        android:layout_marginTop="94dp"
-        android:layout_below="@+id/elvUranium"
-        android:layout_centerHorizontal="true"
-        android:onClick="onClickMainMenu" />
+    -->
 </RelativeLayout>

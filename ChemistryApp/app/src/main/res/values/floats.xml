@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--
     <item name="HydrogenElementWeight" format="string" type="string">1.0079</item>
     <item name="HeliumElementWeight" format="string" type="string">4.0026</item>
     <item name="LithiumElementWeight" format="string" type="string">6.941</item>
@@ -238,4 +239,5 @@
         <item>@string/UnunseptiumElementWeight</item>
         <item>@string/UnunoctiumElementWeight</item>
     </array>
+    -->
 </resources>

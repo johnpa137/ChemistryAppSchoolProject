@@ -15,14 +15,6 @@ import android.widget.Toast;
 
 public class ElementDetailsActivity extends AppCompatActivity {
 
-    private Element element;
-    private String name;
-    private String symbol;
-    private int atomicNumber;
-    private float atomicWeight;
-    private int group;
-    private int period;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,15 +22,17 @@ public class ElementDetailsActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        PeriodicTable periodicTable = PeriodicTable.getPeriodicTable();
+
         Intent intent = getIntent();
         intent.getExtras();
-        name = intent.getStringExtra("name");
-        symbol = intent.getStringExtra("symbol");
-        atomicNumber = intent.getIntExtra("atomicNumber", -1);
-        atomicWeight = intent.getFloatExtra("atomicWeight", -1);
-        group = intent.getIntExtra("group", -1);
-        period = intent.getIntExtra("period", -1);
-        element = new Element(name, symbol, atomicNumber, atomicWeight, group, period);
+        int atomicNumber = intent.getIntExtra("atomicNumber", -1);
+        String name = periodicTable.getElement(atomicNumber).getName();
+        String symbol = periodicTable.getElement(atomicNumber).getSymbol();
+        float atomicWeight = periodicTable.getElement(atomicNumber).getAtomicWeight();
+        int group = periodicTable.getElement(atomicNumber).getGroup();
+        int period = periodicTable.getElement(atomicNumber).getPeriod();
+        Element element = new Element(name, symbol, atomicNumber, atomicWeight, group, period);
 
         TextView lblNameValue = (TextView) findViewById(R.id.lblNameValue);
         lblNameValue.setText(element.getName());

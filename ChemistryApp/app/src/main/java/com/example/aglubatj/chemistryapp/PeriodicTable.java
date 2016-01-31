@@ -1,34 +1,48 @@
 package com.example.aglubatj.chemistryapp;
 
 import android.content.Context;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
  * Created by John on 1/23/2016.
  */
 public class PeriodicTable {
-    private Context mContext;
-    public HashMap<Integer, Element> Elements;
-    private final int NUMBER_OF_ELEMENTS = 118;
+    // private Context mContext
+    private static PeriodicTable pTable;
+    private static ArrayList<Element> Elements;
+    private static final int NUMBER_OF_ELEMENTS = 118;
 
-    public PeriodicTable(Context context){
-        mContext = context;
+    private PeriodicTable() { //Context context){
+        // mContext = context;
         generateElements();
     }
 
-    public void generateElements(){
+    private void generateElements(){
         // String elementNames[] = mContext.getResources().getStringArray(R.array.elementNamesArray);
         // String elementSymbols[] = mContext.getResources().getStringArray(R.array.elementSymbolsArr);
         // int elementNumbers[] = mContext.getResources().getIntArray(R.array.elementNumberArray);
         // String elementWeights[] = mContext.getResources().getStringArray(R.array.elementWeightArray);
         // int elementGroups[] = mContext.getResources().getIntArray(R.array.elementGroupArray);
         // int elementPeriods[] = mContext.getResources().getIntArray(R.array.elementPeriodArray);
-        Elements = new HashMap<>(NUMBER_OF_ELEMENTS);
+
+        Elements = new ArrayList<>(NUMBER_OF_ELEMENTS);
 
         for(int i = 0; i < NUMBER_OF_ELEMENTS; ++i){
-            Element element = new Element(elementNames[i], elementSymbols[i], elementNumbers[i], elementWeights[i], elementGroups[i], elementPeriods[i]);
-            Elements.put(element.getAtomicNumber(), element);
+            Element element = new Element(elementNames[i], elementSymbols[i], i+1, elementWeights[i], elementGroups[i], elementPeriods[i]);
+            Elements.add(element);
         }
+    }
+
+    public Element getElement(int atomicNumber){
+        return Elements.get(atomicNumber - 1);
+    }
+
+    public static PeriodicTable getPeriodicTable(){
+            if(pTable == null)
+                pTable = new PeriodicTable();
+            return pTable;
     }
 
     private String elementNames[] = {
@@ -271,127 +285,6 @@ public class PeriodicTable {
             "Uuh",
             "Uus",
             "Uuo"
-    };
-
-    private int elementNumbers[] = {
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            9,
-            10,
-            11,
-            12,
-            13,
-            14,
-            15,
-            16,
-            17,
-            18,
-            19,
-            20,
-            21,
-            22,
-            23,
-            24,
-            25,
-            26,
-            27,
-            28,
-            29,
-            30,
-            31,
-            32,
-            33,
-            34,
-            35,
-            36,
-            37,
-            38,
-            39,
-            40,
-            41,
-            42,
-            43,
-            44,
-            45,
-            46,
-            47,
-            48,
-            49,
-            50,
-            51,
-            52,
-            53,
-            54,
-            55,
-            56,
-            57,
-            58,
-            59,
-            60,
-            61,
-            62,
-            63,
-            64,
-            65,
-            66,
-            67,
-            68,
-            69,
-            70,
-            71,
-            72,
-            73,
-            74,
-            75,
-            76,
-            77,
-            78,
-            79,
-            80,
-            81,
-            82,
-            83,
-            84,
-            85,
-            86,
-            87,
-            88,
-            89,
-            90,
-            91,
-            92,
-            93,
-            94,
-            95,
-            96,
-            97,
-            98,
-            99,
-            100,
-            101,
-            102,
-            103,
-            104,
-            105,
-            106,
-            107,
-            108,
-            109,
-            110,
-            111,
-            112,
-            113,
-            114,
-            115,
-            116,
-            117,
-            118,
     };
 
     private float elementWeights[] = {
@@ -639,6 +532,7 @@ public class PeriodicTable {
     private int elementPeriods[] = {
             1,
             1,
+
             2,
             2,
             2,
@@ -698,7 +592,6 @@ public class PeriodicTable {
             6,
             6,
 
-            8,
             8,
             8,
             8,
@@ -734,7 +627,6 @@ public class PeriodicTable {
             7,
             7,
 
-            9,
             9,
             9,
             9,

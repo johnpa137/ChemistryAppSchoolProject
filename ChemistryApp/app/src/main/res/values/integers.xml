@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--
     <integer name="HydrogenElementNumber">1</integer>
     <integer name="HeliumElementNumber">2</integer>
     <integer name="LithiumElementNumber">3</integer>
@@ -834,4 +835,5 @@
         <item>@id/elvUnunseptium</item>
         <item>@id/elvUnunoctium</item>
     </array>
+    -->
 </resources>
