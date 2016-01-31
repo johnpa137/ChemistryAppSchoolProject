@@ -1,9 +1,6 @@
 package com.example.aglubatj.chemistryapp;
 
-import android.content.Context;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by John on 1/23/2016.
@@ -12,7 +9,12 @@ public class PeriodicTable {
     // private Context mContext
     private static PeriodicTable pTable;
     private static ArrayList<Element> Elements;
-    private static final int NUMBER_OF_ELEMENTS = 118;
+    public static final int NUMBER_OF_ELEMENTS = 118;
+    public static final int NUMBER_OF_GROUPS = 18;
+    public static final int NUMBER_OF_PERIODS = 7;
+    private static final int MAX_NUMBER_OF_ELEMENTS_IN_A_GROUP = 7;
+    private static final int MAX_NUMBER_OF_ELEMENTS_IN_A_PERIOD = 18;
+
 
     private PeriodicTable() { //Context context){
         // mContext = context;
@@ -40,12 +42,52 @@ public class PeriodicTable {
     }
 
     public static PeriodicTable getPeriodicTable(){
-            if(pTable == null)
-                pTable = new PeriodicTable();
-            return pTable;
+        if(pTable == null)
+            pTable = new PeriodicTable();
+        return pTable;
     }
 
-    private String elementNames[] = {
+    public ArrayList<Element> getElementGroup(int group){
+        ArrayList<Element> ElementGroup = new ArrayList<>(MAX_NUMBER_OF_ELEMENTS_IN_A_GROUP);
+        for(int i = 0; i < NUMBER_OF_ELEMENTS; ++i){
+            if(Elements.get(i).getGroup() == group)
+                ElementGroup.add(Elements.get(i));
+        }
+        ElementGroup.trimToSize();
+        return ElementGroup;
+    }
+
+    public ArrayList<Element> getElementPeriod(int period){
+        ArrayList<Element> ElementPeriod = new ArrayList<>(MAX_NUMBER_OF_ELEMENTS_IN_A_PERIOD);
+        for(int i = 0; i < NUMBER_OF_ELEMENTS; ++i){
+            if(Elements.get(i).getPeriod() == period)
+                ElementPeriod.add(Elements.get(i));
+        }
+        ElementPeriod.trimToSize();
+        return ElementPeriod;
+    }
+
+    public ArrayList<Integer> getElementGroupIntList(int group){
+        ArrayList<Integer> ElementGroup = new ArrayList<>(MAX_NUMBER_OF_ELEMENTS_IN_A_GROUP);
+        for(int i = 0; i < NUMBER_OF_ELEMENTS; ++i){
+            if(Elements.get(i).getGroup() == group)
+                ElementGroup.add(Elements.get(i).getAtomicNumber());
+        }
+        ElementGroup.trimToSize();
+        return ElementGroup;
+    }
+
+    public ArrayList<Integer> getElementPeriodIntList(int period){
+        ArrayList<Integer> ElementPeriod = new ArrayList<>(MAX_NUMBER_OF_ELEMENTS_IN_A_PERIOD);
+        for(int i = 0; i < NUMBER_OF_ELEMENTS; ++i){
+            if(Elements.get(i).getPeriod() == period)
+                ElementPeriod.add(Elements.get(i).getAtomicNumber());
+        }
+        ElementPeriod.trimToSize();
+        return ElementPeriod;
+    }
+
+    private static String elementNames[] = {
             "Hydrogen",
             "Helium",
             "Lithium",
@@ -166,7 +208,7 @@ public class PeriodicTable {
             "Ununoctium"
     };
 
-    private String elementSymbols[] = {
+    private static String elementSymbols[] = {
             "H",
             "He",
             "Li",
@@ -287,7 +329,7 @@ public class PeriodicTable {
             "Uuo"
     };
 
-    private float elementWeights[] = {
+    private static float elementWeights[] = {
             1.0079f,
             4.0026f,
             6.941f,
@@ -408,7 +450,7 @@ public class PeriodicTable {
             294f,
     };
 
-    private int elementGroups[] = {
+    private static int elementGroups[] = {
             1,
             18,
             1,
@@ -529,7 +571,7 @@ public class PeriodicTable {
             18,
     };
 
-    private int elementPeriods[] = {
+    private static int elementPeriods[] = {
             1,
             1,
 
