@@ -217,11 +217,11 @@ public class ElementView extends View {
         int contentWidth = getWidth() - paddingLeft - paddingRight;
         int contentHeight = getHeight() - paddingTop - paddingBottom;
 
-        // if (backgroundColor != null) {
-        //     backgroundColor.setBounds(paddingLeft, paddingTop,
-        //             paddingLeft + contentWidth, paddingTop + contentHeight);
-        //     backgroundColor.draw(canvas);
-        // }
+        if (backgroundColor != null) {
+            backgroundColor.setBounds(paddingLeft, paddingTop,
+                    paddingLeft + contentWidth, paddingTop + contentHeight);
+            backgroundColor.draw(canvas);
+        }
         // Draw the text.
         canvas.drawText(elementSymbol,
                 paddingLeft + (contentWidth - symbolTextPaintWidth) / 2,
