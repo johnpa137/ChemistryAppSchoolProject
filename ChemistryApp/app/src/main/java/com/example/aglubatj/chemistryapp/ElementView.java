@@ -152,12 +152,7 @@ public class ElementView extends View {
                 weightTextPaint);
     }
 
-    /**
-     * Gets the example string attribute value.
-     *
-     * @return The example string attribute value.
-     */
-    public String getElementSymbol() {
-        return elementSymbol;
+    public int getElementNumber(){
+        return elementNumber;
     }
 }

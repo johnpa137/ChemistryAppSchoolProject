@@ -8,7 +8,7 @@ import java.util.HashMap;
  */
 public class PeriodicTable {
     private Context mContext;
-    public HashMap<String, Element> Elements;
+    public HashMap<Integer, Element> Elements;
     private final int NUMBER_OF_ELEMENTS = 118;
 
     public PeriodicTable(Context context){
@@ -28,7 +28,7 @@ public class PeriodicTable {
 
         for(int i = 0; i < NUMBER_OF_ELEMENTS; ++i){
             Element element = new Element(elementNames[i], elementSymbols[i], elementNumbers[i], Float.parseFloat(elementWeights[i]), elementGroups[i], elementPeriods[i]);
-            Elements.put(element.getSymbol(), element);
+            Elements.put(element.getAtomicNumber(), element);
         }
     }
 }

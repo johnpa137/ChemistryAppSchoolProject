@@ -27,12 +27,12 @@ public class PeriodicTableActivity extends AppCompatActivity {
     public void onClickElementView(View view){
         ElementView elementView = (ElementView) view;
         Intent intent = new Intent(this, ElementDetailsActivity.class);
-        intent.putExtra("name", periodicTable.Elements.get(elementView.getElementSymbol()).getName());
-        intent.putExtra("symbol", periodicTable.Elements.get(elementView.getElementSymbol()).getSymbol());
-        intent.putExtra("atomicNumber", periodicTable.Elements.get(elementView.getElementSymbol()).getAtomicNumber());
-        intent.putExtra("atomicWeight", periodicTable.Elements.get(elementView.getElementSymbol()).getAtomicWeight());
-        intent.putExtra("group", periodicTable.Elements.get(elementView.getElementSymbol()).getGroup());
-        intent.putExtra("period", periodicTable.Elements.get(elementView.getElementSymbol()).getPeriod());
+        intent.putExtra("name", periodicTable.Elements.get(elementView.getElementNumber()).getName());
+        intent.putExtra("symbol", periodicTable.Elements.get(elementView.getElementNumber()).getSymbol());
+        intent.putExtra("atomicNumber", periodicTable.Elements.get(elementView.getElementNumber()).getAtomicNumber());
+        intent.putExtra("atomicWeight", periodicTable.Elements.get(elementView.getElementNumber()).getAtomicWeight());
+        intent.putExtra("group", periodicTable.Elements.get(elementView.getElementNumber()).getGroup());
+        intent.putExtra("period", periodicTable.Elements.get(elementView.getElementNumber()).getPeriod());
         startActivity(intent);
     }
 

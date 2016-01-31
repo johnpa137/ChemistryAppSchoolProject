@@ -127,12 +127,12 @@ public class Element {
         return retValue;
     }
 
-    public int getPositionGroup() {
-        int retValue = group;
-        if(group > 18)
-            retValue = group - 15;
-        return retValue;
-    }
+    // public int getPositionGroup() {
+    //     int retValue = group;
+    //     if(group > 18)
+    //         retValue = group - 15;
+    //     return retValue;
+    // }
 
     public int getPeriod() {
         int retValue = period;
@@ -141,9 +141,9 @@ public class Element {
         return retValue;
     }
 
-    public int getPositionPeriod() {
-        return period;
-    }
+    // public int getPositionPeriod() {
+    //    return period;
+    // }
 
     public String getElectronConfig() {
         return electronConfig;
