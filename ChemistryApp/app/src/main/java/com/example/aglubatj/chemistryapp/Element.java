@@ -44,7 +44,7 @@ public class Element {
                 electronCount -= 86; break;
         }
 
-        if(electronCount < 2){
+        if(electronCount < 3){
             configBuilder.append(electronCount);
         }
         else{

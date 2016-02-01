@@ -1,6 +1,7 @@
 package com.example.aglubatj.chemistryapp;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -18,6 +19,7 @@ public class ElementDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_elementdetails);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -43,7 +45,10 @@ public class ElementDetailsActivity extends AppCompatActivity {
         TextView lblAtomicWeightValue = (TextView) findViewById(R.id.lblAtomicWeightValue);
         lblAtomicWeightValue.setText(String.valueOf(element.getAtomicWeight()));
         TextView lblGroupValue = (TextView) findViewById(R.id.lblGroupValue);
-        lblGroupValue.setText(String.valueOf(element.getGroup()));
+        if(element.getGroup() != 0)
+            lblGroupValue.setText(String.valueOf(element.getGroup()));
+        else
+            lblGroupValue.setText("N/A");
         TextView lblPeriodValue = (TextView) findViewById(R.id.lblPeriodValue);
         lblPeriodValue.setText(String.valueOf(element.getPeriod()));
         TextView lblElectronConfigValue = (TextView) findViewById(R.id.lblElectronConfigValue);
@@ -70,6 +75,14 @@ public class ElementDetailsActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    // finishes this activity when it goes out of focus
+    @Override
+    public void onPause(){
+        super.onPause();
+
+        finish();
     }
 
     public void onBtnAddtoFormulaClick(View view){

@@ -16,7 +16,7 @@
     <color name="lanthanoidElementColor">#8959c4</color>
     <color name="actinoidElementColor">#c4599b</color>
     <color name="metalloidElementColor">#0f9173</color>
-    <color name="nonmetalElementColor">#61c987</color>
+    <color name="nonmetalElementColor">#4a9962</color>
     <color name="unknownStateElementColor">#838383</color>
 
 </resources>

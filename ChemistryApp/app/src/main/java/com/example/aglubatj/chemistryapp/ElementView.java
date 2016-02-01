@@ -3,9 +3,9 @@ package com.example.aglubatj.chemistryapp;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.View;
@@ -99,20 +99,21 @@ public class ElementView extends View {
         elementSymbol = pTable.getElement(elementNumber).getSymbol();
         elementWeight = pTable.getElement(elementNumber).getAtomicWeight();
 //
-        int solidElementColor = 0x000000;
-        int liquidElementColor = 0x00117c;
-        int gasElementColor = 0xd2d8ff;
-        int transMetalElementColor = 0x3345ba;
-        int halogenElementColor = 0x9fabfa;
-        int nobleGasElementColor = 0x7620ff;
-        int postTransMetalElementColor = 0x5967c4;
-        int alkaliMetalElementColor = 0x59b9c4;
-        int alkEarthMetalElementColor = 0x59a2c4;
-        int lanthanoidElementColor = 0x8959c4;
-        int actinoidElementColor = 0xc4599b;
-        int metalloidElementColor = 0x0f9173;
-        int nonmetalElementColor = 0x61c987;
-        int unknownStateElementColor = 0x838383;
+        // getResources().getColor(R.color.) seems to be deprecated
+        int solidElementColor = Color.parseColor("#000000");
+        int liquidElementColor = Color.parseColor("#00117c");
+        int gasElementColor = Color.parseColor("#d2d8ff");
+        int transMetalElementColor = Color.parseColor("#3345ba");
+        int halogenElementColor = Color.parseColor("#9fabfa");
+        int nobleGasElementColor = Color.parseColor("#7620ff");
+        int postTransMetalElementColor = Color.parseColor("#5967c4");
+        int alkaliMetalElementColor = Color.parseColor("#59b9c4");
+        int alkEarthMetalElementColor = Color.parseColor("#59a2c4");
+        int lanthanoidElementColor = Color.parseColor("#8959c4");
+        int actinoidElementColor = Color.parseColor("#c4599b");
+        int metalloidElementColor = Color.parseColor("#0f9173");
+        int nonmetalElementColor = Color.parseColor("#61c987");
+        int unknownStateElementColor = Color.parseColor("#838383");
 //
         int elementGroup = pTable.getElement(elementNumber).getGroup();
         int elementPeriod = pTable.getElement(elementNumber).getPeriod();
@@ -132,9 +133,9 @@ public class ElementView extends View {
                     backgroundColor.setColor(alkaliMetalElementColor); break;
                 }
                 else{
-                    backgroundColor = new ColorDrawable(nonmetalElementColor); break;
+                    backgroundColor.setColor(nonmetalElementColor); break;
                 }
-            case 2: backgroundColor = new ColorDrawable(alkEarthMetalElementColor); break;
+            case 2: backgroundColor.setColor(alkEarthMetalElementColor); break;
             case 3:
             case 4:
             case 5:
@@ -144,52 +145,52 @@ public class ElementView extends View {
             case 9:
             case 10:
             case 11:
-            case 12: backgroundColor = new ColorDrawable(transMetalElementColor); break;
+            case 12: backgroundColor.setColor(transMetalElementColor); break;
             case 13:
                 if(elementPeriod != 2){
-                    backgroundColor = new ColorDrawable(postTransMetalElementColor); break;
+                    backgroundColor.setColor(postTransMetalElementColor); break;
                 }
                 else{
-                    backgroundColor = new ColorDrawable(metalloidElementColor); break;
+                    backgroundColor.setColor(metalloidElementColor); break;
                 }
             case 14:
                 if(elementPeriod == 2){
-                    backgroundColor = new ColorDrawable(nonmetalElementColor); break;
+                    backgroundColor.setColor(nonmetalElementColor); break;
                 }
                 else if(elementPeriod < 5){
-                    backgroundColor = new ColorDrawable(metalloidElementColor); break;
+                    backgroundColor.setColor(metalloidElementColor); break;
                 }
                 else{
-                    backgroundColor = new ColorDrawable(postTransMetalElementColor); break;
+                    backgroundColor.setColor(postTransMetalElementColor); break;
                 }
             case 15:
                 if(elementPeriod < 4){
-                    backgroundColor = new ColorDrawable(nonmetalElementColor); break;
+                    backgroundColor.setColor(nonmetalElementColor); break;
                 }
                 else if(elementPeriod < 6){
-                    backgroundColor = new ColorDrawable(postTransMetalElementColor); break;
+                    backgroundColor.setColor(postTransMetalElementColor); break;
                 }
                 else{
-                    backgroundColor = new ColorDrawable(metalloidElementColor); break;
+                    backgroundColor.setColor(metalloidElementColor); break;
                 }
             case 16:
                 if(elementPeriod < 5){
-                    backgroundColor = new ColorDrawable(nonmetalElementColor); break;
+                    backgroundColor.setColor(nonmetalElementColor); break;
                 }
                 else if(elementPeriod < 7){
-                    backgroundColor = new ColorDrawable(postTransMetalElementColor); break;
+                    backgroundColor.setColor(postTransMetalElementColor); break;
                 }
                 else{
-                    backgroundColor = new ColorDrawable(metalloidElementColor); break;
+                    backgroundColor.setColor(metalloidElementColor); break;
                 }
-            case 17: backgroundColor = new ColorDrawable(halogenElementColor); break;
-            case 18: backgroundColor = new ColorDrawable(nobleGasElementColor); break;
+            case 17: backgroundColor.setColor(halogenElementColor); break;
+            case 18: backgroundColor.setColor(nobleGasElementColor); break;
             default:
                 if(elementPeriod == 8){
-                    backgroundColor = new ColorDrawable(lanthanoidElementColor); break;
+                    backgroundColor.setColor(lanthanoidElementColor); break;
                 }
                 else
-                    backgroundColor = new ColorDrawable(actinoidElementColor);
+                    backgroundColor.setColor(actinoidElementColor);
         }
 //
         backgroundColor.setCallback(this);
@@ -276,23 +277,5 @@ public class ElementView extends View {
     public void setElementNumber(int atomicNumber){
         elementNumber = atomicNumber;
         getPeriodicTableValues();
-    }
-
-    public void setBackgroundColor(int color){
-        this.backgroundColor.setColor(color);
-        this.backgroundColor.setCallback(this);
-    }
-
-    public void setTextColor(int color){
-        this.elementColor = color;
-        invalidateTextPaintAndMeasurements();
-    }
-
-    public float getSymbolSize() {
-        return symbolSize;
-    }
-
-    public void setSymbolSize(float symbolSize) {
-        this.symbolSize = symbolSize;
     }
 }

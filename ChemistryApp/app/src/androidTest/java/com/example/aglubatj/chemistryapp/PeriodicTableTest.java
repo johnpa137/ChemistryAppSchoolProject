@@ -19,8 +19,8 @@ public class PeriodicTableTest extends TestCase {
     public void testGetElement() throws Exception {
         Element testElement = periodicTable.getElement(77);
         assertNotNull("TestElement is null.", testElement);
-        assertEquals("Hydrogen", testElement.getName());
-        assertEquals("Iridium", testElement.getSymbol());
+        assertEquals("Iridium", testElement.getName());
+        assertEquals("Ir", testElement.getSymbol());
         assertEquals(77, testElement.getAtomicNumber());
         assertEquals(192.217f, testElement.getAtomicWeight());
         assertEquals(9, testElement.getGroup());
