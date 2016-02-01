@@ -19,7 +19,7 @@ public class ElementView extends View {
     private float elementWeight;
     private int elementColor; // color of the symbol text, depends on state at room temperature
     private float symbolSize;
-    private Drawable backgroundColor; // color the background, depends on whether element is a metal, metalloid, or nonmetal
+    private ColorDrawable backgroundColor; // color the background, depends on whether element is a metal, metalloid, or nonmetal
 
     private TextPaint symbolTextPaint;
     private float symbolTextPaintWidth;
@@ -56,20 +56,49 @@ public class ElementView extends View {
         elementNumber = a.getInt(
                 R.styleable.ElementView_elementNumber,
                 elementNumber);
+        elementSymbol = a.getString(
+                R.styleable.ElementView_elementSymbol);
+        elementWeight = a.getFloat(
+                R.styleable.ElementView_elementWeight,
+                elementWeight);
+        elementColor = a.getColor(
+                R.styleable.ElementView_elementColor,
+                elementColor
+        );
+        backgroundColor = (ColorDrawable) a.getDrawable(
+                R.styleable.ElementView_backgroundColor);
+        backgroundColor.setCallback(this);
         symbolSize = a.getDimension(
                 R.styleable.ElementView_symbolSize,
                 symbolSize);
-        getPeriodicTableValues();
+
+        // getPeriodicTableValues();
 
         a.recycle();
+
+        // Set up a default TextPaint object
+        symbolTextPaint = new TextPaint();
+        symbolTextPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        symbolTextPaint.setTextAlign(Paint.Align.LEFT);
+//
+        numberTextPaint = new TextPaint();
+        numberTextPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        numberTextPaint.setTextAlign(Paint.Align.LEFT);
+//
+        weightTextPaint = new TextPaint();
+        weightTextPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        weightTextPaint.setTextAlign(Paint.Align.LEFT);
+//
+        // Update TextPaint and text measurements from attributes
+        invalidateTextPaintAndMeasurements();
     }
 
     private void getPeriodicTableValues(){
         PeriodicTable pTable = PeriodicTable.getPeriodicTable();
-
+//
         elementSymbol = pTable.getElement(elementNumber).getSymbol();
         elementWeight = pTable.getElement(elementNumber).getAtomicWeight();
-
+//
         int solidElementColor = 0x000000;
         int liquidElementColor = 0x00117c;
         int gasElementColor = 0xd2d8ff;
@@ -84,10 +113,10 @@ public class ElementView extends View {
         int metalloidElementColor = 0x0f9173;
         int nonmetalElementColor = 0x61c987;
         int unknownStateElementColor = 0x838383;
-
+//
         int elementGroup = pTable.getElement(elementNumber).getGroup();
         int elementPeriod = pTable.getElement(elementNumber).getPeriod();
-
+//
         if(elementPeriod == 1 || (elementGroup == 18 && elementPeriod != 7) || (elementPeriod == 2 && elementGroup > 14) || elementNumber == 17)
             elementColor = gasElementColor;
         else if (elementNumber == 35 || elementNumber == 80)
@@ -96,11 +125,11 @@ public class ElementView extends View {
             elementColor = unknownStateElementColor;
         else
             elementColor = solidElementColor;
-
+//
         switch(elementGroup){
             case 1:
                 if(elementPeriod != 1){
-                    backgroundColor = new ColorDrawable(alkaliMetalElementColor); break;
+                    backgroundColor.setColor(alkaliMetalElementColor); break;
                 }
                 else{
                     backgroundColor = new ColorDrawable(nonmetalElementColor); break;
@@ -162,22 +191,22 @@ public class ElementView extends View {
                 else
                     backgroundColor = new ColorDrawable(actinoidElementColor);
         }
-
+//
         backgroundColor.setCallback(this);
-
+//
         // Set up a default TextPaint object
         symbolTextPaint = new TextPaint();
         symbolTextPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
         symbolTextPaint.setTextAlign(Paint.Align.LEFT);
-
+//
         numberTextPaint = new TextPaint();
         numberTextPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
         numberTextPaint.setTextAlign(Paint.Align.LEFT);
-
+//
         weightTextPaint = new TextPaint();
         weightTextPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
         weightTextPaint.setTextAlign(Paint.Align.LEFT);
-
+//
         // Update TextPaint and text measurements from attributes
         invalidateTextPaintAndMeasurements();
     }
@@ -190,14 +219,14 @@ public class ElementView extends View {
         Paint.FontMetrics fontMetrics = symbolTextPaint.getFontMetrics();
         symbolTextPaintHeight = fontMetrics.top + fontMetrics.bottom;
 
-        numberTextPaint.setTextSize(symbolSize / 6);
+        numberTextPaint.setTextSize(symbolSize / 3);
         numberTextPaint.setColor(elementColor);
         numberTextPaintWidth = numberTextPaint.measureText(String.valueOf(elementNumber));
 
         fontMetrics = numberTextPaint.getFontMetrics();
         numberTextPaintHeight = fontMetrics.top + fontMetrics.bottom;
 
-        weightTextPaint.setTextSize(symbolSize / 6);
+        weightTextPaint.setTextSize(symbolSize / 3);
         weightTextPaint.setColor(elementColor);
         weightTextPaintWidth = weightTextPaint.measureText(String.valueOf(elementWeight));
 
@@ -230,7 +259,8 @@ public class ElementView extends View {
 
         canvas.drawText(String.valueOf(elementNumber),
                 paddingLeft + (contentWidth - numberTextPaintWidth) / 2,
-                paddingTop + (contentHeight - symbolTextPaintHeight) / 2 + symbolTextPaintHeight + numberTextPaintHeight/2,
+                //paddingTop + (contentHeight - symbolTextPaintHeight) / 2 + symbolTextPaintHeight + numberTextPaintHeight/2,
+                paddingTop - numberTextPaintHeight - numberTextPaintHeight / 2,
                 numberTextPaint);
 
         canvas.drawText(String.valueOf(elementWeight),
@@ -246,6 +276,16 @@ public class ElementView extends View {
     public void setElementNumber(int atomicNumber){
         elementNumber = atomicNumber;
         getPeriodicTableValues();
+    }
+
+    public void setBackgroundColor(int color){
+        this.backgroundColor.setColor(color);
+        this.backgroundColor.setCallback(this);
+    }
+
+    public void setTextColor(int color){
+        this.elementColor = color;
+        invalidateTextPaintAndMeasurements();
     }
 
     public float getSymbolSize() {

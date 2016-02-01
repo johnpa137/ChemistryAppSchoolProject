@@ -22,6 +22,9 @@ public class PeriodicTableActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        ElementView elementView = (ElementView) findViewById(R.id.view);
+        elementView.setTextColor(0x8959c4);
+
         // setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
         // for(int i = 0; i < PeriodicTable.NUMBER_OF_ELEMENTS; ++i){
