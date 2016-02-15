@@ -278,4 +278,13 @@ public class ElementView extends View {
         elementNumber = atomicNumber;
         getPeriodicTableValues();
     }
+
+    public float getSymbolSize() {
+        return symbolSize;
+    }
+
+    public void setSymbolSize(float symbolSize) {
+        this.symbolSize = symbolSize;
+        invalidateTextPaintAndMeasurements();
+    }
 }

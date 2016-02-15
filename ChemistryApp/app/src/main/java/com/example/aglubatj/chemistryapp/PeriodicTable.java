@@ -11,7 +11,8 @@ public class PeriodicTable {
     private static ArrayList<Element> Elements;
     public static final int NUMBER_OF_ELEMENTS = 118;
     // public static final int NUMBER_OF_GROUPS = 18;
-    // public static final int NUMBER_OF_PERIODS = 7;
+    public static final int NUMBER_OF_PERIODS = 7;
+    public static final int NUMBER_OF_SPECIAL_GROUPS = 2; // lanthanoid and actinoid series
     private static final int MAX_NUMBER_OF_ELEMENTS_IN_A_GROUP = 7;
     private static final int MAX_NUMBER_OF_ELEMENTS_IN_A_PERIOD = 18;
 

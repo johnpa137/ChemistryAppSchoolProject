@@ -27,8 +27,9 @@
     <string name="btnPeriodicTableStr">Periodic Table</string>
     <string name="btnEquationBalancerStr">Equation Balancer</string>
     <string name="btnCancelStr">Cancel</string>
+    <string name="title_activity_main">MainActivity</string>
 
-<!--
+    <!--
     <string name="HydrogenElementSymbol">H</string>
     <string name="HeliumElementSymbol">He</string>
     <string name="LithiumElementSymbol">Li</string>

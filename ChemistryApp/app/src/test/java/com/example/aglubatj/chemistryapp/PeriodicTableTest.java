@@ -34,8 +34,8 @@ public class PeriodicTableTest extends TestCase {
         assertEquals(testElementGroup.size(), 4);
         assertEquals(testElementGroup.get(0).getAtomicNumber(), 22);
         assertEquals(testElementGroup.get(1).getAtomicNumber(), 40);
-        assertEquals(testElementGroup.get(1).getAtomicNumber(), 72);
-        assertEquals(testElementGroup.get(1).getAtomicNumber(), 104);
+        assertEquals(testElementGroup.get(2).getAtomicNumber(), 72);
+        assertEquals(testElementGroup.get(3).getAtomicNumber(), 104);
     }
 
     public void testGetElementPeriod() throws Exception {

@@ -23,4 +23,20 @@
 
     <include layout="@layout/content_period_table" />
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabZoomIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fabZoomIn_margin"
+        android:src="@drawable/plus_symbol" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabZoomOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fabZoomOut_margin"
+        android:src="@drawable/minus_symbol" />
+
 </android.support.design.widget.CoordinatorLayout>
