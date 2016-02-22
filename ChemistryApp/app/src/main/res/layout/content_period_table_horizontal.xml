@@ -1,0 +1,750 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layPeriodTable"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".PeriodicTableActivity"
+    tools:showIn="@layout/activity_period_table_horizontal"
+    android:orientation="horizontal"
+    android:baselineAligned="false">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/layPeriodicTableView">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/lblFormulaDefaultStr"
+            android:id="@+id/lblFormulaView"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/zoomControls"
+            android:layout_above="@+id/scrollView2" />
+
+        <ZoomControls
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/zoomControls"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/zoomControls"
+            android:id="@+id/scrollView2">
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:clickable="false">
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvHydrogen" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="1" app:elementSymbol="H" app:elementWeight="1.0079" app:elementColor="@color/gasElementColor" app:backgroundColor="@color/nonmetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="false" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvHelium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="2" app:elementSymbol="He" app:elementWeight="4.0026" app:elementColor="@color/gasElementColor" app:backgroundColor="@color/nobleGasElementColor"
+                        android:layout_alignTop="@+id/elvHydrogen"
+                        android:layout_toRightOf="@+id/elvFluorine"
+                        android:layout_toEndOf="@+id/elvFluorine" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvLithium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="3" app:elementSymbol="Li" app:elementWeight="6.941" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/alkaliMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_below="@+id/elvHydrogen"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="false" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvBeryllium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="4" app:elementSymbol="Be" app:elementWeight="9.0122" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/alkEarthMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_toRightOf="@+id/elvLithium"
+                        android:layout_toEndOf="@+id/elvLithium"
+                        android:layout_alignTop="@+id/elvLithium" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvBoron" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="5" app:elementSymbol="B" app:elementWeight="10.811" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/metalloidElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignTop="@+id/elvBeryllium"
+                        android:layout_toRightOf="@+id/elvZinc"
+                        android:layout_toEndOf="@+id/elvZinc" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvCarbon" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="6" app:elementSymbol="C" app:elementWeight="12.0107" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/nonmetalElementColor"
+                        android:layout_alignTop="@+id/elvBoron"
+                        android:layout_toRightOf="@+id/elvBoron"
+                        android:layout_toEndOf="@+id/elvBoron" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvNitrogen" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="7" app:elementSymbol="N" app:elementWeight="14.0067" app:elementColor="@color/gasElementColor" app:backgroundColor="@color/nonmetalElementColor"
+                        android:layout_alignTop="@+id/elvBoron"
+                        android:layout_toRightOf="@+id/elvCarbon"
+                        android:layout_toEndOf="@+id/elvCarbon" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvOxygen" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="8" app:elementSymbol="O" app:elementWeight="15.9994" app:elementColor="@color/gasElementColor" app:backgroundColor="@color/nonmetalElementColor"
+                        android:layout_alignTop="@+id/elvBoron"
+                        android:layout_toRightOf="@+id/elvNitrogen"
+                        android:layout_toEndOf="@+id/elvNitrogen" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvFluorine" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="9" app:elementSymbol="F" app:elementWeight="18.9984" app:elementColor="@color/gasElementColor" app:backgroundColor="@color/halogenElementColor"
+                        android:layout_alignTop="@+id/elvBoron"
+                        android:layout_toRightOf="@+id/elvOxygen"
+                        android:layout_toEndOf="@+id/elvOxygen" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvNeon" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="10" app:elementSymbol="Ne" app:elementWeight="20.1797" app:elementColor="@color/gasElementColor" app:backgroundColor="@color/nobleGasElementColor"
+                        android:layout_alignTop="@+id/elvBoron"
+                        android:layout_toRightOf="@+id/elvFluorine"
+                        android:layout_toEndOf="@+id/elvFluorine" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvSodium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="11" app:elementSymbol="Na" app:elementWeight="22.9897" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/alkaliMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_below="@+id/elvLithium"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="false" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvMagnesium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="12" app:elementSymbol="Mg" app:elementWeight="24.305" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/alkEarthMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_below="@+id/elvBeryllium"
+                        android:layout_toRightOf="@+id/elvSodium"
+                        android:layout_toEndOf="@+id/elvSodium"/>
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvAluminium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="13" app:elementSymbol="Al" app:elementWeight="26.9815" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/postTransMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignTop="@+id/elvMagnesium"
+                        android:layout_toRightOf="@+id/elvZinc"
+                        android:layout_toEndOf="@+id/elvZinc" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvSilicon" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="14" app:elementSymbol="Si" app:elementWeight="28.0855" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/metalloidElementColor"
+                        android:layout_alignTop="@+id/elvAluminium"
+                        android:layout_toRightOf="@+id/elvAluminium"
+                        android:layout_toEndOf="@+id/elvAluminium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvPhosphorus" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="15" app:elementSymbol="P" app:elementWeight="30.9738" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/nonmetalElementColor"
+                        android:layout_alignTop="@+id/elvAluminium"
+                        android:layout_toRightOf="@+id/elvSilicon"
+                        android:layout_toEndOf="@+id/elvSilicon" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvSulfur" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="16" app:elementSymbol="S" app:elementWeight="32.065" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/nonmetalElementColor"
+                        android:layout_alignTop="@+id/elvAluminium"
+                        android:layout_toRightOf="@+id/elvPhosphorus"
+                        android:layout_toEndOf="@+id/elvPhosphorus" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvChlorine" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="17" app:elementSymbol="Cl" app:elementWeight="35.453" app:elementColor="@color/gasElementColor" app:backgroundColor="@color/halogenElementColor"
+                        android:layout_alignTop="@+id/elvAluminium"
+                        android:layout_toRightOf="@+id/elvSulfur"
+                        android:layout_toEndOf="@+id/elvSulfur" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvArgon" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="18" app:elementSymbol="Ar" app:elementWeight="39.948" app:elementColor="@color/gasElementColor" app:backgroundColor="@color/nobleGasElementColor"
+                        android:layout_alignTop="@+id/elvAluminium"
+                        android:layout_toRightOf="@+id/elvChlorine"
+                        android:layout_toEndOf="@+id/elvChlorine" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvPotassium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="19" app:elementSymbol="K" app:elementWeight="39.0983" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/alkaliMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_below="@+id/elvSodium"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="false" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvCalcium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="20" app:elementSymbol="Ca" app:elementWeight="40.078" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/alkEarthMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_toRightOf="@+id/elvPotassium"
+                        android:layout_toEndOf="@+id/elvPotassium"
+                        android:layout_below="@+id/elvMagnesium" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvScandium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="21" app:elementSymbol="Sc" app:elementWeight="44.9559" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignTop="@+id/elvCalcium"
+                        android:layout_toRightOf="@+id/elvCalcium"
+                        android:layout_toEndOf="@+id/elvCalcium"/>
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvTitanium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="22" app:elementSymbol="Ti" app:elementWeight="47.867" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignTop="@+id/elvScandium"
+                        android:layout_toRightOf="@+id/elvScandium"
+                        android:layout_toEndOf="@+id/elvScandium" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvVanadium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="23" app:elementSymbol="V" app:elementWeight="50.9415" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignTop="@+id/elvScandium"
+                        android:layout_toRightOf="@+id/elvTitanium"
+                        android:layout_toEndOf="@+id/elvTitanium" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvChromium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="24" app:elementSymbol="Cr" app:elementWeight="51.9961" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignTop="@+id/elvScandium"
+                        android:layout_toRightOf="@+id/elvVanadium"
+                        android:layout_toEndOf="@+id/elvVanadium" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvManganese" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="25" app:elementSymbol="Mn" app:elementWeight="54.938" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignTop="@+id/elvScandium"
+                        android:layout_toRightOf="@+id/elvChromium"
+                        android:layout_toEndOf="@+id/elvChromium" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvIron" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="26" app:elementSymbol="Fe" app:elementWeight="55.845" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignTop="@+id/elvScandium"
+                        android:layout_toRightOf="@+id/elvManganese"
+                        android:layout_toEndOf="@+id/elvManganese" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvCobalt" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="27" app:elementSymbol="Co" app:elementWeight="58.9332" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignTop="@+id/elvScandium"
+                        android:layout_toRightOf="@+id/elvIron"
+                        android:layout_toEndOf="@+id/elvIron" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvNickel" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="28" app:elementSymbol="Ni" app:elementWeight="58.6934" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignTop="@+id/elvScandium"
+                        android:layout_toRightOf="@+id/elvCobalt"
+                        android:layout_toEndOf="@+id/elvCobalt" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvCopper" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="29" app:elementSymbol="Cu" app:elementWeight="63.546" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignTop="@+id/elvScandium"
+                        android:layout_toRightOf="@+id/elvNickel"
+                        android:layout_toEndOf="@+id/elvNickel" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvZinc" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="30" app:elementSymbol="Zn" app:elementWeight="65.39" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignTop="@+id/elvScandium"
+                        android:layout_toRightOf="@+id/elvCopper"
+                        android:layout_toEndOf="@+id/elvCopper" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvGallium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="31" app:elementSymbol="Ga" app:elementWeight="69.723" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/postTransMetalElementColor"
+                        android:layout_alignTop="@+id/elvScandium"
+                        android:layout_toRightOf="@+id/elvZinc"
+                        android:layout_toEndOf="@+id/elvZinc" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvGermanium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="32" app:elementSymbol="Ge" app:elementWeight="72.64" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/metalloidElementColor"
+                        android:layout_alignTop="@+id/elvScandium"
+                        android:layout_toRightOf="@+id/elvGallium"
+                        android:layout_toEndOf="@+id/elvGallium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvArsenic" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="33" app:elementSymbol="As" app:elementWeight="74.9216" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/metalloidElementColor"
+                        android:layout_alignTop="@+id/elvScandium"
+                        android:layout_toRightOf="@+id/elvGermanium"
+                        android:layout_toEndOf="@+id/elvGermanium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvSelenium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="34" app:elementSymbol="Se" app:elementWeight="78.96" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/nonmetalElementColor"
+                        android:layout_alignTop="@+id/elvScandium"
+                        android:layout_toRightOf="@+id/elvArsenic"
+                        android:layout_toEndOf="@+id/elvArsenic" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvBromine" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="35" app:elementSymbol="Br" app:elementWeight="79.904" app:elementColor="@color/liquidElementColor" app:backgroundColor="@color/halogenElementColor"
+                        android:layout_alignTop="@+id/elvScandium"
+                        android:layout_toRightOf="@+id/elvSelenium"
+                        android:layout_toEndOf="@+id/elvSelenium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvKrypton" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="36" app:elementSymbol="Kr" app:elementWeight="83.8" app:elementColor="@color/gasElementColor" app:backgroundColor="@color/nobleGasElementColor"
+                        android:layout_alignTop="@+id/elvScandium"
+                        android:layout_toRightOf="@+id/elvBromine"
+                        android:layout_toEndOf="@+id/elvBromine" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvRubidium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="37" app:elementSymbol="Rb" app:elementWeight="85.4678" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/alkaliMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_below="@+id/elvPotassium"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="false" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvStrontium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="38" app:elementSymbol="Sr" app:elementWeight="87.62" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/alkEarthMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_toRightOf="@+id/elvRubidium"
+                        android:layout_toEndOf="@+id/elvRubidium"
+                        android:layout_below="@+id/elvCalcium" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvYttrium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="39" app:elementSymbol="Y" app:elementWeight="88.9059" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_toRightOf="@+id/elvStrontium"
+                        android:layout_toEndOf="@+id/elvStrontium"
+                        android:layout_below="@+id/elvScandium" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvZirconium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="40" app:elementSymbol="Zr" app:elementWeight="91.224" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignTop="@+id/elvYttrium"
+                        android:layout_toRightOf="@+id/elvYttrium"
+                        android:layout_toEndOf="@+id/elvYttrium" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvNiobium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="41" app:elementSymbol="Nb" app:elementWeight="92.9064" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignTop="@+id/elvYttrium"
+                        android:layout_toRightOf="@+id/elvZirconium"
+                        android:layout_toEndOf="@+id/elvZirconium" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvMolybdenum" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="42" app:elementSymbol="Mo" app:elementWeight="95.94" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:layout_alignTop="@+id/elvYttrium"
+                        android:layout_toRightOf="@+id/elvNiobium"
+                        android:layout_toEndOf="@+id/elvNiobium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvTechnetium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="43" app:elementSymbol="Tc" app:elementWeight="98" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignTop="@+id/elvYttrium"
+                        android:layout_toRightOf="@+id/elvMolybdenum"
+                        android:layout_toEndOf="@+id/elvMolybdenum" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvRuthenium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="44" app:elementSymbol="Ru" app:elementWeight="101.07" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignTop="@+id/elvYttrium"
+                        android:layout_toRightOf="@+id/elvTechnetium"
+                        android:layout_toEndOf="@+id/elvTechnetium" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvRhodium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="45" app:elementSymbol="Rh" app:elementWeight="102.9055" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignTop="@+id/elvYttrium"
+                        android:layout_toRightOf="@+id/elvRuthenium"
+                        android:layout_toEndOf="@+id/elvRuthenium" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvPalladium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="46" app:elementSymbol="Pd" app:elementWeight="106.42" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignTop="@+id/elvYttrium"
+                        android:layout_toRightOf="@+id/elvRhodium"
+                        android:layout_toEndOf="@+id/elvRhodium" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvSilver" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="47" app:elementSymbol="Ag" app:elementWeight="107.8682" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignTop="@+id/elvYttrium"
+                        android:layout_toRightOf="@+id/elvPalladium"
+                        android:layout_toEndOf="@+id/elvPalladium" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvCadmium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="48" app:elementSymbol="Cd" app:elementWeight="112.411" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignTop="@+id/elvYttrium"
+                        android:layout_toRightOf="@+id/elvSilver"
+                        android:layout_toEndOf="@+id/elvSilver" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvIndium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="49" app:elementSymbol="In" app:elementWeight="114.818" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/postTransMetalElementColor"
+                        android:layout_alignTop="@+id/elvYttrium"
+                        android:layout_toRightOf="@+id/elvCadmium"
+                        android:layout_toEndOf="@+id/elvCadmium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvTin" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="50" app:elementSymbol="Sn" app:elementWeight="118.71" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/postTransMetalElementColor"
+                        android:layout_alignTop="@+id/elvYttrium"
+                        android:layout_toRightOf="@+id/elvIndium"
+                        android:layout_toEndOf="@+id/elvIndium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvAntimony" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="51" app:elementSymbol="Sb" app:elementWeight="121.76" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/metalloidElementColor"
+                        android:layout_alignTop="@+id/elvYttrium"
+                        android:layout_toRightOf="@+id/elvTin"
+                        android:layout_toEndOf="@+id/elvTin" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvTellurium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="52" app:elementSymbol="Te" app:elementWeight="127.6" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/metalloidElementColor"
+                        android:layout_alignTop="@+id/elvYttrium"
+                        android:layout_toRightOf="@+id/elvAntimony"
+                        android:layout_toEndOf="@+id/elvAntimony" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvIodine" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="53" app:elementSymbol="I" app:elementWeight="126.9045" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/halogenElementColor"
+                        android:layout_alignTop="@+id/elvYttrium"
+                        android:layout_toRightOf="@+id/elvTellurium"
+                        android:layout_toEndOf="@+id/elvTellurium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvXenon" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="54" app:elementSymbol="Xe" app:elementWeight="131.293" app:elementColor="@color/gasElementColor" app:backgroundColor="@color/nobleGasElementColor"
+                        android:layout_alignTop="@+id/elvYttrium"
+                        android:layout_toRightOf="@+id/elvIodine"
+                        android:layout_toEndOf="@+id/elvIodine" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvCaesium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="55" app:elementSymbol="Cs" app:elementWeight="132.9055" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/alkaliMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="false"
+                        android:layout_below="@+id/elvRubidium" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvBarium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="56" app:elementSymbol="Ba" app:elementWeight="137.327" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/alkEarthMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_below="@+id/elvStrontium"
+                        android:layout_toRightOf="@+id/elvCaesium"
+                        android:layout_toEndOf="@+id/elvCaesium" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvLanthanum" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="57" app:elementSymbol="La" app:elementWeight="138.9055" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/lanthanoidElementColor"
+                        android:layout_below="@+id/elvLawrencium"
+                        android:layout_toRightOf="@+id/elvRadium"
+                        android:layout_toEndOf="@+id/elvRadium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvCerium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="58" app:elementSymbol="Ce" app:elementWeight="140.116" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/lanthanoidElementColor"
+                        android:layout_alignTop="@+id/elvLanthanum"
+                        android:layout_toRightOf="@+id/elvLanthanum"
+                        android:layout_toEndOf="@+id/elvLanthanum" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvPraseodymium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="59" app:elementSymbol="Pr" app:elementWeight="140.9077" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/lanthanoidElementColor"
+                        android:layout_alignTop="@+id/elvLanthanum"
+                        android:layout_toRightOf="@+id/elvCerium"
+                        android:layout_toEndOf="@+id/elvCerium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvNeodymium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="60" app:elementSymbol="Nd" app:elementWeight="144.24" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/lanthanoidElementColor"
+                        android:layout_alignTop="@+id/elvLanthanum"
+                        android:layout_toRightOf="@+id/elvPraseodymium"
+                        android:layout_toEndOf="@+id/elvPraseodymium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvPromethium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="61" app:elementSymbol="Pm" app:elementWeight="145" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/lanthanoidElementColor"
+                        android:layout_alignTop="@+id/elvLanthanum"
+                        android:layout_toRightOf="@+id/elvNeodymium"
+                        android:layout_toEndOf="@+id/elvNeodymium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvSamarium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="62" app:elementSymbol="Sm" app:elementWeight="150.36" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/lanthanoidElementColor"
+                        android:layout_alignTop="@+id/elvLanthanum"
+                        android:layout_toRightOf="@+id/elvPromethium"
+                        android:layout_toEndOf="@+id/elvPromethium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvEuropium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="63" app:elementSymbol="Eu" app:elementWeight="151.964" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/lanthanoidElementColor"
+                        android:layout_alignTop="@+id/elvLanthanum"
+                        android:layout_toRightOf="@+id/elvSamarium"
+                        android:layout_toEndOf="@+id/elvSamarium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvGadolinium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="64" app:elementSymbol="Gd" app:elementWeight="157.25" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/lanthanoidElementColor"
+                        android:layout_alignTop="@+id/elvLanthanum"
+                        android:layout_toRightOf="@+id/elvEuropium"
+                        android:layout_toEndOf="@+id/elvEuropium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvTerbium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="65" app:elementSymbol="Tb" app:elementWeight="158.9253" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/lanthanoidElementColor"
+                        android:layout_alignTop="@+id/elvLanthanum"
+                        android:layout_toRightOf="@+id/elvGadolinium"
+                        android:layout_toEndOf="@+id/elvGadolinium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvDysprosium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="66" app:elementSymbol="Dy" app:elementWeight="162.5" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/lanthanoidElementColor"
+                        android:layout_alignTop="@+id/elvLanthanum"
+                        android:layout_toRightOf="@+id/elvTerbium"
+                        android:layout_toEndOf="@+id/elvTerbium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvHolmium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="67" app:elementSymbol="Ho" app:elementWeight="164.9303" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/lanthanoidElementColor"
+                        android:layout_alignTop="@+id/elvLanthanum"
+                        android:layout_toRightOf="@+id/elvDysprosium"
+                        android:layout_toEndOf="@+id/elvDysprosium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvErbium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="68" app:elementSymbol="Er" app:elementWeight="167.259" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/lanthanoidElementColor"
+                        android:layout_alignTop="@+id/elvLanthanum"
+                        android:layout_toRightOf="@+id/elvHolmium"
+                        android:layout_toEndOf="@+id/elvHolmium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvThulium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="69" app:elementSymbol="Tm" app:elementWeight="168.9342" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/lanthanoidElementColor"
+                        android:layout_alignTop="@+id/elvLanthanum"
+                        android:layout_toRightOf="@+id/elvErbium"
+                        android:layout_toEndOf="@+id/elvErbium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvYtterbium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="70" app:elementSymbol="Yb" app:elementWeight="173.04" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/lanthanoidElementColor"
+                        android:layout_alignTop="@+id/elvLanthanum"
+                        android:layout_toRightOf="@+id/elvThulium"
+                        android:layout_toEndOf="@+id/elvThulium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvLutetium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="71" app:elementSymbol="Lu" app:elementWeight="174.967" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_toRightOf="@+id/elvBarium"
+                        android:layout_toEndOf="@+id/elvBarium"
+                        android:layout_below="@+id/elvYttrium" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvHafnium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="72" app:elementSymbol="Hf" app:elementWeight="178.49" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignTop="@+id/elvLutetium"
+                        android:layout_toRightOf="@+id/elvLutetium"
+                        android:layout_toEndOf="@+id/elvLutetium" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvTantalum" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="73" app:elementSymbol="Ta" app:elementWeight="180.9479" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignTop="@+id/elvLutetium"
+                        android:layout_toRightOf="@+id/elvHafnium"
+                        android:layout_toEndOf="@+id/elvHafnium" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvTungsten" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="74" app:elementSymbol="W" app:elementWeight="183.84" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:layout_alignTop="@+id/elvLutetium"
+                        android:layout_toRightOf="@+id/elvTantalum"
+                        android:layout_toEndOf="@+id/elvTantalum" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvRhenium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="75" app:elementSymbol="Re" app:elementWeight="186.207" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:layout_alignTop="@+id/elvLutetium"
+                        android:layout_toRightOf="@+id/elvTungsten"
+                        android:layout_toEndOf="@+id/elvTungsten" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvOsmium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="76" app:elementSymbol="Os" app:elementWeight="190.23" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:layout_alignTop="@+id/elvLutetium"
+                        android:layout_toRightOf="@+id/elvRhenium"
+                        android:layout_toEndOf="@+id/elvRhenium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvIridium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="77" app:elementSymbol="Ir" app:elementWeight="192.217" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:layout_alignTop="@+id/elvLutetium"
+                        android:layout_toRightOf="@+id/elvOsmium"
+                        android:layout_toEndOf="@+id/elvOsmium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvPlatinum" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="78" app:elementSymbol="Pt" app:elementWeight="195.078" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:layout_alignTop="@+id/elvLutetium"
+                        android:layout_toRightOf="@+id/elvIridium"
+                        android:layout_toEndOf="@+id/elvIridium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvGold" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="79" app:elementSymbol="Au" app:elementWeight="196.9665" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:layout_alignTop="@+id/elvLutetium"
+                        android:layout_toRightOf="@+id/elvPlatinum"
+                        android:layout_toEndOf="@+id/elvPlatinum" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvMercury" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="80" app:elementSymbol="Hg" app:elementWeight="200.59" app:elementColor="@color/liquidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:layout_alignTop="@+id/elvLutetium"
+                        android:layout_toRightOf="@+id/elvGold"
+                        android:layout_toEndOf="@+id/elvGold" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvThallium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="81" app:elementSymbol="Tl" app:elementWeight="204.3833" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/postTransMetalElementColor"
+                        android:layout_alignTop="@+id/elvLutetium"
+                        android:layout_toRightOf="@+id/elvMercury"
+                        android:layout_toEndOf="@+id/elvMercury" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvLead" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="82" app:elementSymbol="Pb" app:elementWeight="207.2" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/postTransMetalElementColor"
+                        android:layout_alignTop="@+id/elvLutetium"
+                        android:layout_toRightOf="@+id/elvThallium"
+                        android:layout_toEndOf="@+id/elvThallium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvBismuth" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="83" app:elementSymbol="Bi" app:elementWeight="208.9804" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/postTransMetalElementColor"
+                        android:layout_alignTop="@+id/elvLutetium"
+                        android:layout_toRightOf="@+id/elvLead"
+                        android:layout_toEndOf="@+id/elvLead" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvPolonium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="84" app:elementSymbol="Po" app:elementWeight="209" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/metalloidElementColor"
+                        android:layout_alignTop="@+id/elvLutetium"
+                        android:layout_toRightOf="@+id/elvBismuth"
+                        android:layout_toEndOf="@+id/elvBismuth" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvAstatine" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="85" app:elementSymbol="At" app:elementWeight="210" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/halogenElementColor"
+                        android:layout_alignTop="@+id/elvLutetium"
+                        android:layout_toRightOf="@+id/elvPolonium"
+                        android:layout_toEndOf="@+id/elvPolonium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvRadon" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="86" app:elementSymbol="Rn" app:elementWeight="222" app:elementColor="@color/gasElementColor" app:backgroundColor="@color/nobleGasElementColor"
+                        android:layout_alignTop="@+id/elvLutetium"
+                        android:layout_toRightOf="@+id/elvAstatine"
+                        android:layout_toEndOf="@+id/elvAstatine" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvFrancium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="87" app:elementSymbol="Fr" app:elementWeight="223" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/alkaliMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_below="@+id/elvCaesium"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="false" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvRadium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="88" app:elementSymbol="Ra" app:elementWeight="226" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/alkEarthMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_toRightOf="@+id/elvFrancium"
+                        android:layout_toEndOf="@+id/elvFrancium"
+                        android:layout_below="@+id/elvBarium" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvActinium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="89" app:elementSymbol="Ac" app:elementWeight="227" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/actinoidElementColor"
+                        android:layout_below="@+id/elvLanthanum"
+                        android:layout_toRightOf="@+id/elvRadium"
+                        android:layout_toEndOf="@+id/elvRadium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvThorium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="90" app:elementSymbol="Th" app:elementWeight="232.0381" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/actinoidElementColor"
+                        android:layout_alignTop="@+id/elvActinium"
+                        android:layout_toRightOf="@+id/elvActinium"
+                        android:layout_toEndOf="@+id/elvActinium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvProtactinium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="91" app:elementSymbol="Pa" app:elementWeight="231.0359" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/actinoidElementColor"
+                        android:layout_alignTop="@+id/elvActinium"
+                        android:layout_toRightOf="@+id/elvThorium"
+                        android:layout_toEndOf="@+id/elvThorium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvUranium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="92" app:elementSymbol="U" app:elementWeight="238.0289" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/actinoidElementColor"
+                        android:layout_alignTop="@+id/elvActinium"
+                        android:layout_toRightOf="@+id/elvProtactinium"
+                        android:layout_toEndOf="@+id/elvProtactinium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvNeptunium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="93" app:elementSymbol="Np" app:elementWeight="237" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/actinoidElementColor"
+                        android:layout_alignTop="@+id/elvActinium"
+                        android:layout_toRightOf="@+id/elvUranium"
+                        android:layout_toEndOf="@+id/elvUranium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvPlutonium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="94" app:elementSymbol="Pu" app:elementWeight="244" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/actinoidElementColor"
+                        android:layout_alignTop="@+id/elvActinium"
+                        android:layout_toRightOf="@+id/elvNeptunium"
+                        android:layout_toEndOf="@+id/elvNeptunium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvAmericium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="95" app:elementSymbol="Am" app:elementWeight="243" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/actinoidElementColor"
+                        android:layout_alignTop="@+id/elvActinium"
+                        android:layout_toRightOf="@+id/elvPlutonium"
+                        android:layout_toEndOf="@+id/elvPlutonium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvCurium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="96" app:elementSymbol="Cm" app:elementWeight="247" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/actinoidElementColor"
+                        android:layout_alignTop="@+id/elvActinium"
+                        android:layout_toRightOf="@+id/elvAmericium"
+                        android:layout_toEndOf="@+id/elvAmericium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvBerkelium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="97" app:elementSymbol="Bk" app:elementWeight="247" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/actinoidElementColor"
+                        android:layout_alignTop="@+id/elvActinium"
+                        android:layout_toRightOf="@+id/elvCurium"
+                        android:layout_toEndOf="@+id/elvCurium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvCalifornium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="98" app:elementSymbol="Cf" app:elementWeight="251" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/actinoidElementColor"
+                        android:layout_alignTop="@+id/elvActinium"
+                        android:layout_toRightOf="@+id/elvBerkelium"
+                        android:layout_toEndOf="@+id/elvBerkelium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvEinsteinium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="99" app:elementSymbol="Es" app:elementWeight="252" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/actinoidElementColor"
+                        android:layout_alignTop="@+id/elvActinium"
+                        android:layout_toRightOf="@+id/elvCalifornium"
+                        android:layout_toEndOf="@+id/elvCalifornium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvFermium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="100" app:elementSymbol="Fm" app:elementWeight="257" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/actinoidElementColor"
+                        android:layout_alignTop="@+id/elvActinium"
+                        android:layout_toRightOf="@+id/elvEinsteinium"
+                        android:layout_toEndOf="@+id/elvEinsteinium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvMendelevium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="101" app:elementSymbol="Md" app:elementWeight="258" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/actinoidElementColor"
+                        android:layout_alignTop="@+id/elvActinium"
+                        android:layout_toRightOf="@+id/elvFermium"
+                        android:layout_toEndOf="@+id/elvFermium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvNobelium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="102" app:elementSymbol="No" app:elementWeight="259" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/actinoidElementColor"
+                        android:layout_alignTop="@+id/elvActinium"
+                        android:layout_toRightOf="@+id/elvMendelevium"
+                        android:layout_toEndOf="@+id/elvMendelevium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvLawrencium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="103" app:elementSymbol="Lr" app:elementWeight="262" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_toRightOf="@+id/elvRadium"
+                        android:layout_toEndOf="@+id/elvRadium"
+                        android:layout_below="@+id/elvLutetium" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvRutherfordium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="104" app:elementSymbol="Rf" app:elementWeight="267" app:elementColor="@color/unknownStateElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:onClick="onClickElementView"
+                        android:layout_alignTop="@+id/elvLawrencium"
+                        android:layout_toRightOf="@+id/elvLawrencium"
+                        android:layout_toEndOf="@+id/elvLawrencium" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvDubnium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="105" app:elementSymbol="Db" app:elementWeight="268" app:elementColor="@color/unknownStateElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:layout_alignTop="@+id/elvLawrencium"
+                        android:layout_toRightOf="@+id/elvRutherfordium"
+                        android:layout_toEndOf="@+id/elvRutherfordium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvSeaborgium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="106" app:elementSymbol="Sg" app:elementWeight="271" app:elementColor="@color/unknownStateElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:layout_alignTop="@+id/elvLawrencium"
+                        android:layout_toRightOf="@+id/elvDubnium"
+                        android:layout_toEndOf="@+id/elvDubnium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvBohrium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="107" app:elementSymbol="Bh" app:elementWeight="272" app:elementColor="@color/unknownStateElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:layout_alignTop="@+id/elvLawrencium"
+                        android:layout_toRightOf="@+id/elvSeaborgium"
+                        android:layout_toEndOf="@+id/elvSeaborgium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvHassium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="108" app:elementSymbol="Hs" app:elementWeight="270" app:elementColor="@color/unknownStateElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:layout_alignTop="@+id/elvLawrencium"
+                        android:layout_toRightOf="@+id/elvBohrium"
+                        android:layout_toEndOf="@+id/elvBohrium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvMeitnerium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="109" app:elementSymbol="Mt" app:elementWeight="276" app:elementColor="@color/unknownStateElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:layout_alignTop="@+id/elvLawrencium"
+                        android:layout_toRightOf="@+id/elvHassium"
+                        android:layout_toEndOf="@+id/elvHassium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvDarmstadtium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="110" app:elementSymbol="Ds" app:elementWeight="281" app:elementColor="@color/unknownStateElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:layout_alignTop="@+id/elvLawrencium"
+                        android:layout_toRightOf="@+id/elvMeitnerium"
+                        android:layout_toEndOf="@+id/elvMeitnerium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvRoentgenium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="111" app:elementSymbol="Rg" app:elementWeight="280" app:elementColor="@color/unknownStateElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:layout_alignTop="@+id/elvLawrencium"
+                        android:layout_toRightOf="@+id/elvDarmstadtium"
+                        android:layout_toEndOf="@+id/elvDarmstadtium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvCopernicium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="112" app:elementSymbol="Cp" app:elementWeight="285" app:elementColor="@color/unknownStateElementColor" app:backgroundColor="@color/transMetalElementColor"
+                        android:layout_alignTop="@+id/elvLawrencium"
+                        android:layout_toRightOf="@+id/elvRoentgenium"
+                        android:layout_toEndOf="@+id/elvRoentgenium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvUnuntrium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="113" app:elementSymbol="Uut" app:elementWeight="284" app:elementColor="@color/unknownStateElementColor" app:backgroundColor="@color/postTransMetalElementColor"
+                        android:layout_alignTop="@+id/elvLawrencium"
+                        android:layout_toRightOf="@+id/elvCopernicium"
+                        android:layout_toEndOf="@+id/elvCopernicium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvUnunquadium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="114" app:elementSymbol="Uuq" app:elementWeight="289" app:elementColor="@color/unknownStateElementColor" app:backgroundColor="@color/postTransMetalElementColor"
+                        android:layout_alignTop="@+id/elvLawrencium"
+                        android:layout_toRightOf="@+id/elvUnuntrium"
+                        android:layout_toEndOf="@+id/elvUnuntrium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvUnunpentium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="115" app:elementSymbol="Uup" app:elementWeight="288" app:elementColor="@color/unknownStateElementColor" app:backgroundColor="@color/postTransMetalElementColor"
+                        android:layout_alignTop="@+id/elvLawrencium"
+                        android:layout_toRightOf="@+id/elvUnunquadium"
+                        android:layout_toEndOf="@+id/elvUnunquadium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvUnunhexium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="116" app:elementSymbol="Uuh" app:elementWeight="293" app:elementColor="@color/unknownStateElementColor" app:backgroundColor="@color/postTransMetalElementColor"
+                        android:layout_alignTop="@+id/elvLawrencium"
+                        android:layout_toRightOf="@+id/elvUnunpentium"
+                        android:layout_toEndOf="@+id/elvUnunpentium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvUnunseptium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="117" app:elementSymbol="Uus" app:elementWeight="294" app:elementColor="@color/unknownStateElementColor" app:backgroundColor="@color/halogenElementColor"
+                        android:layout_alignTop="@+id/elvLawrencium"
+                        android:layout_toRightOf="@+id/elvUnunhexium"
+                        android:layout_toEndOf="@+id/elvUnunhexium" android:onClick="onClickElementView" />
+                    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvUnunoctium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="118" app:elementSymbol="Uuo" app:elementWeight="294" app:elementColor="@color/unknownStateElementColor" app:backgroundColor="@color/nobleGasElementColor"
+                        android:layout_alignTop="@+id/elvLawrencium"
+                        android:layout_toRightOf="@+id/elvUnunseptium"
+                        android:layout_toEndOf="@+id/elvUnunseptium" android:onClick="onClickElementView" />
+
+                </RelativeLayout>
+            </HorizontalScrollView>
+        </ScrollView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/layKeyPadView">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnKey7Str"
+            android:id="@+id/btnKey7"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:onClick="onClickKeyPadNumber"/>
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnKey4Str"
+            android:id="@+id/btnKey4"
+            android:layout_below="@+id/btnKey7"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:onClick="onClickKeyPadNumber" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnKey1Str"
+            android:id="@+id/btnKey1"
+            android:layout_below="@+id/btnKey4"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:onClick="onClickKeyPadNumber" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnKey8Str"
+            android:id="@+id/btnKey8"
+            android:layout_toRightOf="@+id/btnKey7"
+            android:layout_toEndOf="@+id/btnKey7"
+            android:layout_alignParentTop="true"
+            android:onClick="onClickKeyPadNumber" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnKey5Str"
+            android:id="@+id/btnKey5"
+            android:layout_below="@+id/btnKey8"
+            android:layout_toRightOf="@+id/btnKey4"
+            android:layout_toEndOf="@id/btnKey4"
+            android:onClick="onClickKeyPadNumber" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnKey2Str"
+            android:id="@+id/btnKey2"
+            android:layout_below="@+id/btnKey5"
+            android:layout_toRightOf="@+id/btnKey1"
+            android:layout_toEndOf="@+id/btnKey1"
+            android:onClick="onClickKeyPadNumber" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnKey9Str"
+            android:id="@+id/btnKey9"
+            android:layout_toRightOf="@+id/btnKey8"
+            android:layout_toEndOf="@+id/btnKey8"
+            android:layout_alignParentTop="true"
+            android:onClick="onClickKeyPadNumber" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnKey6Str"
+            android:id="@+id/btnKey6"
+            android:layout_toRightOf="@+id/btnKey5"
+            android:layout_toEndOf="@+id/btnKey5"
+            android:layout_below="@+id/btnKey9"
+            android:onClick="onClickKeyPadNumber" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnKey3Str"
+            android:id="@+id/btnKey3"
+            android:layout_below="@+id/btnKey6"
+            android:layout_toRightOf="@+id/btnKey2"
+            android:layout_toEndOf="@id/btnKey2"
+            android:onClick="onClickKeyPadNumber" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnKeySuperScriptStr"
+            android:id="@+id/btnKeySuperScript"
+            android:layout_below="@+id/btnKey2"
+            android:layout_toRightOf="@+id/btnKeySign"
+            android:layout_toEndOf="@id/btnKeySign"
+            android:onClick="onClickKeySuperScript"/>
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnKeySubScriptStr"
+            android:id="@+id/btnKeySubScript"
+            android:layout_below="@+id/btnKey3"
+            android:layout_toRightOf="@+id/btnKeySuperScript"
+            android:layout_toEndOf="@id/btnKeySuperScript"
+            android:onClick="onClickKeySubScript"/>
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnKeyDelStr"
+            android:id="@+id/btnKeyDel"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentTop="false"
+            android:onClick="onClickKeyDel"
+            android:layout_below="@+id/btnKeySign" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnKeySignStr"
+            android:id="@+id/btnKeySign"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="false"
+            android:enabled="false"
+            android:layout_alignParentTop="false"
+            android:onClick="onClickKeySign"
+            android:layout_below="@+id/btnKey1" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnKeyClrStr"
+            android:id="@+id/btnKeyClr"
+            android:layout_below="@+id/btnKeySuperScript"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="false"
+            android:layout_toRightOf="@+id/btnKeyDel"
+            android:layout_toEndOf="@id/btnKeyDel"
+            android:onClick="onClickKeyClr"/>
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnKeyOKStr"
+            android:id="@+id/btnKeyOK"
+            android:layout_toRightOf="@+id/btnKeyClr"
+            android:layout_toEndOf="@id/btnKeyClr"
+            android:layout_below="@+id/btnKeySubScript"
+            android:onClick="onClickKeyOK"/>
+
+    </RelativeLayout>
+</LinearLayout>

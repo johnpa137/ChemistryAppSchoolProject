@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Toast;
 
 public class MainMenuActivity extends AppCompatActivity {
+    public static Intent periodicTableActivity;
+    public static Intent formulaInputActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,15 +17,16 @@ public class MainMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        periodicTableActivity = new Intent(this, PeriodicTableActivity.class);
+        formulaInputActivity = new Intent(this, FormulaInputActivity.class);
     }
 
     public void onClickPeriodicTable(View view){
-        Intent intent = new Intent(this, PeriodicTableActivity.class);
-        startActivity(intent);
+        startActivity(periodicTableActivity);
     }
 
-    public void onClickUnimplemented(View view){
-        Toast.makeText(this.getApplicationContext(), "This feature has not been implemented yet.", Toast.LENGTH_LONG).show();
+    public void onClickFormulaInput(View view){
+        startActivity(formulaInputActivity);
     }
-
 }

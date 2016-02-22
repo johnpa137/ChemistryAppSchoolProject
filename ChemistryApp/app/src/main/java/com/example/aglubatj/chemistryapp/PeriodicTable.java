@@ -6,30 +6,21 @@ import java.util.ArrayList;
  * Created by John on 1/23/2016.
  */
 public class PeriodicTable {
-    // private Context mContext
     private static PeriodicTable pTable;
     private static ArrayList<Element> Elements;
     public static final int NUMBER_OF_ELEMENTS = 118;
-    // public static final int NUMBER_OF_GROUPS = 18;
+    // public static final int NUMBER_OF_GROUPS = 18; // not used
     public static final int NUMBER_OF_PERIODS = 7;
     public static final int NUMBER_OF_SPECIAL_GROUPS = 2; // lanthanoid and actinoid series
     private static final int MAX_NUMBER_OF_ELEMENTS_IN_A_GROUP = 7;
     private static final int MAX_NUMBER_OF_ELEMENTS_IN_A_PERIOD = 18;
+    public static Compound passObject;
 
-
-    private PeriodicTable() { //Context context){
-        // mContext = context;
+    private PeriodicTable() {
         generateElements();
     }
 
     private void generateElements(){
-        // String elementNames[] = mContext.getResources().getStringArray(R.array.elementNamesArray);
-        // String elementSymbols[] = mContext.getResources().getStringArray(R.array.elementSymbolsArr);
-        // int elementNumbers[] = mContext.getResources().getIntArray(R.array.elementNumberArray);
-        // String elementWeights[] = mContext.getResources().getStringArray(R.array.elementWeightArray);
-        // int elementGroups[] = mContext.getResources().getIntArray(R.array.elementGroupArray);
-        // int elementPeriods[] = mContext.getResources().getIntArray(R.array.elementPeriodArray);
-
         Elements = new ArrayList<>(NUMBER_OF_ELEMENTS);
 
         for(int i = 0; i < NUMBER_OF_ELEMENTS; ++i){

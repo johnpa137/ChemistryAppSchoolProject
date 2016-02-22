@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.aglubatj.chemistryapp.ConversionActivity"
+    tools:showIn="@layout/activity_conversion">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/lblMolarMassStr"
+        android:id="@+id/lblMolarMass"
+        android:layout_marginTop="@dimen/borderMargin"
+        android:layout_below="@+id/lblCompoundView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/lblMolarMassValue"
+        android:layout_alignParentTop="false"
+        android:layout_toRightOf="@+id/lblMolarMass"
+        android:layout_toEndOf="@+id/lblMolarMass"
+        android:layout_marginLeft="38dp"
+        android:layout_marginStart="38dp"
+        android:layout_alignBottom="@+id/lblMolarMass" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/lblMoleAmountStr"
+        android:id="@+id/lblMoleAmount"
+        android:layout_below="@+id/lblMolarMass"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/borderMargin" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/lblGramAmountStr"
+        android:id="@+id/lblGramAmount"
+        android:layout_below="@+id/lblMoleAmount"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/borderMargin" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="2"
+        android:id="@+id/edtMoleAmount"
+        android:layout_alignBottom="@+id/lblMoleAmount"
+        android:layout_toRightOf="@+id/lblGramAmount"
+        android:layout_toEndOf="@+id/lblGramAmount"
+        android:layout_marginLeft="@dimen/borderMargin"
+        android:layout_marginStart="@dimen/borderMargin"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="2"
+        android:id="@+id/edtGramAmount"
+        android:layout_alignBottom="@+id/lblGramAmount"
+        android:layout_toRightOf="@+id/lblGramAmount"
+        android:layout_toEndOf="@+id/lblGramAmount"
+        android:layout_marginLeft="@dimen/borderMargin"
+        android:layout_marginStart="@dimen/borderMargin"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/lblMoleInfo"
+        android:layout_below="@+id/lblGramAmount"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/borderMargin" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnAdd"
+        android:id="@+id/btnAdd"
+        android:layout_below="@+id/lblMoleInfo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/borderMargin"
+        android:onClick="onClickBtnAdd" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnCancelStr"
+        android:id="@+id/Cancel"
+        android:layout_below="@+id/btnAdd"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/lblCompoundView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>

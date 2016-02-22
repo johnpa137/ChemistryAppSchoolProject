@@ -1,92 +1,67 @@
 package com.example.aglubatj.chemistryapp;
 
-import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.Point;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.DisplayMetrics;
-import android.view.Display;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-
-import java.util.ArrayList;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.ZoomControls;
 
 public class PeriodicTableActivity extends AppCompatActivity {
-    // private static ArrayList<ElementView> ElementViews = new ArrayList<>(PeriodicTable.NUMBER_OF_ELEMENTS);
     private int ZoomFactor;
+    public static Compound compound = new Compound();
+    private boolean superscript;
+    private boolean subscript;
+    private TextView formulaView;
+    private int negativeCharge;
+    private int currentNumber;
+    private int ADD_AMOUNT_REQUEST;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        setContentView(R.layout.activity_period_table);
+        if(getResources().getConfiguration().orientation == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+            setContentView(R.layout.activity_period_table_vertical);
+        else
+            setContentView(R.layout.activity_period_table_horizontal);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         ZoomFactor = PeriodicTable.NUMBER_OF_PERIODS + PeriodicTable.NUMBER_OF_SPECIAL_GROUPS;
 
-        FloatingActionButton fabZoomIn = (FloatingActionButton) findViewById(R.id.fabZoomIn);
-        fabZoomIn.setOnClickListener(new View.OnClickListener() {
+        ZoomControls zoomControls = (ZoomControls) findViewById(R.id.zoomControls);
+        zoomControls.setOnZoomInClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                onClickFabZoomIn(view);
+            public void onClick(View v) {
+                onClickZoomIn(v);
             }
         });
 
-        FloatingActionButton fabZoomOut = (FloatingActionButton) findViewById(R.id.fabZoomOut);
-        fabZoomOut.setOnClickListener(new View.OnClickListener() {
+        zoomControls.setOnZoomOutClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                onClickFabZoomOut(view);
+            public void onClick(View v) {
+                onClickZoomOut(v);
             }
         });
 
-        // ElementView elementView = (ElementView) findViewById(R.id.elvHydrogen);
-        // elementView.setTextColor(Color.parseColor("#59b9c4"));
+        formulaView = (TextView) findViewById(R.id.lblFormulaView);
 
-        // for(int i = 0; i < PeriodicTable.NUMBER_OF_ELEMENTS; ++i){
-        //     ElementView elementView = new ElementView(this);
-        //     elementView.setElementNumber(i + 1);
-        //     ElementViews.add(elementView);
-        // }
+        superscript = false;
+        subscript = true;
+        negativeCharge = 1;
+        currentNumber = 0;
 
-        // Display display = getWindowManager().getDefaultDisplay();
-        // Point size = new Point();
-        // display.getSize(size);
-        // int screenWidth = size.x;
-        // int screenHeight = size.y;
-
-        // int cellWidth = Math.round(screenWidth/18.f);
-        // int cellHeight = Math.round(screenHeight / 9.f);
-        // int symbolSize = Math.round(cellWidth/2.5f);
-
-        // PeriodicTable pTable = PeriodicTable.getPeriodicTable();
-
-        // RelativeLayout layout = (RelativeLayout) findViewById(R.id.layPeriodTable);
-
-        // for(int i = 0; i < PeriodicTable.NUMBER_OF_GROUPS; ++i){
-        //     RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(cellWidth, cellHeight);
-        //     ArrayList<Element> ElementGroup = pTable.getElementGroup(i + 1);
-        //     for(int j = 0; j < ElementGroup.size(); ++j){
-        //         if(ElementGroup.get(j).getAtomicNumber() == 1){
-        //             params.addRule(RelativeLayout.ALIGN_PARENT_TOP, -1);
-        //             params.addRule(RelativeLayout.ALIGN_PARENT_LEFT, -1);
-        //             ElementViews.get(0).setSymbolSize(symbolSize);
-        //             ElementViews.get(0).setLayoutParams(params);
-        //             layout.addView(ElementViews.get(0));
-        //             break;
-        //         }
-        //     }
-        // }
+        Button btnKeySubScript = (Button) findViewById(R.id.btnKeySubScript);
+        btnKeySubScript.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
     }
 
     @Override
@@ -106,50 +81,141 @@ public class PeriodicTableActivity extends AppCompatActivity {
             params.width = (screenHeight - toolbar.getHeight()) / ZoomFactor;
             elv.setLayoutParams(params);
             elv.setSymbolSize((float)(screenHeight - toolbar.getHeight()) / (ZoomFactor * 2));
-            //elv.setMinimumHeight(screenHeight/9);
-            //elv.setMinimumWidth(screenHeight/9 - screenHeight/30);
         }
+
+        updateFormulaView();
     }
 
-    // @Override
-    // public void onResume(){
-    //    super.onResume();
-        // if(getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
-        //     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-    // }
+    public void onBackPressed() {
+        setResult(Activity.RESULT_CANCELED);
+        finish();
+    }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event){
-        if(keyCode == KeyEvent.KEYCODE_BACK) {
-            finish();
-            return false;
-        }
-
-        return super.onKeyDown(keyCode, event);
+    public void updateFormulaView(){
+        if(compound.size() != 0)
+            formulaView.setText(Html.fromHtml(compound.toString()));
+        else
+            formulaView.setText("No Formula");
     }
 
     public void onClickElementView(View view){
         ElementView elementView = (ElementView) view;
-        Intent intent = new Intent(this, ElementDetailsActivity.class);
-        intent.putExtra("atomicNumber", elementView.getElementNumber());
-        startActivity(intent);
+        compound.addElement(elementView.getElementNumber());
+        currentNumber = 0;
+
+        updateFormulaView();
     }
 
-    public void onClickFabZoomIn(View view){
+    public void onClickZoomIn(View view){
         if(ZoomFactor != 1){
             ZoomFactor -= 1;
             this.onResume();
         }
     }
 
-    public void onClickFabZoomOut(View view){
+    public void onClickZoomOut(View view){
         ZoomFactor += 1;
         this.onResume();
     }
 
-    // public void onClickMainMenu(View view){
-    //     finish();
-    // }
+    public void onClickKeyPadNumber(View view){
+        currentNumber *= 10;
+        Button numberButton = (Button) view;
 
+        int numberToAdd = Integer.parseInt(numberButton.getText().toString());
 
+        currentNumber += numberToAdd;
+
+        if(superscript)
+            compound.addCharge(currentNumber * negativeCharge);
+        else{
+            compound.addSubscript(currentNumber);
+        }
+
+        updateFormulaView();
+    }
+
+    public void onClickKeySuperScript(View view){
+        Button btnKeySuperScript = (Button) view;
+        Button btnKeySubScript = (Button) findViewById(R.id.btnKeySubScript);
+        Button btnKeySign = (Button) findViewById(R.id.btnKeySign);
+        currentNumber = 0;
+
+        if(superscript){
+            superscript = false;
+            subscript = true;
+            btnKeySuperScript.getBackground().setColorFilter(null);
+            btnKeySubScript.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
+            btnKeySign.setEnabled(false);
+        }
+        else{
+            superscript = true;
+            subscript = false;
+            btnKeySuperScript.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
+            btnKeySubScript.getBackground().setColorFilter(null);
+            btnKeySign.setEnabled(true);
+        }
+    }
+
+    public void onClickKeySubScript(View view){
+        Button btnKeySubScript = (Button) view;
+        Button btnKeySuperScript = (Button) findViewById(R.id.btnKeySuperScript);
+        Button btnKeySign = (Button) findViewById(R.id.btnKeySign);
+        currentNumber = 0;
+
+        if(subscript){
+            superscript = true;
+            subscript = false;
+            btnKeySuperScript.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
+            btnKeySubScript.getBackground().setColorFilter(null);
+            btnKeySign.setEnabled(true);
+        }
+        else{
+            superscript = false;
+            subscript = true;
+            btnKeySuperScript.getBackground().setColorFilter(null);
+            btnKeySubScript.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
+            btnKeySign.setEnabled(false);
+        }
+    }
+
+    public void onClickKeySign(View view){
+        negativeCharge = -negativeCharge;
+
+        if(superscript)
+            compound.addCharge(currentNumber * negativeCharge);
+
+        updateFormulaView();
+    }
+
+    public void onClickKeyDel(View view){
+        currentNumber = 0;
+        compound.backspace();
+
+        updateFormulaView();
+    }
+
+    public void onClickKeyClr(View view){
+        currentNumber = 0;
+        compound.clear();
+
+        updateFormulaView();
+    }
+
+    public void onClickKeyOK(View view) {
+        Intent intent = new Intent(this, ConversionActivity.class);
+
+        PeriodicTable.passObject = compound;
+
+        startActivityForResult(intent, ADD_AMOUNT_REQUEST);
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        if(resultCode == RESULT_OK){
+            if(requestCode == ADD_AMOUNT_REQUEST){
+                setResult(RESULT_OK, data);
+                finish();
+            }
+        }
+    }
 }

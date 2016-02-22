@@ -1,5 +1,6 @@
 package com.example.aglubatj.chemistryapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -19,7 +20,6 @@ public class ElementDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_elementdetails);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -86,23 +86,15 @@ public class ElementDetailsActivity extends AppCompatActivity {
     }
 
     public void onBtnAddtoFormulaClick(View view){
-        Spinner spnOptions = (Spinner) findViewById(R.id.spnOptions);
-        String option = String.valueOf(spnOptions.getSelectedItem());
         EditText edtAmount = (EditText) findViewById(R.id.edtAmount);
-        String amount = String.valueOf(edtAmount.getText());
-        TextView lblNameValue = (TextView) findViewById(R.id.lblNameValue);
-        String name = String.valueOf(lblNameValue.getText());
-
-        if(option.equals(getString(R.string.spnOptionsMolesStr))){
-            Toast.makeText(this.getApplicationContext(), "You have selected to add " + amount + " moles of " + name, Toast.LENGTH_LONG).show();
-        }
-        else{
-            Toast.makeText(this.getApplicationContext(), "You have selected to add " + amount + " grams of " + name, Toast.LENGTH_LONG).show();
-        }
+        Intent intent = new Intent();
+        intent.putExtra("amount", Integer.parseInt(edtAmount.getText().toString()));
+        setResult(Activity.RESULT_OK, intent);
         finish();
     }
 
     public void onBtnCancel(View view){
+        setResult(Activity.RESULT_CANCELED);
         finish();
     }
 }
