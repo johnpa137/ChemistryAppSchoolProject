@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">ChemistryApp</string>
-    <string name="title_activity_main_menu">Chem App</string>
     <string name="title_activity_period_table">Period Table</string>
     <string name="title_activity_element_details">Element Details</string>
     <string name="action_settings">Settings</string>
@@ -13,7 +12,7 @@
     <string name="lblSymbolStr">Symbol</string>
     <string name="lblElectronConfigStr">Electron Configuration</string>
     <string name="btnCancelStr">Cancel</string>
-    <string name="title_activity_formula_input">Formula Input</string>
+    <string name="title_activity_formula_input">Chemistry App</string>
     <string name="lblReactantsStr">Reactants</string>
     <string name="lblProductsStr">Products</string>
     <string name="btnAddReactantStr">Add Reactant Compound</string>
