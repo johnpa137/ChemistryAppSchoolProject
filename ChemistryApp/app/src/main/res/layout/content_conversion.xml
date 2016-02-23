@@ -95,7 +95,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btnAdd"
+        android:text="@string/btnAddStr"
         android:id="@+id/btnAdd"
         android:layout_below="@+id/lblMoleInfo"
         android:layout_centerHorizontal="true"
