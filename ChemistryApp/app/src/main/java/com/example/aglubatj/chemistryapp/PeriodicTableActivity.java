@@ -13,6 +13,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.ZoomControls;
 
@@ -24,7 +25,8 @@ public class PeriodicTableActivity extends AppCompatActivity {
     private TextView formulaView;
     private int negativeCharge;
     private int currentNumber;
-    private int ADD_AMOUNT_REQUEST;
+    private static final int ADD_AMOUNT_REQUEST = 1;
+    private CheckBox chkElementDetails;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +64,8 @@ public class PeriodicTableActivity extends AppCompatActivity {
 
         Button btnKeySubScript = (Button) findViewById(R.id.btnKeySubScript);
         btnKeySubScript.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
+
+        chkElementDetails = (CheckBox) findViewById(R.id.chkElementDetails);
     }
 
     @Override
@@ -99,11 +103,19 @@ public class PeriodicTableActivity extends AppCompatActivity {
     }
 
     public void onClickElementView(View view){
-        ElementView elementView = (ElementView) view;
-        compound.addElement(elementView.getElementNumber());
-        currentNumber = 0;
+        if(chkElementDetails.isChecked()){
+            ElementView elementView = (ElementView) view;
+            Intent intent = new Intent(this, ElementDetailsActivity.class);
+            intent.putExtra("atomicNumber", elementView.getElementNumber());
+            startActivity(intent);
+        }
+        else{
+            ElementView elementView = (ElementView) view;
+            compound.addElement(elementView.getElementNumber());
+            currentNumber = 0;
 
-        updateFormulaView();
+            updateFormulaView();
+        }
     }
 
     public void onClickZoomIn(View view){

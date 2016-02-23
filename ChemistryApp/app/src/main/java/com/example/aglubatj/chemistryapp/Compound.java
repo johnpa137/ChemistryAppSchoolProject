@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class Compound {
     private ArrayList<CompoundUnit> formula;
-    private double coefficient;
+    private int coefficient = 1;
 
     public Compound(){
         formula = new ArrayList<>();
@@ -21,7 +21,7 @@ public class Compound {
         return formula;
     }
 
-    public double getCoefficient() {
+    public int getCoefficient() {
         return coefficient;
     }
 
@@ -55,7 +55,7 @@ public class Compound {
         }
     }
 
-    public void setCoefficient(double coefficient) {
+    public void setCoefficient(int coefficient) {
         this.coefficient = coefficient;
     }
 

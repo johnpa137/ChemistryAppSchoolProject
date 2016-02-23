@@ -13,11 +13,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class ConversionActivity extends AppCompatActivity {
     public static final String moleResult = "MoleResult"; // result in moles regardless of whether it was entered in moles or grams
     private double molarMass;
     private EditText edtGramAmount;
     private EditText edtMoleAmount;
+    private static final String moleInformation = "1 mole = 6.022 x 10<sup>23</sup> molecules";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,8 @@ public class ConversionActivity extends AppCompatActivity {
 
         edtGramAmount = (EditText) findViewById(R.id.edtGramAmount);
         edtMoleAmount = (EditText) findViewById(R.id.edtMoleAmount);
+        TextView lblMoleInformation = (TextView) findViewById(R.id.lblMoleInfo);
+        lblMoleInformation.setText(Html.fromHtml(moleInformation));
 
         molarMass = PeriodicTable.passObject.getMolarMass();
 
@@ -47,12 +53,10 @@ public class ConversionActivity extends AppCompatActivity {
 
         edtMoleAmount.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -73,8 +77,12 @@ public class ConversionActivity extends AppCompatActivity {
 
     public void onClickBtnAdd(View view){
         Intent intent = new Intent();
-        intent.putExtra(moleResult, Double.parseDouble(((EditText)findViewById(R.id.edtMoleAmount)).getText().toString()));
-        setResult(RESULT_OK, intent);
+        if(Integer.parseInt(((EditText) findViewById(R.id.edtMoleAmount)).getText().toString()) > 0){
+            intent.putExtra(moleResult, Integer.parseInt(((EditText) findViewById(R.id.edtMoleAmount)).getText().toString()));
+            setResult(RESULT_OK, intent);
+        }
+        else
+            setResult(RESULT_CANCELED);
         finish();
     }
 
@@ -83,8 +91,11 @@ public class ConversionActivity extends AppCompatActivity {
         finish();
     }
 
-    public double convertGramsToMoles(double amount){
-        return amount/molarMass;
+    public int convertGramsToMoles(double amount){
+        DecimalFormat df = new DecimalFormat("#");
+        df.setRoundingMode(RoundingMode.HALF_EVEN);
+
+        return Integer.parseInt(df.format(amount / molarMass));
     }
 
     public double convertMolesToGrams(double amount){

@@ -18,16 +18,43 @@ public class PeriodicTableHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(
+                "CREATE TABLE Group (" +
+                "_id INTEGER PRIMARY KEY NOT NULL UNIQUE" +
+                ")"
+        );
+        db.execSQL(
+                "CREATE TABLE Period (" +
+                "_id INTEGER PRIMARY KEY NOT NULL UNIQUE" +
+                ")"
+        );
+        db.execSQL(
+                "CREATE TABLE State (" +
+                "_id INTEGER PRIMARY KEY NOT NULL UNIQUE" +
+                ")"
+        );
+        db.execSQL(
+                "CREATE TABLE Type (" +
+                "_id INTEGER PRIMARY KEY NOT NULL UNIQUE" +
+                ")"
+        );
+        db.execSQL(
             "CREATE TABLE Element (" +
-            "_id INTEGER PRIMARY KEY, " +
+            "_id INTEGER PRIMARY KEY NOT NULL UNIQUE, " +
             "name TEXT, " +
             "symbol TEXT, " +
-            "weight REAL)"
+            "weight REAL," +
+            "groupID INTEGER," +
+            "periodID INTEGER," +
+            "stateID INTEGER," +
+            "typeID INTEGER," +
+            "FOREIGN KEY(groupID) REFERENCES Group(_id)" +
+            "FOREIGN KEY(periodID) REFERENCES Period(_id)" +
+            "FOREIGN KEY(stateID) REFERENCES State(_id)" +
+            "FOREIGN KEY(typeID) REFERENCES Type(_id)" +
+            ")"
         );
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-    }
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {}
 }

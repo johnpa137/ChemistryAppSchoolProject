@@ -746,5 +746,15 @@
             android:layout_below="@+id/btnKeySubScript"
             android:onClick="onClickKeyOK"/>
 
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chkElementDetailsStr"
+            android:id="@+id/chkElementDetails"
+            android:layout_below="@+id/btnKeyDel"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:checked="false" />
+
     </RelativeLayout>
 </LinearLayout>

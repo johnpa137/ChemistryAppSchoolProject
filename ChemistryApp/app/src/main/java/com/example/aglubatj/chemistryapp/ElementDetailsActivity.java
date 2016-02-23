@@ -84,17 +84,4 @@ public class ElementDetailsActivity extends AppCompatActivity {
 
         finish();
     }
-
-    public void onBtnAddtoFormulaClick(View view){
-        EditText edtAmount = (EditText) findViewById(R.id.edtAmount);
-        Intent intent = new Intent();
-        intent.putExtra("amount", Integer.parseInt(edtAmount.getText().toString()));
-        setResult(Activity.RESULT_OK, intent);
-        finish();
-    }
-
-    public void onBtnCancel(View view){
-        setResult(Activity.RESULT_CANCELED);
-        finish();
-    }
 }
