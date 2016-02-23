@@ -111,4 +111,22 @@ public class EquationTest extends TestCase {
 
         assertEquals(testEquation.getProduct(1).toString(), "H");
     }
+
+    public void testCheckBalance() throws Exception {
+        Equation testEquation = new Equation();
+        Compound testCompound1 = new Compound();
+        Compound testCompound2 = new Compound();
+        Compound testCompound3 = new Compound();
+        testCompound1.addCompoundUnit(new CompoundUnit(1, 2, 0));
+        testCompound1.setCoefficient(2);
+        testCompound2.addCompoundUnit(new CompoundUnit(8, 2, 0));
+        testCompound3.addCompoundUnit(new CompoundUnit(1, 2, 0));
+        testCompound3.addCompoundUnit(new CompoundUnit(8, 1, 0));
+        testCompound3.setCoefficient(2);
+        testEquation.addReactant(testCompound1);
+        testEquation.addReactant(testCompound2);
+        testEquation.addProduct(testCompound3);
+
+        assertEquals(testEquation.checkBalance(), true);
+    }
 }
