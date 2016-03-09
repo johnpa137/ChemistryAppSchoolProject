@@ -17,6 +17,12 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.ZoomControls;
 
+/**
+ * Activity class for Periodic Table screen.
+ *
+ * @author JP Aglubat
+ * @version 3/6/2016
+ */
 public class PeriodicTableActivity extends AppCompatActivity {
     private int ZoomFactor;
     public static Compound compound = new Compound();
@@ -28,9 +34,15 @@ public class PeriodicTableActivity extends AppCompatActivity {
     private static final int ADD_AMOUNT_REQUEST = 1;
     private CheckBox chkElementDetails;
 
+    /**
+     * Android onCreate method.
+     *
+     * @param savedInstanceState the class state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // helper = new PeriodicTableHelper(this.getApplicationContext());
         if(getResources().getConfiguration().orientation == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
             setContentView(R.layout.activity_period_table_vertical);
         else
@@ -68,6 +80,9 @@ public class PeriodicTableActivity extends AppCompatActivity {
         chkElementDetails = (CheckBox) findViewById(R.id.chkElementDetails);
     }
 
+    /**
+     * Android onResume method.
+     */
     @Override
     public void onResume(){
         super.onResume();
@@ -90,11 +105,17 @@ public class PeriodicTableActivity extends AppCompatActivity {
         updateFormulaView();
     }
 
+    /**
+     * Android onBackPressed method.
+     */
     public void onBackPressed() {
-        setResult(Activity.RESULT_CANCELED);
+        setResult(Activity.RESULT_CANCELED, null);
         finish();
     }
 
+    /**
+     * Updates the lblFormulaView to reflect the current reactants and products entered
+     */
     public void updateFormulaView(){
         if(compound.size() != 0)
             formulaView.setText(Html.fromHtml(compound.toString()));
@@ -102,6 +123,11 @@ public class PeriodicTableActivity extends AppCompatActivity {
             formulaView.setText("No Formula");
     }
 
+    /**
+     * Listener for when the user touches one of the element views
+     *
+     * @param view the view that called this function
+     */
     public void onClickElementView(View view){
         if(chkElementDetails.isChecked()){
             ElementView elementView = (ElementView) view;
@@ -118,6 +144,11 @@ public class PeriodicTableActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Listener for when the user touches the zoom in button
+     *
+     * @param view the view that called this function
+     */
     public void onClickZoomIn(View view){
         if(ZoomFactor != 1){
             ZoomFactor -= 1;
@@ -125,11 +156,21 @@ public class PeriodicTableActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Listener for when the user touches the zoom out button
+     *
+     * @param view the view that called this function
+     */
     public void onClickZoomOut(View view){
         ZoomFactor += 1;
         this.onResume();
     }
 
+    /**
+     * Listener for when the user touches one of the keypad numbers
+     *
+     * @param view the view that called this function
+     */
     public void onClickKeyPadNumber(View view){
         currentNumber *= 10;
         Button numberButton = (Button) view;
@@ -147,6 +188,11 @@ public class PeriodicTableActivity extends AppCompatActivity {
         updateFormulaView();
     }
 
+    /**
+     * Listener for when the user touches the superscript button
+     *
+     * @param view the view that called this function
+     */
     public void onClickKeySuperScript(View view){
         Button btnKeySuperScript = (Button) view;
         Button btnKeySubScript = (Button) findViewById(R.id.btnKeySubScript);
@@ -169,6 +215,11 @@ public class PeriodicTableActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Listener for when the user touches the subscript button
+     *
+     * @param view the view that called this function
+     */
     public void onClickKeySubScript(View view){
         Button btnKeySubScript = (Button) view;
         Button btnKeySuperScript = (Button) findViewById(R.id.btnKeySuperScript);
@@ -191,6 +242,11 @@ public class PeriodicTableActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Listener for when the user touches the plus-minus button
+     *
+     * @param view the view that called this function
+     */
     public void onClickKeySign(View view){
         negativeCharge = -negativeCharge;
 
@@ -200,6 +256,11 @@ public class PeriodicTableActivity extends AppCompatActivity {
         updateFormulaView();
     }
 
+    /**
+     * Listener for when the user touches the delete button
+     *
+     * @param view the view that called this function
+     */
     public void onClickKeyDel(View view){
         currentNumber = 0;
         compound.backspace();
@@ -207,6 +268,11 @@ public class PeriodicTableActivity extends AppCompatActivity {
         updateFormulaView();
     }
 
+    /**
+     * Listener for when the user touches the clear button
+     *
+     * @param view the view that called this function
+     */
     public void onClickKeyClr(View view){
         currentNumber = 0;
         compound.clear();
@@ -214,6 +280,11 @@ public class PeriodicTableActivity extends AppCompatActivity {
         updateFormulaView();
     }
 
+    /**
+     * Listener for when the user touches the OK button
+     *
+     * @param view the view that called this function
+     */
     public void onClickKeyOK(View view) {
         Intent intent = new Intent(this, ConversionActivity.class);
 
@@ -222,6 +293,13 @@ public class PeriodicTableActivity extends AppCompatActivity {
         startActivityForResult(intent, ADD_AMOUNT_REQUEST);
     }
 
+    /**
+     * Called when the activity starts another activity for result
+     *
+     * @param requestCode the type of request made to the sub-activity
+     * @param resultCode the result of the sub-activity
+     * @param data Intent sent with data for result
+     */
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         if(resultCode == RESULT_OK){
             if(requestCode == ADD_AMOUNT_REQUEST){

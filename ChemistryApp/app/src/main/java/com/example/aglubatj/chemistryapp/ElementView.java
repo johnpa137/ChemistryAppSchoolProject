@@ -12,6 +12,9 @@ import android.view.View;
 
 /**
  * Class meant to display elements in the periodic table activity
+
+ * @author JP Aglubat
+ * @version 3/6/2016
  */
 public class ElementView extends View {
     private String elementSymbol;
@@ -33,21 +36,45 @@ public class ElementView extends View {
     private float weightTextPaintWidth;
     private float weightTextPaintHeight;
 
+    /**
+     * Constructor.
+     *
+     * @param context the application context of the view
+     */
     public ElementView(Context context) {
         super(context);
         init(null, 0);
     }
 
+    /**
+     * Constructor.
+     *
+     * @param context the application context of the view
+     * @param attrs the attributes of the view
+     */
     public ElementView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs, 0);
     }
 
+    /**
+     * Constructor.
+     *
+     * @param context the application context of the view
+     * @param attrs the attributes of the view
+     * @param defStyle the style of the view
+     */
     public ElementView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(attrs, defStyle);
     }
 
+    /**
+     * helper function for the Constructors.
+     *
+     * @param attrs the attributes of the view
+     * @param defStyle the style of the view
+     */
     private void init(AttributeSet attrs, int defStyle) {
         // Load attributes
         final TypedArray a = getContext().obtainStyledAttributes(
@@ -93,6 +120,9 @@ public class ElementView extends View {
         invalidateTextPaintAndMeasurements();
     }
 
+    /**
+     * get values of the currently set element number from the periodic table
+     */
     private void getPeriodicTableValues(){
         PeriodicTable pTable = PeriodicTable.getPeriodicTable();
 //
@@ -212,6 +242,9 @@ public class ElementView extends View {
         invalidateTextPaintAndMeasurements();
     }
 
+    /**
+     * redraws the view according to the changes made.
+     */
     private void invalidateTextPaintAndMeasurements() {
         symbolTextPaint.setTextSize(symbolSize);
         symbolTextPaint.setColor(elementColor);
@@ -235,6 +268,11 @@ public class ElementView extends View {
         weightTextPaintHeight = fontMetrics.top + fontMetrics.bottom;
     }
 
+    /**
+     * Android onDraw method for view.
+     *
+     * @param canvas where the view is drawn
+     */
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -270,19 +308,39 @@ public class ElementView extends View {
                 weightTextPaint);
     }
 
+    /**
+     * returns the set element number of this view
+     *
+     * @return element number set for this view
+     */
     public int getElementNumber(){
         return elementNumber;
     }
 
+    /**
+     * sets the element number of this view
+     *
+     * @param atomicNumber element number to be set
+     */
     public void setElementNumber(int atomicNumber){
         elementNumber = atomicNumber;
         getPeriodicTableValues();
     }
 
+    /**
+     * returns the current font size of the symbol of this view
+     *
+     * @return font size of symbol
+     */
     public float getSymbolSize() {
         return symbolSize;
     }
 
+    /**
+     * set the font size of the symbol of this view
+     *
+     * @param symbolSize size of symbol to be set
+     */
     public void setSymbolSize(float symbolSize) {
         this.symbolSize = symbolSize;
         invalidateTextPaintAndMeasurements();

@@ -1,7 +1,10 @@
 package com.example.aglubatj.chemistryapp;
 
 /**
- * Created by John on 1/17/2016.
+ * Class that stores data for each element
+
+ * @author JP Aglubat
+ * @version 3/6/2016
  */
 public class Element {
     private String name;
@@ -12,6 +15,16 @@ public class Element {
     private int period;
     private String electronConfig;
 
+    /**
+     * Constructor.
+     *
+     * @param name name of element
+     * @param symbol chemical symbol of
+     * @param atomicNumber atomicNumber of element
+     * @param atomicWeight atomic weight of element
+     * @param group elemental group of element
+     * @param period elemental period of element
+     */
     public Element(String name, String symbol, int atomicNumber, float atomicWeight, int group, int period) {
         this.name = name;
         this.symbol = symbol;
@@ -108,18 +121,43 @@ public class Element {
         this.electronConfig = configBuilder.toString();
     }
 
+    /**
+     * getter for element name.
+     *
+     * @return name of element
+     */
     public String getName() { return name; }
 
+    /**
+     * getter for element sybmol.
+     *
+     * @return symbol of element
+     */
     public String getSymbol() { return symbol; }
 
+    /**
+     * getter for element name.
+     *
+     * @return name of element
+     */
     public int getAtomicNumber() {
         return atomicNumber;
     }
 
+    /**
+     * getter for element weight.
+     *
+     * @return weight of element
+     */
     public float getAtomicWeight() {
         return atomicWeight;
     }
 
+    /**
+     * getter for element group.
+     *
+     * @return grpup of element
+     */
     public int getGroup() {
         int retValue = group;
         if(group > 18)
@@ -127,13 +165,11 @@ public class Element {
         return retValue;
     }
 
-    // public int getPositionGroup() {
-    //     int retValue = group;
-    //     if(group > 18)
-    //         retValue = group - 15;
-    //     return retValue;
-    // }
-
+    /**
+     * getter for element period.
+     *
+     * @return period of element
+     */
     public int getPeriod() {
         int retValue = period;
         if(period > 7)
@@ -141,14 +177,20 @@ public class Element {
         return retValue;
     }
 
-    // public int getPositionPeriod() {
-    //    return period;
-    // }
-
+    /**
+     * returns this elements electron configuration
+     *
+     * @return electron configuration of element
+     */
     public String getElectronConfig() {
         return electronConfig;
     }
 
+    /**
+     * getter for a test element object
+     *
+     * @return a test element object
+     */
     public static Element getTestElement() {
         String name = "Iridium";
         String symbol = "Ir";

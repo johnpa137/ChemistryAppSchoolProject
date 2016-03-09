@@ -3,33 +3,64 @@ package com.example.aglubatj.chemistryapp;
 import java.util.ArrayList;
 
 /**
- * Created by John on 2/14/2016.
+ * This class represents a stoichiometric chemical equation
+ *
+ * @author JP Aglubat
+ * @version 3/6/2016
  */
 public class Equation {
     private ArrayList<Compound> reactants;
     private ArrayList<Compound> products;
 
+    /**
+     * Constructor.
+     */
     public Equation(){
         reactants = new ArrayList<>();
         products = new ArrayList<>();
     }
 
+    /**
+     * Method that adds a reactants to the chemical equation
+     *
+     * @param compound a chemical formula to be added
+     */
     public void addReactant(Compound compound){
         reactants.add(compound);
     }
 
+    /**
+     * removes a reactant from the chemical equation
+     *
+     * @param index index of the reactant in the equation
+     */
     public void removeReactant(int index){
         reactants.remove(index);
     }
 
+    /**
+     * Method that adds a products to the chemical equation
+     *
+     * @param compound a chemical formula to be added
+     */
     public void addProduct(Compound compound){
         products.add(compound);
     }
 
+    /**
+     * removes a product from the chemical equation
+     *
+     * @param index index of the product in the equation
+     */
     public void removeProduct(int index){
         products.remove(index);
     }
 
+    /**
+     * returns the chemical equation in string form
+     *
+     * @return the chemical equation in string form
+     */
     public String toString(){
         StringBuilder formulaStrBuilder = new StringBuilder();
         for(int i = 0; i < reactants.size(); ++i){
@@ -60,22 +91,47 @@ public class Equation {
         return formulaStrBuilder.toString();
     }
 
+    /**
+     * returns the number of reactants in the equation
+     *
+     * @return the number of reactants
+     */
     public int getReactantCount(){
         return reactants.size();
     }
 
+    /**
+     * returns the number of products in the equation
+     *
+     * @return the number of products
+     */
     public int getProductCount(){
         return products.size();
     }
 
+    /**
+     * returns the reactant compound at the requested index
+     *
+     * @return the compound at index
+     */
     public Compound getReactant(int index){
         return reactants.get(index);
     }
 
+    /**
+     * returns the product compound at the requested index
+     *
+     * @return the compound at index
+     */
     public Compound getProduct(int index){
         return products.get(index);
     }
 
+    /**
+     * checks whether or not the equation is balanced
+     *
+     * @return boolean of whether or not the equation is balanced
+     */
     public boolean checkBalance(){
         ArrayList<Integer> reactantAtomicNumbers = new ArrayList<>();
         ArrayList<Integer> reactantCounts = new ArrayList<>();

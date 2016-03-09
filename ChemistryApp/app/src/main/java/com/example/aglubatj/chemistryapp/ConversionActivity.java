@@ -15,7 +15,12 @@ import android.widget.TextView;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
-
+/**
+ * Activity class for Conversion screen.
+ *
+ * @author JP Aglubat
+ * @version 3/6/2016
+ */
 public class ConversionActivity extends AppCompatActivity {
     public static final String moleResult = "MoleResult"; // result in moles regardless of whether it was entered in moles or grams
     private double molarMass;
@@ -23,6 +28,11 @@ public class ConversionActivity extends AppCompatActivity {
     private EditText edtMoleAmount;
     private static final String moleInformation = "1 mole = 6.022 x 10<sup>23</sup> molecules";
 
+    /**
+     * Android onCreate method.
+     *
+     * @param savedInstanceState the class state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,10 +81,18 @@ public class ConversionActivity extends AppCompatActivity {
         lblCompoundView.setText(Html.fromHtml(PeriodicTable.passObject.toString()));
     }
 
+    /**
+     * Android onBackPressed method.
+     */
     public void onBackPressed(){
         onClickBtnCancel(null);
     }
 
+    /**
+     * Listener for when the user touches the add button
+     *
+     * @param view the view that called this function
+     */
     public void onClickBtnAdd(View view){
         Intent intent = new Intent();
         if(Integer.parseInt(((EditText) findViewById(R.id.edtMoleAmount)).getText().toString()) > 0){
@@ -86,11 +104,22 @@ public class ConversionActivity extends AppCompatActivity {
         finish();
     }
 
+    /**
+     * Listener for when the user touches the cancel button
+     *
+     * @param view the view that called this function
+     */
     public void onClickBtnCancel(View view){
         setResult(RESULT_CANCELED);
         finish();
     }
 
+    /**
+     * Method that converts grams to moles
+     *
+     * @param amount number of grams
+     * @return amount in moles
+     */
     public int convertGramsToMoles(double amount){
         DecimalFormat df = new DecimalFormat("#");
         df.setRoundingMode(RoundingMode.HALF_EVEN);
@@ -98,6 +127,12 @@ public class ConversionActivity extends AppCompatActivity {
         return Integer.parseInt(df.format(amount / molarMass));
     }
 
+    /**
+     * Method that converts moles to grams
+     *
+     * @param amount number of grams
+     * @return amount in grams
+     */
     public double convertMolesToGrams(double amount){
         return amount * molarMass;
     }

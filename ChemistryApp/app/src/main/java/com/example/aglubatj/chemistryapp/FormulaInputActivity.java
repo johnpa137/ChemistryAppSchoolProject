@@ -14,7 +14,12 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-
+/**
+ * Activity class for Formula Input screen.
+ *
+ * @author JP Aglubat
+ * @version 3/6/2016
+ */
 public class FormulaInputActivity extends AppCompatActivity {
     public static Equation formula = new Equation();
     private int ADD_REACTANT_REQUEST = 1;
@@ -32,7 +37,13 @@ public class FormulaInputActivity extends AppCompatActivity {
     private int indexFocused = -1;
     private static final String balanced = "Formula is Balanced";
     private static final String unbalanced = "Formula is Unbalanced";
+    public static PeriodicTableHelper helper;
 
+    /**
+     * Android onCreate method.
+     *
+     * @param savedInstanceState the class state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,18 +56,37 @@ public class FormulaInputActivity extends AppCompatActivity {
             lblFormulaTitle.setText(balanced);
         else
             lblFormulaTitle.setText(unbalanced);
+        if(helper == null)
+            helper = new PeriodicTableHelper(this);
     }
 
+    /**
+     * Listener for when the user touches the add reactant button
+     *
+     * @param view the view that called this function
+     */
     public void onClickBtnAddReactant(View view){
         Intent intent = new Intent(this, PeriodicTableActivity.class);
         startActivityForResult(intent, ADD_REACTANT_REQUEST);
     }
 
+    /**
+     * Listener for when the user touches the add product button
+     *
+     * @param view the view that called this function
+     */
     public void onClickBtnAddProduct(View view){
         Intent intent = new Intent(this, PeriodicTableActivity.class);
         startActivityForResult(intent, ADD_PRODUCT_REQUEST);
     }
 
+    /**
+     * Called when the activity starts another activity for result
+     *
+     * @param requestCode the type of request made to the sub-activity
+     * @param resultCode the result of the sub-activity
+     * @param data Intent sent with data for result
+     */
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         if(resultCode == RESULT_OK){
             if(requestCode == ADD_REACTANT_REQUEST || requestCode == ADD_PRODUCT_REQUEST) {
@@ -87,17 +117,22 @@ public class FormulaInputActivity extends AppCompatActivity {
                 formula.getProduct(indexFocused).setCoefficient(coefficient);
                 lblProductAmounts.get(indexFocused).setText(String.valueOf(coefficient));
             }
+            TextView lblFormula = (TextView) findViewById(R.id.lblFormula);
+            lblFormula.setText(Html.fromHtml(formula.toString()));
+            PeriodicTable.passObject.clear();
+            TextView lblFormulaTitle = (TextView) findViewById(R.id.lblFormulaTitle);
+            if(formula.checkBalance())
+                lblFormulaTitle.setText(balanced);
+            else
+                lblFormulaTitle.setText(unbalanced);
         }
-        TextView lblFormula = (TextView) findViewById(R.id.lblFormula);
-        lblFormula.setText(Html.fromHtml(formula.toString()));
-        PeriodicTable.passObject.clear();
-        TextView lblFormulaTitle = (TextView) findViewById(R.id.lblFormulaTitle);
-        if(formula.checkBalance())
-            lblFormulaTitle.setText(balanced);
-        else
-            lblFormulaTitle.setText(unbalanced);
     }
 
+    /**
+     * Listener for when the user touches one of the compounds listed
+     *
+     * @param view the view that called this function
+     */
     public void onClickReactantCompoundView(View view){
         TextView lblCompound = (TextView) view;
         indexFocused = lblReactants.indexOf(lblCompound);
@@ -105,6 +140,11 @@ public class FormulaInputActivity extends AppCompatActivity {
         startActivityForResult(intent, CHANGE_REACTANT_REQUEST);
     }
 
+    /**
+     * Listener for when the user touches one of the remove button
+     *
+     * @param view the view that called this function
+     */
     public void onClickReactantRemoveButton(View view){
         Button btnRemove = (Button) view;
         indexFocused = btnRemoveReactants.indexOf(btnRemove);
@@ -123,6 +163,11 @@ public class FormulaInputActivity extends AppCompatActivity {
             lblFormulaTitle.setText(unbalanced);
     }
 
+    /**
+     * Listener for when the user touches one of the amount labels
+     *
+     * @param view the view that called this function
+     */
     public void onClickReactantAmountLabel(View view){
         TextView lblAmount = (TextView) view;
         indexFocused = lblReactantAmounts.indexOf(lblAmount);
@@ -130,6 +175,12 @@ public class FormulaInputActivity extends AppCompatActivity {
         PeriodicTable.passObject.changeTo(formula.getReactant(indexFocused));
         startActivityForResult(intent, CHANGE_REACTANT_AMOUNT_REQUEST);
     }
+
+    /**
+     * Listener for when the user touches one of the compounds listed
+     *
+     * @param view the view that called this function
+     */
     public void onClickProductCompoundView(View view){
         TextView lblCompound = (TextView) view;
         indexFocused = lblProducts.indexOf(lblCompound);
@@ -137,6 +188,11 @@ public class FormulaInputActivity extends AppCompatActivity {
         startActivityForResult(intent, CHANGE_PRODUCT_REQUEST);
     }
 
+    /**
+     * Listener for when the user touches one of the remove button
+     *
+     * @param view the view that called this function
+     */
     public void onClickProductRemoveButton(View view){
         Button btnRemove = (Button) view;
         indexFocused = btnRemoveProducts.indexOf(btnRemove);
@@ -155,6 +211,11 @@ public class FormulaInputActivity extends AppCompatActivity {
             lblFormulaTitle.setText(unbalanced);
     }
 
+    /**
+     * Listener for when the user touches one of the amount labels
+     *
+     * @param view the view that called this function
+     */
     public void onClickProductAmountLabel(View view){
         TextView lblAmount = (TextView) view;
         indexFocused = lblProductAmounts.indexOf(lblAmount);
@@ -162,7 +223,13 @@ public class FormulaInputActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ConversionActivity.class);
         startActivityForResult(intent, CHANGE_PRODUCT_AMOUNT_REQUEST);
     }
-    
+
+    /**
+     * Helper function for adding a table row to either the reactant or product list
+     *
+     * @param coefficient the amount added of the compound
+     * @param requestCode the requestCode to check if it will added to the products or reactants
+     */
     private void addTableRow(int coefficient, int requestCode){
         TextView lblAmount = new TextView(this);
         lblAmount.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1.f));

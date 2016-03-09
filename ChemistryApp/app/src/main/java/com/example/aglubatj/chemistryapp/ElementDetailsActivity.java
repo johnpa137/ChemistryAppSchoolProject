@@ -1,22 +1,25 @@
 package com.example.aglubatj.chemistryapp;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
+/**
+ * Activity class for Element Details screen.
+ *
+ * @author JP Aglubat
+ * @version 3/6/2016
+ */
 public class ElementDetailsActivity extends AppCompatActivity {
 
+    /**
+     * Android onCreate method.
+     *
+     * @param savedInstanceState the class state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,29 +58,9 @@ public class ElementDetailsActivity extends AppCompatActivity {
         lblElectronConfigValue.setText(Html.fromHtml(element.getElectronConfig()));
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    // finishes this activity when it goes out of focus
+    /**
+     * Android onPause method. Terminates activity when out of focus.
+     */
     @Override
     public void onPause(){
         super.onPause();
