@@ -48,6 +48,7 @@
             <HorizontalScrollView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+                <!--
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -567,9 +568,17 @@
                         android:layout_toEndOf="@+id/elvUnunseptium" android:onClick="onClickElementView" />
 
                 </RelativeLayout>
+                -->
+                <fragment
+                    class="com.example.aglubatj.chemistryapp.PeriodicTableFragment"
+                    android:id="@+id/periodicTableFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
             </HorizontalScrollView>
         </ScrollView>
     </RelativeLayout>
+
 
     <RelativeLayout
         android:layout_width="wrap_content"

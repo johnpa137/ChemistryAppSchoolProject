@@ -30,9 +30,9 @@ public class PeriodicTableActivity extends AppCompatActivity {
     private boolean subscript;
     private TextView formulaView;
     private int negativeCharge;
-    private int currentNumber;
+    public int currentNumber;
     private static final int ADD_AMOUNT_REQUEST = 1;
-    private CheckBox chkElementDetails;
+    public CheckBox chkElementDetails;
 
     /**
      * Android onCreate method.
@@ -78,6 +78,8 @@ public class PeriodicTableActivity extends AppCompatActivity {
         btnKeySubScript.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
 
         chkElementDetails = (CheckBox) findViewById(R.id.chkElementDetails);
+
+        //getSupportFragmentManager().beginTransaction().replace(R.id.periodicTableFragment, new PeriodicTableFragment()).commit();
     }
 
     /**
@@ -87,20 +89,23 @@ public class PeriodicTableActivity extends AppCompatActivity {
     public void onResume(){
         super.onResume();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        PeriodicTable pTable = PeriodicTable.getPeriodicTable();
+        //PeriodicTable pTable = PeriodicTable.getPeriodicTable();
 
         DisplayMetrics metrics = getResources().getDisplayMetrics();
 
         int screenHeight = metrics.heightPixels;
 
-        for(int i = 0; i < PeriodicTable.NUMBER_OF_ELEMENTS; ++i){
-            ElementView elv = (ElementView) findViewById(getResources().getIdentifier("elv" + pTable.getElement(i + 1).getName(), "id", getPackageName()));
-            ViewGroup.LayoutParams params = elv.getLayoutParams();
-            params.height = (screenHeight - toolbar.getHeight()) / ZoomFactor;
-            params.width = (screenHeight - toolbar.getHeight()) / ZoomFactor;
-            elv.setLayoutParams(params);
-            elv.setSymbolSize((float)(screenHeight - toolbar.getHeight()) / (ZoomFactor * 2));
-        }
+        //for(int i = 0; i < PeriodicTable.NUMBER_OF_ELEMENTS; ++i){
+        //    ElementView elv = (ElementView) findViewById(getResources().getIdentifier("elv" + pTable.getElement(i + 1).getName(), "id", getPackageName()));
+        //    ViewGroup.LayoutParams params = elv.getLayoutParams();
+        //    params.height = (screenHeight - toolbar.getHeight()) / ZoomFactor;
+        //    params.width = (screenHeight - toolbar.getHeight()) / ZoomFactor;
+        //    elv.setLayoutParams(params);
+        //    elv.setSymbolSize((float)(screenHeight - toolbar.getHeight()) / (ZoomFactor * 2));
+        //}
+
+        PeriodicTableFragment pTFrag = (PeriodicTableFragment) getSupportFragmentManager().findFragmentById(R.id.periodicTableFragment);
+        pTFrag.setCellDimensions((screenHeight - toolbar.getHeight()) / (ZoomFactor), (screenHeight - toolbar.getHeight()) / (ZoomFactor * 2));
 
         updateFormulaView();
     }
@@ -128,21 +133,21 @@ public class PeriodicTableActivity extends AppCompatActivity {
      *
      * @param view the view that called this function
      */
-    public void onClickElementView(View view){
-        if(chkElementDetails.isChecked()){
-            ElementView elementView = (ElementView) view;
-            Intent intent = new Intent(this, ElementDetailsActivity.class);
-            intent.putExtra("atomicNumber", elementView.getElementNumber());
-            startActivity(intent);
-        }
-        else{
-            ElementView elementView = (ElementView) view;
-            compound.addElement(elementView.getElementNumber());
-            currentNumber = 0;
-
-            updateFormulaView();
-        }
-    }
+    //public void onClickElementView(View view){
+    //    if(chkElementDetails.isChecked()){
+    //        ElementView elementView = (ElementView) view;
+    //        Intent intent = new Intent(this, ElementDetailsActivity.class);
+    //        intent.putExtra("atomicNumber", elementView.getElementNumber());
+    //        startActivity(intent);
+    //    }
+    //    else{
+    //        ElementView elementView = (ElementView) view;
+    //        compound.addElement(elementView.getElementNumber());
+    //        currentNumber = 0;
+//
+    //        updateFormulaView();
+    //    }
+    //}
 
     /**
      * Listener for when the user touches the zoom in button

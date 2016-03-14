@@ -40,4 +40,7 @@
     <string name="lblGramAmountStr">Amount in Grams:</string>
     <string name="btnAddStr">Add</string>
     <string name="chkElementDetailsStr">View Element Details</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
