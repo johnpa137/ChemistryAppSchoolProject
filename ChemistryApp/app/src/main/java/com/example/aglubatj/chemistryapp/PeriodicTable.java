@@ -1,5 +1,9 @@
 package com.example.aglubatj.chemistryapp;
 
+import android.content.Context;
+import android.os.AsyncTask;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 
 /**
@@ -19,12 +23,13 @@ public class PeriodicTable {
     private static final int MAX_NUMBER_OF_ELEMENTS_IN_A_GROUP = 7;
     private static final int MAX_NUMBER_OF_ELEMENTS_IN_A_PERIOD = 18;
     public static Compound passObject;
+    public static PeriodicTableHelper helper;
 
     /**
      * Constructor.
      */
     private PeriodicTable() {
-        generateElements();
+        new GenerateElementsTask().execute();
     }
 
     /**
@@ -32,7 +37,7 @@ public class PeriodicTable {
      */
     private void generateElements(){
         Elements = new ArrayList<>(NUMBER_OF_ELEMENTS);
-        FormulaInputActivity.helper.getElementArray(Elements);
+        helper.getElementArray(Elements);
     }
 
     /**
@@ -118,5 +123,17 @@ public class PeriodicTable {
         }
         ElementPeriod.trimToSize();
         return ElementPeriod;
+    }
+
+    /**
+     * Private inner class to set up a thread to populate all of the data
+     * array lists from the database.
+     */
+    private class GenerateElementsTask extends AsyncTask<Void, Void, Boolean> {
+        @Override
+        protected Boolean doInBackground(Void... params) {
+            pTable.generateElements();
+            return (pTable != null);
+        }
     }
 }

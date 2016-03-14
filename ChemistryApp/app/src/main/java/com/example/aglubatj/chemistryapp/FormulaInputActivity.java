@@ -37,7 +37,6 @@ public class FormulaInputActivity extends AppCompatActivity {
     private int indexFocused = -1;
     private static final String balanced = "Formula is Balanced";
     private static final String unbalanced = "Formula is Unbalanced";
-    public static PeriodicTableHelper helper = null;
 
     /**
      * Android onCreate method.
@@ -56,8 +55,7 @@ public class FormulaInputActivity extends AppCompatActivity {
             lblFormulaTitle.setText(balanced);
         else
             lblFormulaTitle.setText(unbalanced);
-        if(helper == null)
-            helper = new PeriodicTableHelper(this);
+        PeriodicTable.helper = new PeriodicTableHelper(this);
         PeriodicTable.getPeriodicTable();
     }
 
