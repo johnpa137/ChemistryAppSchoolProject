@@ -21,7 +21,7 @@ public class Compound {
 
     /**
      * adds a compound unit to this compound
-     * @param compoundUnit
+     * @param compoundUnit the compound unit being added
      */
     public void addCompoundUnit(CompoundUnit compoundUnit){
         formula.add(compoundUnit);

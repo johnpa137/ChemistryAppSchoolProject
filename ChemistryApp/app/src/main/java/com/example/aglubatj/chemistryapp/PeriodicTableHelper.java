@@ -35,23 +35,6 @@ public class PeriodicTableHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(
-                "CREATE TABLE Element (" +
-                        "_id INTEGER PRIMARY KEY, " +
-                        "name TEXT, " +
-                        "symbol TEXT, " +
-                        "weight REAL," +
-                        "groupID INTEGER," +
-                        "periodID INTEGER)"
-        );
-        db.execSQL(
-                "CREATE TABLE Group (" +
-                        "_id INTEGER PRIMARY KEY)"
-        );
-        db.execSQL(
-                "CREATE TABLE Period (" +
-                        "_id INTEGER PRIMARY KEY)"
-        );
         writeDataBase(db);
     }
 
@@ -71,14 +54,41 @@ public class PeriodicTableHelper extends SQLiteOpenHelper {
      * @param db the database
      */
     private void writeDataBase(SQLiteDatabase db){
+        db.execSQL(
+                "CREATE TABLE ElementGroup (" +
+                        "_id INTEGER PRIMARY KEY, " +
+                        "numElements INTEGER," +
+                        "name TEXT)"
+        );
+        db.execSQL(
+                "CREATE TABLE Period (" +
+                        "_id INTEGER PRIMARY KEY, " +
+                        "numElements INTEGER," +
+                        "name TEXT)"
+        );
+        db.execSQL(
+                "CREATE TABLE Element (" +
+                        "_id INTEGER PRIMARY KEY, " +
+                        "name TEXT, " +
+                        "symbol TEXT, " +
+                        "weight REAL," +
+                        "groupID INTEGER," +
+                        "periodID INTEGER, "
+                        + "FOREIGN KEY(groupID) REFERENCES ElementGroup(_id), "
+                        + "FOREIGN KEY(periodID) REFERENCES Period(_id))"
+        );
         for(int i = 0; i < PeriodicTable.NUMBER_OF_GROUPS; ++i){
             ContentValues values = new ContentValues();
             values.put("_id", i+1);
-            db.insert("Group", null, values);
+            values.put("numElements", elementGroupCounts[i]);
+            values.put("name", elementGroupNames[i]);
+            db.insert("ElementGroup", null, values);
         }
         for(int i = 0; i < PeriodicTable.NUMBER_OF_PERIODS + PeriodicTable.NUMBER_OF_SPECIAL_GROUPS; ++i){
             ContentValues values = new ContentValues();
             values.put("_id", i+1);
+            values.put("numElements", elementPeriodCounts[i]);
+            values.put("name", elementPeriodNames[i]);
             db.insert("Period", null, values);
         }
         for(int i = 0; i < PeriodicTable.NUMBER_OF_ELEMENTS; ++i){
@@ -92,6 +102,7 @@ public class PeriodicTableHelper extends SQLiteOpenHelper {
             db.insert("Element", null, values);
         }
     }
+
     /**
      * Reads all data from the periodic table database and populates the given array list.
      *
@@ -111,7 +122,7 @@ public class PeriodicTableHelper extends SQLiteOpenHelper {
                     String symbol = results.getString(results.getColumnIndex("symbol"));
                     float weight = results.getFloat(results.getColumnIndex("weight"));
                     int groupID = results.getInt(results.getColumnIndex("groupID"));
-                    int  periodID = results.getInt(results.getColumnIndex("periodID"));
+                    int periodID = results.getInt(results.getColumnIndex("periodID"));
                     Element element = new Element(name, symbol, id, weight, groupID, periodID);
                     elements.add(element);
                 } while (results.moveToNext());
@@ -765,6 +776,27 @@ public class PeriodicTableHelper extends SQLiteOpenHelper {
             7,
     };
 
+    private static String elementGroupNames[] = {
+            "Group I",
+            "Group II",
+            "Group III",
+            "Group IV",
+            "Group V",
+            "Group VI",
+            "Group VII",
+            "Group VIII",
+            "Group IX",
+            "Group X",
+            "Group XI",
+            "Group XII",
+            "Group XIII",
+            "Group XIV",
+            "Group XV",
+            "Group XVI",
+            "Group XVII",
+            "Group XVIII"
+    };
+
     private static int elementPeriodCounts[] = {
             2,
             8,
@@ -775,6 +807,18 @@ public class PeriodicTableHelper extends SQLiteOpenHelper {
             18,
             14,
             14,
+    };
+
+    private static String elementPeriodNames[] = {
+            "Period I",
+            "Period II",
+            "Period III",
+            "Period IV",
+            "Period V",
+            "Period VI",
+            "Period VII",
+            "Period VI",
+            "Period VII",
     };
 }
 

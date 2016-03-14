@@ -108,7 +108,8 @@
         android:text="@string/btnCancelStr"
         android:id="@+id/Cancel"
         android:layout_below="@+id/btnAdd"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickBtnCancel"/>
 
     <TextView
         android:layout_width="wrap_content"
