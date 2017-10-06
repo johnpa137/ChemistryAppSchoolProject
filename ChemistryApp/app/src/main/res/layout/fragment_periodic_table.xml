@@ -397,10 +397,7 @@
         android:layout_toRightOf="@+id/elvFrancium"
         android:layout_toEndOf="@+id/elvFrancium"
         android:layout_below="@+id/elvBarium" />
-    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvActinium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="89" app:elementSymbol="Ac" app:elementWeight="227" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/actinoidElementColor"
-        android:layout_below="@+id/elvLanthanum"
-        android:layout_toRightOf="@+id/elvRadium"
-        android:layout_toEndOf="@+id/elvRadium"  />
+
     <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvThorium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="90" app:elementSymbol="Th" app:elementWeight="232.0381" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/actinoidElementColor"
         android:layout_alignTop="@+id/elvActinium"
         android:layout_toRightOf="@+id/elvActinium"
@@ -519,5 +516,10 @@
         android:layout_alignTop="@+id/elvLawrencium"
         android:layout_toRightOf="@+id/elvUnunseptium"
         android:layout_toEndOf="@+id/elvUnunseptium"  />
+
+    <com.example.aglubatj.chemistryapp.ElementView android:layout_width="@dimen/elementCellWidth" android:layout_height="@dimen/elementCellHeight" android:id="@+id/elvActinium" app:symbolSize="@dimen/elementSymbolSize" app:elementNumber="89" app:elementSymbol="Ac" app:elementWeight="227" app:elementColor="@color/solidElementColor" app:backgroundColor="@color/actinoidElementColor"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/elvLanthanum"
+        android:layout_alignStart="@+id/elvLanthanum" />
 
 </RelativeLayout>
